@@ -14,11 +14,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\user\\source\\repos\\Mineral Tamagochi\\Mineral Tamagochi\\Mineral Tamagochi.csproj",
+      "projectUniqueName": "C:\\Users\\user\\Documents\\GitHub\\CourseWork\\Mineral Tamagochi\\Mineral Tamagochi\\Mineral Tamagochi.csproj",
       "projectName": "Mineral Tamagochi",
-      "projectPath": "C:\\Users\\user\\source\\repos\\Mineral Tamagochi\\Mineral Tamagochi\\Mineral Tamagochi.csproj",
+      "projectPath": "C:\\Users\\user\\Documents\\GitHub\\CourseWork\\Mineral Tamagochi\\Mineral Tamagochi\\Mineral Tamagochi.csproj",
       "packagesPath": "C:\\Users\\user\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\user\\source\\repos\\Mineral Tamagochi\\Mineral Tamagochi\\obj\\",
+      "outputPath": "C:\\Users\\user\\Documents\\GitHub\\CourseWork\\Mineral Tamagochi\\Mineral Tamagochi\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
