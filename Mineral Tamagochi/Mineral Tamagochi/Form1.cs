@@ -17,5 +17,24 @@ namespace Mineral_Tamagochi
             InitializeComponent();
         }
 
+        private void progressBar1_Click(object sender, EventArgs e)
+        {
+            //Здоровье
+        }
+
+        private void progressBar2_Click(object sender, EventArgs e)
+        {
+            //Счастье
+        }
+
+        private void progressBar3_Click(object sender, EventArgs e)
+        {
+            //Голод
+        }
+
+        private void progressBar4_Click(object sender, EventArgs e)
+        {
+            //Зависимость 
+        }
     }
 }

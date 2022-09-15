@@ -1,0 +1,17 @@
+D:\CourseWork\Mineral Tamagochi\Mineral Tamagochi\bin\Debug\netcoreapp3.1\Mineral Tamagochi.exe
+D:\CourseWork\Mineral Tamagochi\Mineral Tamagochi\bin\Debug\netcoreapp3.1\Mineral Tamagochi.deps.json
+D:\CourseWork\Mineral Tamagochi\Mineral Tamagochi\bin\Debug\netcoreapp3.1\Mineral Tamagochi.runtimeconfig.json
+D:\CourseWork\Mineral Tamagochi\Mineral Tamagochi\bin\Debug\netcoreapp3.1\Mineral Tamagochi.runtimeconfig.dev.json
+D:\CourseWork\Mineral Tamagochi\Mineral Tamagochi\bin\Debug\netcoreapp3.1\Mineral Tamagochi.dll
+D:\CourseWork\Mineral Tamagochi\Mineral Tamagochi\bin\Debug\netcoreapp3.1\Mineral Tamagochi.pdb
+D:\CourseWork\Mineral Tamagochi\Mineral Tamagochi\obj\Debug\netcoreapp3.1\Mineral Tamagochi.csproj.AssemblyReference.cache
+D:\CourseWork\Mineral Tamagochi\Mineral Tamagochi\obj\Debug\netcoreapp3.1\Mineral_Tamagochi.Form1.resources
+D:\CourseWork\Mineral Tamagochi\Mineral Tamagochi\obj\Debug\netcoreapp3.1\Mineral_Tamagochi.Properties.Resources.resources
+D:\CourseWork\Mineral Tamagochi\Mineral Tamagochi\obj\Debug\netcoreapp3.1\Mineral Tamagochi.csproj.GenerateResource.cache
+D:\CourseWork\Mineral Tamagochi\Mineral Tamagochi\obj\Debug\netcoreapp3.1\Mineral Tamagochi.GeneratedMSBuildEditorConfig.editorconfig
+D:\CourseWork\Mineral Tamagochi\Mineral Tamagochi\obj\Debug\netcoreapp3.1\Mineral Tamagochi.AssemblyInfoInputs.cache
+D:\CourseWork\Mineral Tamagochi\Mineral Tamagochi\obj\Debug\netcoreapp3.1\Mineral Tamagochi.AssemblyInfo.cs
+D:\CourseWork\Mineral Tamagochi\Mineral Tamagochi\obj\Debug\netcoreapp3.1\Mineral Tamagochi.csproj.CoreCompileInputs.cache
+D:\CourseWork\Mineral Tamagochi\Mineral Tamagochi\obj\Debug\netcoreapp3.1\Mineral Tamagochi.dll
+D:\CourseWork\Mineral Tamagochi\Mineral Tamagochi\obj\Debug\netcoreapp3.1\Mineral Tamagochi.pdb
+D:\CourseWork\Mineral Tamagochi\Mineral Tamagochi\obj\Debug\netcoreapp3.1\Mineral Tamagochi.genruntimeconfig.cache
