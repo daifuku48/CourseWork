@@ -5,8 +5,11 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:mineral_tamagochi_WPF"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="MainWindow" Height="500" Width="1000">
     <Grid>
         
+        <Image Height="300" Margin="0,50,0,0" VerticalAlignment="Top" Width="300" gif:ImageBehavior.AnimatedSource="images/animated.gif" />
+        <ProgressBar  Minimum="0" Maximum="100" Value="50" HorizontalAlignment="Left" Height="30" Margin="60,120,0,0" VerticalAlignment="Top" Width="265" Foreground="#99ff99" Background="#f0f0f0" BorderThickness="1,1,1,1"/>
+       
     </Grid>
 </Window>
