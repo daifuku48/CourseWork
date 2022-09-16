@@ -14,11 +14,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\user\\Documents\\GitHub\\CourseWork\\Mineral Tamagochi\\Mineral Tamagochi\\Mineral Tamagochi.csproj",
-      "projectName": "Mineral Tamagochi",
-      "projectPath": "C:\\Users\\user\\Documents\\GitHub\\CourseWork\\Mineral Tamagochi\\Mineral Tamagochi\\Mineral Tamagochi.csproj",
+      "projectUniqueName": "C:\\Users\\user\\source\\repos\\Tamagochi on WPF\\Tamagochi on WPF\\Tamagochi on WPF.csproj",
+      "projectName": "Tamagochi on WPF",
+      "projectPath": "C:\\Users\\user\\source\\repos\\Tamagochi on WPF\\Tamagochi on WPF\\Tamagochi on WPF.csproj",
       "packagesPath": "C:\\Users\\user\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\user\\Documents\\GitHub\\CourseWork\\Mineral Tamagochi\\Mineral Tamagochi\\obj\\",
+      "outputPath": "C:\\Users\\user\\source\\repos\\Tamagochi on WPF\\Tamagochi on WPF\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -64,7 +64,7 @@
           "Microsoft.NETCore.App": {
             "privateAssets": "all"
           },
-          "Microsoft.WindowsDesktop.App.WindowsForms": {
+          "Microsoft.WindowsDesktop.App.WPF": {
             "privateAssets": "none"
           }
         },
