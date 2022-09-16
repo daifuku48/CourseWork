@@ -4,9 +4,23 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Tamagochi_WPF"
+        xmlns:gif="http://wpfanimatedgif.codeplex.com"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="MainWindow" Height="600" Width="1000">
     <Grid>
-        
+        <Image HorizontalAlignment="Left" Height="300" Margin="350,50,0,0" VerticalAlignment="Top" Width="300" gif:ImageBehavior.RepeatBehavior="Forever" gif:ImageBehavior.AnimatedSource="D:\CourseWork\Tamagochi WPF\Tamagochi WPF\images/normal.gif" />
+        <ProgressBar Minimum="0" Maximum="100" Value="100" HorizontalAlignment="Left" Height="25" Margin="60,155,0,0" VerticalAlignment="Top" Width="260" Background="#f0f0f0" Foreground="#36c95e"/>
+        <Label x:Name="Label_heal" Content="Heal:" HorizontalAlignment="Left" Margin="60,118,0,0" VerticalAlignment="Top" FontFamily="Open Sans" FontSize="16" RenderTransformOrigin="0.578,1.837"/>
+        <Label x:Name="Label_heal_Copy" Content="0" HorizontalAlignment="Left" Margin="113,118,0,0" VerticalAlignment="Top" FontFamily="Open Sans" FontSize="16" RenderTransformOrigin="0.681,1.805"/>
+        <ProgressBar Minimum="0" Maximum="100" Value="50" HorizontalAlignment="Left" Height="25" Margin="60,246,0,0" VerticalAlignment="Top" Width="260" Background="#f0f0f0" Foreground="#FFC0CB"/>
+        <Label x:Name="Label_heal_Copy1" Content="Happiness:" HorizontalAlignment="Left" Margin="60,209,0,0" VerticalAlignment="Top" FontFamily="Open Sans" FontSize="16" RenderTransformOrigin="0.578,1.837"/>
+        <Label x:Name="Label_heal_Copy2" Content="0" HorizontalAlignment="Left" Margin="158,209,0,0" VerticalAlignment="Top" FontFamily="Open Sans" FontSize="16" RenderTransformOrigin="0.681,1.805"/>
+        <ProgressBar Minimum="0" Maximum="100" Value="50" HorizontalAlignment="Left" Height="25" Margin="677,155,0,0" VerticalAlignment="Top" Width="260" Background="#f0f0f0" Foreground="#FFBE7A"/>
+        <Label x:Name="Label_heal_Copy3" Content="Hunger:" HorizontalAlignment="Left" Margin="677,118,0,0" VerticalAlignment="Top" FontFamily="Open Sans" FontSize="16" RenderTransformOrigin="0.578,1.837"/>
+        <Label x:Name="Label_heal_Copy4" Content="0" HorizontalAlignment="Left" Margin="752,118,0,0" VerticalAlignment="Top" FontFamily="Open Sans" FontSize="16" RenderTransformOrigin="0.681,1.805"/>
+        <ProgressBar Minimum="0" Maximum="100" Value="0" HorizontalAlignment="Left" Height="25" Margin="677,246,0,0" VerticalAlignment="Top" Width="260" Background="#f0f0f0" Foreground="#8B00FF"/>
+        <Label x:Name="Label_heal_Copy5" Content="Poisoning:" HorizontalAlignment="Left" Margin="677,209,0,0" VerticalAlignment="Top" FontFamily="Open Sans" FontSize="16" RenderTransformOrigin="0.578,1.837"/>
+        <Label x:Name="Label_heal_Copy6" Content="0" HorizontalAlignment="Left" Margin="769,209,0,0" VerticalAlignment="Top" FontFamily="Open Sans" FontSize="16" RenderTransformOrigin="0.681,1.805"/>
+        <TextBox HorizontalAlignment="Center" Margin="0,420,0,0" Padding="10,5,0,5" TextWrapping="Wrap" Text="Food name" VerticalAlignment="Top" Width="300" FontFamily="Open Sans" FontSize="14" BorderBrush="#121212" BorderThickness="1"/>
     </Grid>
 </Window>
