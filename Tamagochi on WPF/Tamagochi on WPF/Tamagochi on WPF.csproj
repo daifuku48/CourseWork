@@ -1,9 +1,0 @@
-<Project Sdk="Microsoft.NET.Sdk.WindowsDesktop">
-
-  <PropertyGroup>
-    <TargetFramework>netcoreapp3.1</TargetFramework>
-    <RootNamespace>Tamagochi_on_WPF</RootNamespace>
-    <UseWPF>true</UseWPF>
-  </PropertyGroup>
-
-</Project>
