@@ -29,8 +29,8 @@
             </TextBox.Resources>
         </TextBox>
         <Label x:Name="Label_heal_Copy7" Content="Enter food name" HorizontalAlignment="Center" Margin="0,388,0,0" VerticalAlignment="Top" FontFamily="Open Sans" FontSize="16" RenderTransformOrigin="0.578,1.837"/>
-        <Button Content="Feed" Click="OnClick1" HorizontalAlignment="Left" Margin="223,420,0,0" VerticalAlignment="Top" Height="31" Width="100" Background="#4671D5" Foreground="White" FontFamily="Open Sans" FontSize="14" FontWeight="Medium"/>
-        <Button Content="Pat" Click="OnClick2" HorizontalAlignment="Left" Margin="677,420,0,0" VerticalAlignment="Top" Height="31" Width="100" Background="#4671D5" Foreground="White" FontFamily="Open Sans" FontSize="14" FontWeight="Medium"/>
+        <Button Content="Feed" Click="OnClick1" ClickMode="Press" HorizontalAlignment="Left" Margin="223,420,0,0" VerticalAlignment="Top" Height="31" Width="100" Background="#4671D5" Foreground="White" FontFamily="Open Sans" FontSize="14" FontWeight="Medium"/>
+        <Button Content="Pat" Click="OnClick2" ClickMode="Press" HorizontalAlignment="Left" Margin="677,420,0,0" VerticalAlignment="Top" Height="31" Width="100" Background="#4671D5" Foreground="White" FontFamily="Open Sans" FontSize="14" FontWeight="Medium"/>
 
     </Grid>
 </Window>
