@@ -37,6 +37,7 @@
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
     <Reference Include="System.Xml" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Core" />
@@ -98,8 +99,39 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
-    <Folder Include="img\" />
+    <Resource Include="img\normal.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="img\died.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="img\eat-love.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="img\eat-normal.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="img\eat-normal2.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="img\eat-zero.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="img\love-max.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="img\love-normal.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="img\love-thx.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="img\vec-add.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="img\vec-normal.gif" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
