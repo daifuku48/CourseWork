@@ -8,7 +8,7 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="600" Width="1000">
     <Grid>
-        <Image HorizontalAlignment="Left" Height="300" Margin="350,50,0,0" VerticalAlignment="Top" Width="300" gif:ImageBehavior.RepeatBehavior="Forever" gif:ImageBehavior.AnimatedSource="D:\CourseWork\Tamagochi WPF\Tamagochi WPF\images/normal.gif" />
+        <Image HorizontalAlignment="Left" Height="300" Margin="350,50,0,0" VerticalAlignment="Top" Width="300" gif:ImageBehavior.RepeatBehavior="Forever" gif:ImageBehavior.AnimatedSource="/img/normal.gif" />
         <ProgressBar Minimum="0" Maximum="100" Value="100" HorizontalAlignment="Left" Height="25" Margin="60,155,0,0" VerticalAlignment="Top" Width="260" Background="#f0f0f0" Foreground="#36c95e" ClipToBounds="True"/>
         <Label x:Name="Label_heal" Content="Heal:" HorizontalAlignment="Left" Margin="60,118,0,0" VerticalAlignment="Top" FontFamily="Open Sans" FontSize="16" RenderTransformOrigin="0.578,1.837"/>
         <Label x:Name="Label_heal_Copy" Content="0" HorizontalAlignment="Left" Margin="113,118,0,0" VerticalAlignment="Top" FontFamily="Open Sans" FontSize="16" RenderTransformOrigin="0.681,1.805"/>
