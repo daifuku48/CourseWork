@@ -135,5 +135,17 @@
   <ItemGroup>
     <Resource Include="img\vec-normal.gif" />
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="img\happy.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="img\menu.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="icons\coding.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="icons\exit.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

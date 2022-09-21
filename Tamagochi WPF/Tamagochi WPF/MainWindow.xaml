@@ -8,14 +8,68 @@
         mc:Ignorable="d"
         Title="Ducky" Height="600" Width="1000">
     <Grid VerticalAlignment="Top" Height="Auto" Margin="0,0,0,0">
-        <Grid VerticalAlignment="Top" ShowGridLines="True" Height="60" Background="#FFF897" Margin="0,0,0,0">
+        <Grid x:Name="MenuPanel" VerticalAlignment="Top" ShowGridLines="True" Height="60" Background="#FFF897" Margin="0,0,0,0" MouseDown="MenuPanel_MouseDown">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition></ColumnDefinition>
                 <ColumnDefinition></ColumnDefinition>
                 <ColumnDefinition></ColumnDefinition>
                 <ColumnDefinition></ColumnDefinition>
             </Grid.ColumnDefinitions>
-            <Image Grid.Column="0" Source="icons/menu.png" Height="28" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="50,0,0,0" Cursor="Hand"/>
+            <Button Grid.Column="0" Height="30" Width="35" Background="Transparent" BorderThickness="0" Click="Button_Menu"
+                    Margin="50,0,0,0"
+                    VerticalAlignment="Center" 
+                    HorizontalAlignment="Left" 
+                    Cursor="Hand">
+                    <Image 
+                        Source="icons/menu.png" 
+                        Height="28" 
+                       />
+            </Button>
+        </Grid>
+        <Grid x:Name="sideMenu" Panel.ZIndex="10" Background="#FFF897" VerticalAlignment="Top" HorizontalAlignment="Left" Width="250" Height="600" ShowGridLines="True">
+            <StackPanel>
+                <Grid Height="130" Background="White">
+                    <Image  
+                        HorizontalAlignment="Left"
+                        Height="230"
+                        Width="250"
+                        Panel.ZIndex="8"
+                        gif:ImageBehavior.RepeatBehavior="Forever" 
+                        gif:ImageBehavior.AnimatedSource="/img/menu.gif" />
+                </Grid>
+                <ListView BorderBrush="Transparent" Background="Transparent" ScrollViewer.HorizontalScrollBarVisibility="Hidden" Panel.ZIndex="9">
+                    <ListViewItem 
+                        Height="40" 
+                        Width="220"
+                        Margin="0,30,0,0"
+                        Padding="10,0,10,0"
+                        FontFamily="Open Sans" 
+                        VerticalAlignment="Center"
+                        HorizontalAlignment="Left"
+                        FontSize="16"
+                        FontWeight="Normal"
+                        Cursor="Hand">
+                        <StackPanel Orientation="Horizontal">
+                            <Image Source="icons/coding.png" Height="25" />
+                            <TextBlock Text="Разрабочики" Margin="10,0,0,0" VerticalAlignment="Center">
+                              
+                            </TextBlock>
+                        </StackPanel>
+                    </ListViewItem>
+                </ListView>
+                <Button HorizontalAlignment="Left" VerticalAlignment="Top" Background="Transparent" BorderThickness="0" Click="Button_Menu"
+                        Margin="0,30,0,0"
+                        FontFamily="Open Sans" 
+                        FontSize="16"
+                        FontWeight="Normal"
+                        Panel.ZIndex="9"
+                        Cursor="Hand">
+                    <StackPanel Orientation="Horizontal">
+                        <Image Source="icons/exit.png" Height="25" />
+                        <TextBlock Text="Скрыть меню" Margin="10,0,0,0" VerticalAlignment="Center" />
+                    </StackPanel>
+                </Button>
+            </StackPanel>
         </Grid>
         <Grid VerticalAlignment="Top" Height="300" ShowGridLines="True" Margin="0,65,0,0">
             <Grid.ColumnDefinitions>
@@ -23,19 +77,134 @@
                 <ColumnDefinition></ColumnDefinition>
                 <ColumnDefinition></ColumnDefinition>
             </Grid.ColumnDefinitions>
-            <Image Grid.Column="1" HorizontalAlignment="Center" Height="300" Margin="0,0,0,0" VerticalAlignment="Top" Width="300" gif:ImageBehavior.RepeatBehavior="Forever" gif:ImageBehavior.AnimatedSource="/img/normal.gif" />
-            <ProgressBar Grid.Column="0" Minimum="0" Maximum="100" Value="100" HorizontalAlignment="Right" Height="25" Margin="0,155,10,0" VerticalAlignment="Top" Width="260" Background="#f0f0f0" Foreground="#36c95e" ClipToBounds="True"/>
-            <Label Grid.Column="0" x:Name="Label_heal" Content="Heal:" HorizontalAlignment="Right" Margin="0,118,222,0" VerticalAlignment="Top" FontFamily="Open Sans" FontSize="16" RenderTransformOrigin="0.578,1.837"/>
-            <Label Grid.Column="0" x:Name="Label_heal_Copy" Content="0" HorizontalAlignment="Right" Margin="0,118,198,0" VerticalAlignment="Top" FontFamily="Open Sans" FontSize="16" RenderTransformOrigin="0.681,1.805"/>
-            <ProgressBar Grid.Column="0" Minimum="0" Maximum="100" Value="50" HorizontalAlignment="Right" Height="25" Margin="0,246,10,0" VerticalAlignment="Top" Width="260" Background="#f0f0f0" Foreground="#FFC0CB" ClipToBounds="True"/>
-            <Label Grid.Column="0" x:Name="Label_heal_Copy1" Content="Happiness:" HorizontalAlignment="Right" Margin="0,209,177,0" VerticalAlignment="Top" FontFamily="Open Sans" FontSize="16" RenderTransformOrigin="0.578,1.837"/>
-            <Label x:Name="Label_heal_Copy2" Content="0" HorizontalAlignment="Right" Margin="0,209,153,0" VerticalAlignment="Top" FontFamily="Open Sans" FontSize="16" RenderTransformOrigin="0.681,1.805"/>
-            <ProgressBar Grid.Column="2" Minimum="0" Maximum="100" Value="50" HorizontalAlignment="Left" Height="25" Margin="10,155,0,0" VerticalAlignment="Top" Width="260" Background="#f0f0f0" Foreground="#FFBE7A"/>
-            <Label Grid.Column="2" x:Name="Label_heal_Copy3" Content="Hunger:" HorizontalAlignment="Left" Margin="10,118,0,0" VerticalAlignment="Top" FontFamily="Open Sans" FontSize="16" RenderTransformOrigin="0.578,1.837"/>
-            <Label Grid.Column="2" x:Name="Label_heal_Copy4" Content="0" HorizontalAlignment="Left" Margin="85,118,0,0" VerticalAlignment="Top" FontFamily="Open Sans" FontSize="16" RenderTransformOrigin="0.681,1.805"/>
-            <ProgressBar Grid.Column="2" Minimum="0" Maximum="100" Value="0" HorizontalAlignment="Left" Height="25" Margin="10,246,0,0" VerticalAlignment="Top" Width="260" Background="#f0f0f0" Foreground="#8B00FF"/>
-            <Label Grid.Column="2" x:Name="Label_heal_Copy5" Content="Poisoning:" HorizontalAlignment="Left" Margin="10,209,0,0" VerticalAlignment="Top" FontFamily="Open Sans" FontSize="16" RenderTransformOrigin="0.578,1.837"/>
-            <Label Grid.Column="2" x:Name="Label_heal_Copy6" Content="0" HorizontalAlignment="Left" Margin="102,209,0,0" VerticalAlignment="Top" FontFamily="Open Sans" FontSize="16" RenderTransformOrigin="0.681,1.805"/>
+            <Image 
+                Grid.Column="1" 
+                HorizontalAlignment="Center" 
+                Height="300" Margin="0,0,0,0" 
+                VerticalAlignment="Top" 
+                Width="300" 
+                gif:ImageBehavior.RepeatBehavior="Forever" 
+                gif:ImageBehavior.AnimatedSource="/img/normal.gif" />
+            <ProgressBar 
+                Grid.Column="0" 
+                Minimum="0" Maximum="100" Value="100" 
+                HorizontalAlignment="Right" 
+                Height="25" Margin="0,155,10,0" 
+                VerticalAlignment="Top" 
+                Width="260" 
+                Background="#f0f0f0" 
+                Foreground="#36c95e" 
+                ClipToBounds="True"/>
+            <Label 
+                Grid.Column="0" 
+                x:Name="Label_heal" 
+                Content="Heal:" 
+                HorizontalAlignment="Right" 
+                Margin="0,118,222,0" 
+                VerticalAlignment="Top" 
+                FontFamily="Open Sans" 
+                FontSize="16" 
+                RenderTransformOrigin="0.578,1.837"/>
+            <Label 
+                Grid.Column="0" 
+                x:Name="Label_heal_Copy" 
+                Content="0" 
+                HorizontalAlignment="Right" 
+                Margin="0,118,198,0" 
+                VerticalAlignment="Top" 
+                FontFamily="Open Sans" 
+                FontSize="16" 
+                RenderTransformOrigin="0.681,1.805"/>
+            <ProgressBar 
+                Grid.Column="0" 
+                Minimum="0" Maximum="100" Value="50" 
+                HorizontalAlignment="Right" 
+                Height="25" 
+                Margin="0,246,10,0" 
+                VerticalAlignment="Top"
+                Width="260"
+                Background="#f0f0f0"
+                Foreground="#FFC0CB" 
+                ClipToBounds="True"/>
+            <Label 
+                Grid.Column="0" 
+                x:Name="Label_heal_Copy1" 
+                Content="Happiness:"
+                HorizontalAlignment="Right" 
+                Margin="0,209,177,0" 
+                VerticalAlignment="Top" 
+                FontFamily="Open Sans"
+                FontSize="16" 
+                RenderTransformOrigin="0.578,1.837"/>
+            <Label 
+                x:Name="Label_heal_Copy2" 
+                Content="0"
+                HorizontalAlignment="Right"
+                Margin="0,209,153,0"
+                VerticalAlignment="Top" 
+                FontFamily="Open Sans"
+                FontSize="16" 
+                RenderTransformOrigin="0.681,1.805"/>
+            <ProgressBar 
+                Grid.Column="2"
+                Minimum="0" Maximum="100" Value="50" 
+                HorizontalAlignment="Left"
+                Height="25"
+                Margin="10,155,0,0" 
+                VerticalAlignment="Top"
+                Width="260" 
+                Background="#f0f0f0"
+                Foreground="#FFBE7A"/>
+            <Label 
+                Grid.Column="2" 
+                x:Name="Label_heal_Copy3" 
+                Content="Hunger:" 
+                HorizontalAlignment="Left" 
+                Margin="10,118,0,0"
+                VerticalAlignment="Top"
+                FontFamily="Open Sans" 
+                FontSize="16"
+                RenderTransformOrigin="0.578,1.837"/>
+            <Label
+                Grid.Column="2"
+                x:Name="Label_heal_Copy4"
+                Content="0"
+                HorizontalAlignment="Left"
+                Margin="85,118,0,0" 
+                VerticalAlignment="Top"
+                FontFamily="Open Sans"
+                FontSize="16"
+                RenderTransformOrigin="0.681,1.805"/>
+            <ProgressBar 
+                Grid.Column="2"
+                Minimum="0" Maximum="100" Value="0" 
+                HorizontalAlignment="Left" 
+                Height="25"
+                Margin="10,246,0,0"
+                VerticalAlignment="Top"
+                Width="260"
+                Background="#f0f0f0"
+                Foreground="#8B00FF"/>
+            <Label 
+                Grid.Column="2"
+                x:Name="Label_heal_Copy5"
+                Content="Poisoning:"
+                HorizontalAlignment="Left"
+                Margin="10,209,0,0"
+                VerticalAlignment="Top"
+                FontFamily="Open Sans"
+                FontSize="16"
+                RenderTransformOrigin="0.578,1.837"/>
+            <Label 
+                Grid.Column="2"
+                x:Name="Label_heal_Copy6"
+                Content="0" 
+                HorizontalAlignment="Left"
+                Margin="102,209,0,0"
+                VerticalAlignment="Top"
+                FontFamily="Open Sans"
+                FontSize="16"
+                RenderTransformOrigin="0.681,1.805"/>
         </Grid>
         <Grid VerticalAlignment="Top" Height="Auto" ShowGridLines="True" Margin="0,420,0,0">
             <Grid.ColumnDefinitions>
@@ -43,16 +212,55 @@
                 <ColumnDefinition></ColumnDefinition>
                 <ColumnDefinition></ColumnDefinition>
             </Grid.ColumnDefinitions>
-            <TextBox Grid.Column="1" HorizontalAlignment="Center" Margin="0,30,0,0" Padding="10,5,0,5" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="300" Cursor="Pen" FontFamily="Open Sans" FontSize="14" BorderBrush="#121212" BorderThickness="1">
+            <TextBox 
+                Grid.Column="1"
+                HorizontalAlignment="Center" 
+                Margin="0,30,0,0" Padding="10,5,0,5"
+                TextWrapping="Wrap"
+                Text=""
+                VerticalAlignment="Top" 
+                Width="300" 
+                Cursor="Pen" 
+                FontFamily="Open Sans" FontSize="14" 
+                BorderBrush="#121212" BorderThickness="1">
                 <TextBox.Resources>
                     <Style TargetType="{x:Type Border}">
                         <Setter Property="CornerRadius" Value="3"/>
                     </Style>
                 </TextBox.Resources>
             </TextBox>
-            <Label Grid.Column="1" x:Name="Label_heal_Copy7" Content="Enter food name" HorizontalAlignment="Center" Margin="0,0,0,0" VerticalAlignment="Top" FontFamily="Open Sans" FontSize="16" RenderTransformOrigin="0.578,1.837"/>
-            <Button Grid.Column="0" Content="Feed" HorizontalAlignment="Right" Margin="0,30,0,0" VerticalAlignment="Top" Height="31" Width="100" Background="#4671D5" Foreground="White" Cursor="Hand" FontFamily="Open Sans" FontSize="14" FontWeight="Medium"/>
-            <Button Grid.Column="2" Content="Pat" HorizontalAlignment="Left" Margin="0,30,0,0" VerticalAlignment="Top" Height="31" Width="100" Background="#4671D5" Foreground="White" Cursor="Hand" FontFamily="Open Sans" FontSize="14" FontWeight="Medium" RenderTransformOrigin="0.077,0.542"/>
+            <Label 
+                Grid.Column="1" 
+                x:Name="Label_heal_Copy7"
+                Content="Enter food name"
+                HorizontalAlignment="Center"
+                Margin="0,0,0,0" 
+                VerticalAlignment="Top" 
+                FontFamily="Open Sans" FontSize="16"
+                RenderTransformOrigin="0.578,1.837"/>
+            <Button 
+                Grid.Column="0"
+                Content="Feed"
+                HorizontalAlignment="Right"
+                Margin="0,30,0,0" 
+                VerticalAlignment="Top"
+                Height="31" Width="100"
+                Background="#4671D5" 
+                Foreground="White" 
+                Cursor="Hand" 
+                FontFamily="Open Sans" FontSize="14" FontWeight="Medium"/>
+            <Button 
+                Grid.Column="2"
+                Content="Pat" 
+                HorizontalAlignment="Left"
+                Margin="0,30,0,0"
+                VerticalAlignment="Top"
+                Height="31" Width="100"
+                Background="#4671D5"
+                Foreground="White" 
+                Cursor="Hand" 
+                FontFamily="Open Sans" FontSize="14" FontWeight="Medium" 
+                RenderTransformOrigin="0.077,0.542"/>
         </Grid>
     </Grid>
 </Window>
