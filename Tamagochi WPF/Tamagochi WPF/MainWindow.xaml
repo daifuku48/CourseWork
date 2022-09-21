@@ -6,9 +6,10 @@
         xmlns:local="clr-namespace:Tamagochi_WPF"
         xmlns:gif="http://wpfanimatedgif.codeplex.com"
         mc:Ignorable="d"
+        ResizeMode="NoResize"
         Title="Ducky" Height="600" Width="1000">
     <Grid VerticalAlignment="Top" Height="Auto" Margin="0,0,0,0">
-        <Grid x:Name="MenuPanel" VerticalAlignment="Top" ShowGridLines="True" Height="60" Background="#FFF897" Margin="0,0,0,0" MouseDown="MenuPanel_MouseDown">
+        <Grid x:Name="MenuPanel" VerticalAlignment="Top" ShowGridLines="True" Height="60" Background="#FFF897" MouseDown="MenuPanel_MouseDown">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition></ColumnDefinition>
                 <ColumnDefinition></ColumnDefinition>
@@ -20,7 +21,7 @@
                     VerticalAlignment="Center" 
                     HorizontalAlignment="Left" 
                     Cursor="Hand">
-                    <Image 
+                <Image 
                         Source="icons/menu.png" 
                         Height="28" 
                        />
@@ -52,7 +53,7 @@
                         <StackPanel Orientation="Horizontal">
                             <Image Source="icons/coding.png" Height="25" />
                             <TextBlock Text="Разрабочики" Margin="10,0,0,0" VerticalAlignment="Center">
-                              
+
                             </TextBlock>
                         </StackPanel>
                     </ListViewItem>

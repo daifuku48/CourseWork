@@ -18,3 +18,23 @@ D:\CourseWork\Tamagochi WPF\Tamagochi WPF\obj\Debug\Tamagochi WPF.csproj.CoreCom
 D:\CourseWork\Tamagochi WPF\Tamagochi WPF\obj\Debug\Tamagochi WPF.csproj.CopyComplete
 D:\CourseWork\Tamagochi WPF\Tamagochi WPF\obj\Debug\Tamagochi WPF.exe
 D:\CourseWork\Tamagochi WPF\Tamagochi WPF\obj\Debug\Tamagochi WPF.pdb
+C:\Users\user\Documents\GitHub\CourseWork\Tamagochi WPF\Tamagochi WPF\bin\Debug\Tamagochi WPF.exe.config
+C:\Users\user\Documents\GitHub\CourseWork\Tamagochi WPF\Tamagochi WPF\bin\Debug\Tamagochi WPF.exe
+C:\Users\user\Documents\GitHub\CourseWork\Tamagochi WPF\Tamagochi WPF\bin\Debug\Tamagochi WPF.pdb
+C:\Users\user\Documents\GitHub\CourseWork\Tamagochi WPF\Tamagochi WPF\bin\Debug\WpfAnimatedGif.dll
+C:\Users\user\Documents\GitHub\CourseWork\Tamagochi WPF\Tamagochi WPF\bin\Debug\WpfAnimatedGif.pdb
+C:\Users\user\Documents\GitHub\CourseWork\Tamagochi WPF\Tamagochi WPF\bin\Debug\WpfAnimatedGif.xml
+C:\Users\user\Documents\GitHub\CourseWork\Tamagochi WPF\Tamagochi WPF\obj\Debug\Tamagochi WPF.csproj.AssemblyReference.cache
+C:\Users\user\Documents\GitHub\CourseWork\Tamagochi WPF\Tamagochi WPF\obj\Debug\Tamagochi WPF.csproj.SuggestedBindingRedirects.cache
+C:\Users\user\Documents\GitHub\CourseWork\Tamagochi WPF\Tamagochi WPF\obj\Debug\MainWindow.g.cs
+C:\Users\user\Documents\GitHub\CourseWork\Tamagochi WPF\Tamagochi WPF\obj\Debug\App.g.cs
+C:\Users\user\Documents\GitHub\CourseWork\Tamagochi WPF\Tamagochi WPF\obj\Debug\Tamagochi WPF_MarkupCompile.cache
+C:\Users\user\Documents\GitHub\CourseWork\Tamagochi WPF\Tamagochi WPF\obj\Debug\Tamagochi WPF_MarkupCompile.lref
+C:\Users\user\Documents\GitHub\CourseWork\Tamagochi WPF\Tamagochi WPF\obj\Debug\MainWindow.baml
+C:\Users\user\Documents\GitHub\CourseWork\Tamagochi WPF\Tamagochi WPF\obj\Debug\Tamagochi WPF.g.resources
+C:\Users\user\Documents\GitHub\CourseWork\Tamagochi WPF\Tamagochi WPF\obj\Debug\Tamagochi_WPF.Properties.Resources.resources
+C:\Users\user\Documents\GitHub\CourseWork\Tamagochi WPF\Tamagochi WPF\obj\Debug\Tamagochi WPF.csproj.GenerateResource.cache
+C:\Users\user\Documents\GitHub\CourseWork\Tamagochi WPF\Tamagochi WPF\obj\Debug\Tamagochi WPF.csproj.CoreCompileInputs.cache
+C:\Users\user\Documents\GitHub\CourseWork\Tamagochi WPF\Tamagochi WPF\obj\Debug\Tamagochi WPF.csproj.CopyComplete
+C:\Users\user\Documents\GitHub\CourseWork\Tamagochi WPF\Tamagochi WPF\obj\Debug\Tamagochi WPF.exe
+C:\Users\user\Documents\GitHub\CourseWork\Tamagochi WPF\Tamagochi WPF\obj\Debug\Tamagochi WPF.pdb

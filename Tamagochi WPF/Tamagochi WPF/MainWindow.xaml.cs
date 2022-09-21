@@ -70,5 +70,6 @@ namespace Tamagochi_WPF
                 DragMove();
             }
         }
+
     }
 }
