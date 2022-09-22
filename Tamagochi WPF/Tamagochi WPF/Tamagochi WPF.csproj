@@ -155,5 +155,26 @@
     <Folder Include="MVVM\ViewModel\" />
     <Folder Include="MVVM\View\" />
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="icons\ducky.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="icons\stars.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="icons\stars1.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="icons\stars2.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="icons\clockwise.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="icons\close.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="icons\exit1.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -21,10 +21,10 @@ namespace Tamagochi_WPF
     /// </summary>
     public partial class MainWindow : Window
     {
-        DispatcherTimer timer;
+        DispatcherTimer timer , timerstart;
 
-        double MenuWidth;
-        bool hiddenMenu;
+        double MenuWidth , StartGameHeight;
+        bool hiddenMenu , StartGamehidden;
 
         public MainWindow()
         {
@@ -32,13 +32,42 @@ namespace Tamagochi_WPF
             timer = new DispatcherTimer();
             timer.Interval = new TimeSpan(0, 0, 0, 0 , 1);
             timer.Tick += Timer_Tick;
+            timerstart = new DispatcherTimer();
+            timerstart.Interval = new TimeSpan (0, 0, 0, 0 , 1);
+            timerstart.Tick += Start_Tick;
 
+            StartGameHeight = StartGamePanel.Height;
             MenuWidth = sideMenu.Width;
         }
+        private void Start_Tick(object sender, EventArgs e)
+        {
+            if (StartGamehidden)
+            {
+                StartGamePanel.Visibility = Visibility.Visible;
+                StartGamePanel.Height += StartGameHeight / 20;
+                if (StartGamePanel.Height >= StartGameHeight)
+                {
+                    timerstart.Stop();
+                    StartGamehidden = false;
+                }
+            }
+            else
+            {
+                StartGamePanel.Height -= StartGameHeight / 20;
+                if (StartGamePanel.Height <= 0)
+                {
+                    timerstart.Stop();
+                    StartGamehidden = true;
+                    StartGamePanel.Visibility = Visibility.Hidden;
+                }
+            }
+        }
+
         private void Timer_Tick(object sender, EventArgs e)
         {
             if (hiddenMenu)
             {
+                sideMenu.Visibility = Visibility.Visible;
                 sideMenu.Width += MenuWidth/10;
                 if (sideMenu.Width >= MenuWidth)
                 {
@@ -47,12 +76,13 @@ namespace Tamagochi_WPF
                 }
             }
             else
-            {
-                sideMenu.Width -= MenuWidth/10;
+            {    
+                sideMenu.Width -= MenuWidth/10;       
                 if (sideMenu.Width <= 0)
                 {
                     timer.Stop();
                     hiddenMenu = true;
+                    sideMenu.Visibility = Visibility.Hidden;
                 }
             }
         }
@@ -61,7 +91,11 @@ namespace Tamagochi_WPF
         {
             timer.Start();
         }
-  
+        private void Start_Game(object sender, RoutedEventArgs e)
+        {
+            timerstart.Start();
+        }
+
 
         private void MenuPanel_MouseDown(object sender, MouseButtonEventArgs e)
         {

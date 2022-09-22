@@ -18,9 +18,9 @@ namespace Tamagochi_WPF.MVVM.Model
         public Tamagochi(string name)
         {
             Name = name;
-            Happines = 100;
+            Happines = 50;
             Poisoning = 0;
-            Hunger = 100;
+            Hunger = 50;
             Heal = 100;
             DateTime StartTime = DateTime.Now;
         }

@@ -8,7 +8,7 @@
         mc:Ignorable="d"
         ResizeMode="NoResize"
         Title="Ducky" Height="600" Width="1000">
-    <Grid VerticalAlignment="Top" Height="Auto" Margin="0,0,0,0">
+    <Grid VerticalAlignment="Top" Height="Auto" Margin="0,0,0,0" Background="Azure">
         <Grid x:Name="MenuPanel" VerticalAlignment="Top" ShowGridLines="True" Height="60" Background="#FFF897" MouseDown="MenuPanel_MouseDown">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition></ColumnDefinition>
@@ -27,7 +27,7 @@
                        />
             </Button>
         </Grid>
-        <Grid x:Name="sideMenu" Panel.ZIndex="10" Background="#FFF897" VerticalAlignment="Top" HorizontalAlignment="Left" Width="250" Height="600" ShowGridLines="True">
+        <Grid Visibility="Hidden" x:Name="sideMenu" Panel.ZIndex="10" Background="#FFF897" VerticalAlignment="Top" HorizontalAlignment="Left" Width="250" Height="600" ShowGridLines="True">
             <StackPanel>
                 <Grid Height="130" Background="White">
                     <Image  
@@ -38,38 +38,55 @@
                         gif:ImageBehavior.RepeatBehavior="Forever" 
                         gif:ImageBehavior.AnimatedSource="/img/menu.gif" />
                 </Grid>
-                <ListView BorderBrush="Transparent" Background="Transparent" ScrollViewer.HorizontalScrollBarVisibility="Hidden" Panel.ZIndex="9">
-                    <ListViewItem 
-                        Height="40" 
-                        Width="220"
-                        Margin="0,30,0,0"
-                        Padding="10,0,10,0"
-                        FontFamily="Open Sans" 
-                        VerticalAlignment="Center"
-                        HorizontalAlignment="Left"
-                        FontSize="16"
-                        FontWeight="Normal"
-                        Cursor="Hand">
-                        <StackPanel Orientation="Horizontal">
-                            <Image Source="icons/coding.png" Height="25" />
-                            <TextBlock Text="Разрабочики" Margin="10,0,0,0" VerticalAlignment="Center">
-
-                            </TextBlock>
-                        </StackPanel>
-                    </ListViewItem>
-                </ListView>
-                <Button HorizontalAlignment="Left" VerticalAlignment="Top" Background="Transparent" BorderThickness="0" Click="Button_Menu"
-                        Margin="0,30,0,0"
+                <Grid VerticalAlignment="Top" HorizontalAlignment="Left" Height="470" Width="250">
+                    <Grid.RowDefinitions>
+                        <RowDefinition></RowDefinition>
+                        <RowDefinition></RowDefinition>
+                        <RowDefinition></RowDefinition>
+                        <RowDefinition></RowDefinition>
+                        <RowDefinition></RowDefinition>
+                        <RowDefinition></RowDefinition>
+                    </Grid.RowDefinitions>
+                    <Button Grid.Row="1" HorizontalAlignment="Left" VerticalAlignment="Center" Background="Transparent" BorderThickness="0" 
+                        Margin="0,0,0,0" Padding="20,0,0,0"
+                        Width="250" Height="78.333"
                         FontFamily="Open Sans" 
                         FontSize="16"
                         FontWeight="Normal"
                         Panel.ZIndex="9"
                         Cursor="Hand">
-                    <StackPanel Orientation="Horizontal">
-                        <Image Source="icons/exit.png" Height="25" />
-                        <TextBlock Text="Скрыть меню" Margin="10,0,0,0" VerticalAlignment="Center" />
-                    </StackPanel>
-                </Button>
+                        <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" VerticalAlignment="Center" Width="230" Height="40">
+                            <Image Source="icons/coding.png" Height="25" />
+                            <TextBlock Text="Разрабочики" Margin="15,0,0,0" VerticalAlignment="Center" />
+                        </StackPanel>
+                    </Button>
+                    <Button Grid.Row="3" HorizontalAlignment="Left" VerticalAlignment="Center" Background="Transparent" BorderThickness="0" Click="Button_Menu"
+                        Margin="0,0,0,0" Padding="20,0,0,0"
+                        Width="250" Height="78.333"
+                        FontFamily="Open Sans" 
+                        FontSize="16"
+                        FontWeight="Normal"
+                        Panel.ZIndex="9"
+                        Cursor="Hand">
+                        <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" VerticalAlignment="Center" Width="230" Height="40">
+                            <Image Source="icons/exit1.png" Height="25" />
+                            <TextBlock Text="Скрыть меню" Margin="15,0,0,0" VerticalAlignment="Center" />
+                        </StackPanel>
+                    </Button>
+                    <Button Grid.Row="2" HorizontalAlignment="Left" VerticalAlignment="Center" Background="Transparent" BorderThickness="0" Click="Start_Game"
+                        Margin="0,0,0,0" Padding="20,0,0,0"
+                        Width="250" Height="78.333"
+                        FontFamily="Open Sans" 
+                        FontSize="16"
+                        FontWeight="Normal"
+                        Panel.ZIndex="9"
+                        Cursor="Hand">
+                        <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" VerticalAlignment="Center" Width="230" Height="40">
+                            <Image Source="icons/clockwise.png" Height="25" />
+                            <TextBlock Text="Начать заново" Margin="15,0,0,0" VerticalAlignment="Center" />
+                        </StackPanel>
+                    </Button>
+                </Grid>
             </StackPanel>
         </Grid>
         <Grid VerticalAlignment="Top" Height="300" ShowGridLines="True" Margin="0,65,0,0">
@@ -262,6 +279,155 @@
                 Cursor="Hand" 
                 FontFamily="Open Sans" FontSize="14" FontWeight="Medium" 
                 RenderTransformOrigin="0.077,0.542"/>
+        </Grid>
+        <Grid Visibility="Visible" x:Name="StartGamePanel" Panel.ZIndex="15" Background="#FFF897" VerticalAlignment="Top" HorizontalAlignment="Left" Width="1000" Height="600" ShowGridLines="True">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+            </Grid.RowDefinitions>
+            <Image Grid.Column="0" Grid.Row="0" Source="icons/ducky.png" Height="45" Width="50" RenderTransformOrigin="0.5,0.5">
+                <Image.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform/>
+                        <RotateTransform Angle="15.157"/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </Image.RenderTransform>
+            </Image>
+            <Image Grid.Column="0" Grid.Row="1" Margin="32,23,251,132" Source="icons/ducky.png" Height="45" Width="50" RenderTransformOrigin="0.5,0.5">
+                <Image.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform/>
+                        <RotateTransform Angle="-34.383"/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </Image.RenderTransform>
+            </Image>
+            <Image Grid.Column="2" Grid.Row="1" Margin="207,59,76,96" Source="icons/ducky.png" Height="45" Width="50" RenderTransformOrigin="0.5,0.5">
+                <Image.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform/>
+                        <RotateTransform Angle="-130.361"/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </Image.RenderTransform>
+            </Image>
+            <Image Grid.Column="1" Grid.Row="2" Margin="42,65,242,90" Source="icons/ducky.png" Height="45" Width="50" RenderTransformOrigin="0.5,0.5">
+                <Image.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform/>
+                        <RotateTransform Angle="-75.809"/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </Image.RenderTransform>
+            </Image>
+            <Image Grid.Column="2" Grid.Row="1" Margin="6,148,277,7" Source="icons/ducky.png" Height="45" Width="50" RenderTransformOrigin="0.5,0.5">
+                <Image.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform/>
+                        <RotateTransform Angle="-22.737"/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </Image.RenderTransform>
+            </Image>
+            <Image Grid.Column="2" Grid.Row="2" Margin="174,65,109,90" Source="icons/ducky.png" Height="45" Width="50" RenderTransformOrigin="0.5,0.5">
+                <Image.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform/>
+                        <RotateTransform Angle="-223.473"/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </Image.RenderTransform>
+            </Image>
+            <Image Grid.Row="2" Margin="98,61,185,94" Source="icons/ducky.png" Height="45" Width="50" RenderTransformOrigin="0.5,0.5">
+                <Image.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform/>
+                        <RotateTransform Angle="45.209"/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </Image.RenderTransform>
+            </Image>
+            <Label 
+            Grid.Column="1"
+            Grid.Row="0"
+            Foreground="#2B7B8F"
+            HorizontalAlignment="Center" VerticalAlignment="Top" 
+            Margin="0,40,0,0"
+            Content="Start the game!"
+            FontFamily="Open Sans" FontSize="32" FontWeight="Black"/>
+            <Label 
+            Grid.Column="1"
+            Grid.Row="1"
+            Foreground="#2B7B8F"
+            HorizontalAlignment="Center" VerticalAlignment="Top" 
+            Content="Enter your Ducky Name"
+            FontFamily="Open Sans" FontSize="21" FontWeight="bold"/>
+            <TextBox 
+                Grid.Column="1"
+                Grid.Row="1"
+                Margin="0,45,0,0" Padding="10,5,0,5"
+                TextWrapping="Wrap"
+                VerticalAlignment="Top" HorizontalAlignment="Center" 
+                Width="300" Height="30"
+                Cursor="Pen" 
+                FontFamily="Open Sans" FontSize="14" 
+                BorderBrush="Transparent" BorderThickness="0" Background="Azure">
+                <TextBox.Resources>
+                    <Style TargetType="{x:Type Border}">
+                        <Setter Property="CornerRadius" Value="3"/>
+                    </Style>
+                </TextBox.Resources>
+            </TextBox>
+            <Button 
+                Click="Start_Game"
+                Width="140" Height="30"
+                Content="DuckDuckGO!"
+                HorizontalAlignment="Center" VerticalAlignment="Center"
+                BorderBrush="Transparent" BorderThickness="0"
+                Background="#2B7B8F" Foreground="#FFF897"
+                FontFamily="Open Sans" FontSize="14" FontWeight="Normal" 
+                Grid.Column="1" Grid.Row="1" />
+            <Image 
+                Grid.Column="2" 
+                Grid.Row="0"
+                HorizontalAlignment="Center" 
+                Height="160" Width="160" 
+                Margin="0,30,0,0" 
+                VerticalAlignment="Top" 
+                gif:ImageBehavior.RepeatBehavior="Forever" 
+                gif:ImageBehavior.AnimatedSource="/icons/stars2.gif" />
+            <Image 
+                Grid.Column="0" 
+                Grid.Row="1"
+                HorizontalAlignment="Center" 
+                Height="160" Width="160" 
+                Margin="0,80,0,-30" 
+                VerticalAlignment="Top" 
+                gif:ImageBehavior.RepeatBehavior="Forever" 
+                gif:ImageBehavior.AnimatedSource="/icons/stars2.gif" />
+            <Image 
+                Grid.Column="2" 
+                Grid.Row="2"
+                HorizontalAlignment="Left" 
+                Height="160" Width="160" 
+                Margin="-50,-50,0,0" 
+                VerticalAlignment="Top" 
+                gif:ImageBehavior.RepeatBehavior="Forever" 
+                gif:ImageBehavior.AnimatedSource="/icons/stars2.gif" />
         </Grid>
     </Grid>
 </Window>
