@@ -13,6 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using System.Windows.Threading;
+using Tamagochi_WPF.MVVM.Model;
 
 namespace Tamagochi_WPF
 {
@@ -93,7 +94,11 @@ namespace Tamagochi_WPF
         }
         private void Start_Game(object sender, RoutedEventArgs e)
         {
-            timerstart.Start();
+            if (NameOfDuck.Text.Length > 3 && NameOfDuck.Text.Length < 20)
+            {
+                timerstart.Start();
+                Tamagochi tamagochi = new Tamagochi(NameOfDuck.Text);
+            }
         }
 
 

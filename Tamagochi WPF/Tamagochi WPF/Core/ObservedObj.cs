@@ -12,7 +12,7 @@ namespace Tamagochi_WPF.Core
     {
         public event PropertyChangedEventHandler PropertyChanged;
 
-        protected void OnPropertyChanged([CallerMemberName] string name = null)
+        protected void OnPropertyChanged([CallerMemberName] string name = null) //оно будет реагировать на изменения 
         {
            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(name));
         }

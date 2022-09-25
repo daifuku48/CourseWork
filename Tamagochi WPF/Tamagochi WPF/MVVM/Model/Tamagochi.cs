@@ -19,6 +19,7 @@ namespace Tamagochi_WPF.MVVM.Model
         {
             Name = name;
             Happines = 50;
+
             Poisoning = 0;
             Hunger = 50;
             Heal = 100;
