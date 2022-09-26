@@ -39,6 +39,7 @@ namespace Tamagochi_WPF
 
             StartGameHeight = StartGamePanel.Height;
             MenuWidth = sideMenu.Width;
+
         }
         private void Start_Tick(object sender, EventArgs e)
         {
@@ -98,11 +99,14 @@ namespace Tamagochi_WPF
             {
                 timerstart.Start();
                 Tamagochi tamagochi = new Tamagochi(NameOfDuck.Text);
-                ProgressBarOfHeal.Value = tamagochi.Heal;
-                
+                ProgressBarOfHeal.Value = tamagochi.Heal;         
                 ProgressBarOfHappy.Value = tamagochi.Happines;
                 ProgressBarOfHungry.Value = tamagochi.Hunger;
                 ProgressBarOfPoison.Value = tamagochi.Poisoning;
+                Label_healIndex.Content = tamagochi.Heal;
+                Label_HappinessIndex.Content = tamagochi.Happines;
+                Label_HugerIndex.Content = tamagochi.Hunger;
+                Label_PoisoningIndex.Content = tamagochi.Poisoning;
             }
         }
 

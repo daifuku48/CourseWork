@@ -120,21 +120,20 @@
             <Label 
                 Grid.Column="0" 
                 x:Name="Label_heal" 
-                Content="Heal:" 
+                Content="Heal:"
                 HorizontalAlignment="Right" 
-                Margin="0,118,222,0" 
+                Margin="0,118,221,0" 
                 VerticalAlignment="Top" 
-                FontFamily="Open Sans" 
+                FontFamily="Open Sans"
                 FontSize="16" 
                 RenderTransformOrigin="0.578,1.837"/>
             <Label 
-                Grid.Column="0" 
-                x:Name="Label_heal_Copy" 
-                Content="0" 
-                HorizontalAlignment="Right" 
-                Margin="0,118,198,0" 
+                x:Name="Label_healIndex" 
+                Content="0"
+                HorizontalAlignment="Right"
+                Margin="0,118,177,0"
                 VerticalAlignment="Top" 
-                FontFamily="Open Sans" 
+                FontFamily="Open Sans"
                 FontSize="16" 
                 RenderTransformOrigin="0.681,1.805"/>
             <ProgressBar 
@@ -160,10 +159,10 @@
                 FontSize="16" 
                 RenderTransformOrigin="0.578,1.837"/>
             <Label 
-                x:Name="Label_heal_Copy2" 
+                x:Name="Label_HappinessIndex" 
                 Content="0"
                 HorizontalAlignment="Right"
-                Margin="0,209,153,0"
+                Margin="0,209,140,0"
                 VerticalAlignment="Top" 
                 FontFamily="Open Sans"
                 FontSize="16" 
@@ -191,10 +190,10 @@
                 RenderTransformOrigin="0.578,1.837"/>
             <Label
                 Grid.Column="2"
-                x:Name="Label_heal_Copy4"
+                x:Name="Label_HugerIndex"
                 Content="0"
                 HorizontalAlignment="Left"
-                Margin="85,118,0,0" 
+                Margin="95,118,0,0" 
                 VerticalAlignment="Top"
                 FontFamily="Open Sans"
                 FontSize="16"
@@ -222,10 +221,10 @@
                 RenderTransformOrigin="0.578,1.837"/>
             <Label 
                 Grid.Column="2"
-                x:Name="Label_heal_Copy6"
+                x:Name="Label_PoisoningIndex"
                 Content="0" 
                 HorizontalAlignment="Left"
-                Margin="102,209,0,0"
+                Margin="110,209,0,0"
                 VerticalAlignment="Top"
                 FontFamily="Open Sans"
                 FontSize="16"
