@@ -6,8 +6,11 @@
         xmlns:local="clr-namespace:Tamagochi_WPF"
         xmlns:gif="http://wpfanimatedgif.codeplex.com"
         mc:Ignorable="d"
+        WindowStyle="None"
         ResizeMode="NoResize"
+        Background="Transparent"
         Title="Ducky" Height="600" Width="1000">
+
     <Grid VerticalAlignment="Top" Height="Auto" Margin="0,0,0,0" Background="Azure">
         <Grid x:Name="MenuPanel" VerticalAlignment="Top" ShowGridLines="True" Height="60" Background="#FFF897" MouseDown="MenuPanel_MouseDown">
             <Grid.ColumnDefinitions>
@@ -104,6 +107,7 @@
                 gif:ImageBehavior.RepeatBehavior="Forever" 
                 gif:ImageBehavior.AnimatedSource="/img/normal.gif" />
             <ProgressBar 
+                Name ="ProgressBarOfHeal"
                 Grid.Column="0" 
                 Minimum="0" Maximum="100" Value="100" 
                 HorizontalAlignment="Right" 
@@ -134,6 +138,7 @@
                 FontSize="16" 
                 RenderTransformOrigin="0.681,1.805"/>
             <ProgressBar 
+                Name="ProgressBarOfHappy"
                 Grid.Column="0" 
                 Minimum="0" Maximum="100" Value="50" 
                 HorizontalAlignment="Right" 
@@ -164,6 +169,7 @@
                 FontSize="16" 
                 RenderTransformOrigin="0.681,1.805"/>
             <ProgressBar 
+                Name="ProgressBarOfHungry"
                 Grid.Column="2"
                 Minimum="0" Maximum="100" Value="50" 
                 HorizontalAlignment="Left"
@@ -194,6 +200,7 @@
                 FontSize="16"
                 RenderTransformOrigin="0.681,1.805"/>
             <ProgressBar 
+                Name ="ProgressBarOfPoison"
                 Grid.Column="2"
                 Minimum="0" Maximum="100" Value="0" 
                 HorizontalAlignment="Left" 
@@ -366,7 +373,7 @@
             Grid.Row="0"
             Foreground="#2B7B8F"
             HorizontalAlignment="Center" VerticalAlignment="Top" 
-            Margin="0,40,0,0"
+            Margin="0,100,0,0"
             Content="Start the game!"
             FontFamily="Open Sans" FontSize="32" FontWeight="Black"/>
             <Label 
@@ -375,12 +382,12 @@
             Foreground="#2B7B8F"
             HorizontalAlignment="Center" VerticalAlignment="Top" 
             Content="Enter your Ducky Name"
-            FontFamily="Open Sans" FontSize="21" FontWeight="bold"/>
+            FontFamily="Open Sans" FontSize="21" FontWeight="bold" Margin="0,21,0,0"/>
             <TextBox 
                 Name="NameOfDuck"
                 Grid.Column="1"
                 Grid.Row="1"
-                Margin="0,45,0,0" Padding="10,5,0,5"
+                Margin="0,65,0,0" Padding="10,5,0,5"
                 TextWrapping="Wrap"
                 VerticalAlignment="Top" HorizontalAlignment="Center" 
                 Width="300" Height="30"
@@ -397,11 +404,11 @@
                 Click="Start_Game"
                 Width="140" Height="30"
                 Content="DuckDuckGO!"
-                HorizontalAlignment="Center" VerticalAlignment="Center"
+                HorizontalAlignment="Center" VerticalAlignment="Top"
                 BorderBrush="Transparent" BorderThickness="0"
                 Background="#2B7B8F" Foreground="#FFF897"
                 FontFamily="Open Sans" FontSize="14" FontWeight="Normal" 
-                Grid.Column="1" Grid.Row="1" />
+                Grid.Column="1" Grid.Row="1" Margin="0,100,0,0" RenderTransformOrigin="0.524,1.169" />
             <Image 
                 Grid.Column="2" 
                 Grid.Row="0"

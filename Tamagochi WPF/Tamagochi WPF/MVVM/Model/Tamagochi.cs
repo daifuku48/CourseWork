@@ -19,16 +19,20 @@ namespace Tamagochi_WPF.MVVM.Model
         {
             Name = name;
             Happines = 50;
-
             Poisoning = 0;
             Hunger = 50;
             Heal = 100;
             DateTime StartTime = DateTime.Now;
         }
+        
         public void Die()
         {
-            Console.WriteLine("Он здох");//дописать сюда адекватный код который будет выводить сдохшего 
-            //лезермена и делать запрос на нового лезермена
+            if (Heal == 0)
+            {
+                Console.WriteLine("Он здох");//дописать сюда адекватный код который будет выводить сдохшего 
+                                             //лезермена и делать запрос на нового лезермена
+            }
+
         }
     }
 }

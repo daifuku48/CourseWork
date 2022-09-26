@@ -94,10 +94,15 @@ namespace Tamagochi_WPF
         }
         private void Start_Game(object sender, RoutedEventArgs e)
         {
-            if (NameOfDuck.Text.Length > 3 && NameOfDuck.Text.Length < 20)
+            if (NameOfDuck.Text.Length >= 3 && NameOfDuck.Text.Length <= 20)
             {
                 timerstart.Start();
                 Tamagochi tamagochi = new Tamagochi(NameOfDuck.Text);
+                ProgressBarOfHeal.Value = tamagochi.Heal;
+                
+                ProgressBarOfHappy.Value = tamagochi.Happines;
+                ProgressBarOfHungry.Value = tamagochi.Hunger;
+                ProgressBarOfPoison.Value = tamagochi.Poisoning;
             }
         }
 
