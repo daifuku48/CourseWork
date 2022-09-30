@@ -93,6 +93,8 @@ namespace Tamagochi_WPF
         {
             timer.Start();
         }
+
+        private Dispatcher time;
         private void Start_Game(object sender, RoutedEventArgs e)
         {
             if (NameOfDuck.Text.Length >= 3 && NameOfDuck.Text.Length <= 20)
