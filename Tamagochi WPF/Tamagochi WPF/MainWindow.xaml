@@ -9,7 +9,8 @@
         WindowStyle="None"
         ResizeMode="NoResize"
         Background="Transparent"
-        Title="Ducky" Height="600" Width="1000">
+        Title="Ducky" Height="600" Width="1000"
+        Icon="icons/ducky.png">
 
     <Grid VerticalAlignment="Top" Height="Auto" Margin="0,0,0,0" Background="Azure">
         <Grid x:Name="MenuPanel" VerticalAlignment="Top" ShowGridLines="True" Height="60" Background="#FFF897" MouseDown="MenuPanel_MouseDown">
@@ -435,6 +436,20 @@
                 VerticalAlignment="Top" 
                 gif:ImageBehavior.RepeatBehavior="Forever" 
                 gif:ImageBehavior.AnimatedSource="/icons/stars2.gif" />
+            <Image Grid.Column="2" 
+                   x:Name="FirstName"
+                   HorizontalAlignment="Left" 
+                   Height="50" 
+                   Margin="283,0,0,0" 
+                   VerticalAlignment="Top" 
+                   Width="56"
+                   Source="/exit3.png" Cursor="Hand" Opacity="0.3"
+                   PreviewMouseLeftButtonDown="leftDown">
+                <Image.Effect>
+                    <BlurEffect/>
+                </Image.Effect>
+
+            </Image>
         </Grid>
     </Grid>
 </Window>

@@ -38,3 +38,5 @@ C:\Users\user\Documents\GitHub\CourseWork\Tamagochi WPF\Tamagochi WPF\obj\Debug\
 C:\Users\user\Documents\GitHub\CourseWork\Tamagochi WPF\Tamagochi WPF\obj\Debug\Tamagochi WPF.csproj.CopyComplete
 C:\Users\user\Documents\GitHub\CourseWork\Tamagochi WPF\Tamagochi WPF\obj\Debug\Tamagochi WPF.exe
 C:\Users\user\Documents\GitHub\CourseWork\Tamagochi WPF\Tamagochi WPF\obj\Debug\Tamagochi WPF.pdb
+C:\Users\user\Documents\GitHub\CourseWork\Tamagochi WPF\Tamagochi WPF\obj\Debug\MVVM\View\Window1.g.cs
+C:\Users\user\Documents\GitHub\CourseWork\Tamagochi WPF\Tamagochi WPF\obj\Debug\MVVM\View\Window1.baml

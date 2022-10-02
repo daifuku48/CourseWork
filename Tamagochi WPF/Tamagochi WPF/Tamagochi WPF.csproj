@@ -72,7 +72,7 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Page Include="MVVM\View\Window1.xaml">
+    <Page Include="MVVM\View\kitchen.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -80,8 +80,8 @@
   <ItemGroup>
     <Compile Include="MVVM\Model\food.cs" />
     <Compile Include="MVVM\Model\Tamagochi.cs" />
-    <Compile Include="MVVM\View\Window1.xaml.cs">
-      <DependentUpon>Window1.xaml</DependentUpon>
+    <Compile Include="MVVM\View\kitchen.xaml.cs">
+      <DependentUpon>kitchen.xaml</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
@@ -181,6 +181,9 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="icons\exit1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="exit3.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
