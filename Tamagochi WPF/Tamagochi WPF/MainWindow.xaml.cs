@@ -22,10 +22,11 @@ namespace Tamagochi_WPF
     /// </summary>
     public partial class MainWindow : Window
     {
-        DispatcherTimer timer , timerstart;
+        DispatcherTimer timer , timerstart, timerForTamagochi;
 
         double MenuWidth , StartGameHeight;
         bool hiddenMenu , StartGamehidden;
+        Tamagochi tamagochi;
 
         public MainWindow()
         {
@@ -39,7 +40,21 @@ namespace Tamagochi_WPF
 
             StartGameHeight = StartGamePanel.Height;
             MenuWidth = sideMenu.Width;
-
+            timerForTamagochi = new DispatcherTimer();
+            timerForTamagochi.Interval = new TimeSpan(0, 0, 0, 3);
+            timerForTamagochi.Tick +=Timer_Eat;
+            
+        }
+        private void Timer_Eat(object sender, EventArgs e)
+        {
+            --tamagochi.ProgressBarOfHappy.Value;
+            //ProgressBarOfHungry.Value = --tamagochi.Hunger;
+            //Label_HugerIndex.Content = tamagochi.Hunger;
+            
+            if (tamagochi.Heal == 0)
+            {
+                tamagochi.Die();
+            }
         }
         private void Start_Tick(object sender, EventArgs e)
         {
@@ -51,6 +66,7 @@ namespace Tamagochi_WPF
                 {
                     timerstart.Stop();
                     StartGamehidden = false;
+                    
                 }
             }
             else
@@ -61,6 +77,7 @@ namespace Tamagochi_WPF
                     timerstart.Stop();
                     StartGamehidden = true;
                     StartGamePanel.Visibility = Visibility.Hidden;
+                    timerForTamagochi.Start();
                 }
             }
         }
@@ -94,13 +111,13 @@ namespace Tamagochi_WPF
             timer.Start();
         }
 
-        Tamagochi tamagochi;
         private void Start_Game(object sender, RoutedEventArgs e)
         {
             if (NameOfDuck.Text.Length >= 3 && NameOfDuck.Text.Length <= 20)
             {
                 timerstart.Start();
-                tamagochi = new Tamagochi(NameOfDuck.Text);
+                tamagochi = new Tamagochi(NameOfDuck.Text, ProgressBarOfHappy, ProgressBarOfHeal, ProgressBarOfHungry);
+
                 ProgressBarOfHeal.Value = tamagochi.Heal;         
                 ProgressBarOfHappy.Value = tamagochi.Happines;
                 ProgressBarOfHungry.Value = tamagochi.Hunger;
