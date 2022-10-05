@@ -7,6 +7,7 @@
         xmlns:gif="http://wpfanimatedgif.codeplex.com"
         mc:Ignorable="d"
         WindowStyle="None"
+        WindowStartupLocation="CenterScreen"
         ResizeMode="NoResize"
         Background="Transparent"
         Title="Ducky" Height="600" Width="1000"
