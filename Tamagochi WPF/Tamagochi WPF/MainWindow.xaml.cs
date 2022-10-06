@@ -13,7 +13,6 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using System.Windows.Threading;
-using Tamagochi_WPF.MVVM.Model;
 
 namespace Tamagochi_WPF
 {
@@ -116,7 +115,7 @@ namespace Tamagochi_WPF
             if (NameOfDuck.Text.Length >= 3 && NameOfDuck.Text.Length <= 20)
             {
                 timerstart.Start();
-                tamagochi = new Tamagochi(NameOfDuck.Text, ProgressBarOfHappy, ProgressBarOfHeal, ProgressBarOfHungry);
+                tamagochi = new Tamagochi(ProgressBarOfHappy, ProgressBarOfHeal, ProgressBarOfHungry);
 
                 ProgressBarOfHeal.Value = tamagochi.Heal;         
                 ProgressBarOfHappy.Value = tamagochi.Happines;

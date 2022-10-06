@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Tamagochi_WPF.MVVM.Model
+namespace Tamagochi_WPF
 {
     
     public interface food

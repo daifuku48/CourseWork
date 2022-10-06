@@ -6,21 +6,35 @@ using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Controls;
+using Tamagochi_WPF.Core;
 
-namespace Tamagochi_WPF.MVVM.Model
+namespace Tamagochi_WPF
 {
-    class Tamagochi : INotifyPropertyChanged
+    class Tamagochi : ObservedObj
     {
-        public string Name{ get; set; }
+        public string Name
+        {
+            get { return Name; } 
+            set
+            {
+                Name = value;
+                OnPropertyChanged();
+            }
+        }
+
         public byte Happines { get; set; }
         public byte Poisoning { get; set; }
         public byte Hunger { get; set; }
         public byte Heal { get; set; }
         public DateTime StartTime { get; }
-        public DateTime CurrentTime { get; set; }  
-        public Tamagochi(string name, ProgressBar happy,ProgressBar heal, ProgressBar hungry)
+        public DateTime CurrentTime { get; set; }
+        public Tamagochi()
         {
-            Name = name;
+
+        }
+        public Tamagochi( ProgressBar happy,ProgressBar heal, ProgressBar hungry)
+        {
+            
             Happines = 50;
             Poisoning = 0;
             Hunger = 50;
@@ -33,18 +47,13 @@ namespace Tamagochi_WPF.MVVM.Model
 
         public void Die()
         {
+            CurrentTime = DateTime.Now;
             //if (Heal == 0)
             //{
             //    Console.WriteLine("Он здох");//дописать сюда адекватный код который будет выводить сдохшего 
             //                                 //лезермена и делать запрос на нового лезермена // Звучит как план ( пс. максим )
             //}
 
-        }
-        public event PropertyChangedEventHandler PropertyChanged;
-        public void OnPropertyChanged([CallerMemberName] string prop = "")
-        {
-            if (PropertyChanged != null)
-                PropertyChanged(this, new PropertyChangedEventArgs(prop));
         }
     }
 }
