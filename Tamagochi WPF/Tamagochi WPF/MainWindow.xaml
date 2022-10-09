@@ -103,6 +103,7 @@
                 <ColumnDefinition></ColumnDefinition>
             </Grid.ColumnDefinitions>
             <Image 
+                Name ="GifOfDuck"
                 Grid.Column="1" 
                 HorizontalAlignment="Center" 
                 Height="300" Margin="0,0,0,0" 
@@ -387,8 +388,8 @@
             Content="Enter your Ducky Name"
             FontFamily="Open Sans" FontSize="21" FontWeight="bold" Margin="0,21,0,0"/>
             <TextBox 
-                Name="NameOfDuck"
-                Text="{Binding Name, UpdateSourceTrigger = PropertyChanged}"
+                Name ="NameOfDuck"
+                Text="{Binding Name, NotifyOnSourceUpdated=True}"
                 Grid.Column="1"
                 Grid.Row="1"
                 Margin="0,65,0,0" Padding="10,5,0,5"
@@ -423,6 +424,7 @@
                 gif:ImageBehavior.RepeatBehavior="Forever" 
                 gif:ImageBehavior.AnimatedSource="/icons/stars2.gif" />
             <Image 
+                
                 Grid.Column="0" 
                 Grid.Row="1"
                 HorizontalAlignment="Center" 

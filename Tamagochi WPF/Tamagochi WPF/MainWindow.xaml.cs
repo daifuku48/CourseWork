@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -21,6 +22,7 @@ namespace Tamagochi_WPF
     /// </summary>
     public partial class MainWindow : Window
     {
+        
         DispatcherTimer timer , timerstart, timerForTamagochi;
 
         double MenuWidth , StartGameHeight;
@@ -29,6 +31,8 @@ namespace Tamagochi_WPF
 
         public MainWindow()
         {
+            tamagochi = new Tamagochi();
+            this.DataContext = this;
             InitializeComponent();
             timer = new DispatcherTimer();
             timer.Interval = new TimeSpan(0, 0, 0, 0 , 1);
@@ -46,13 +50,16 @@ namespace Tamagochi_WPF
         }
         private void Timer_Eat(object sender, EventArgs e)
         {
-            --tamagochi.ProgressBarOfHappy.Value;
-            //ProgressBarOfHungry.Value = --tamagochi.Hunger;
+            //--tamagochi.ProgressBarOfHappy.Value;
+            ProgressBarOfHungry.Value = --tamagochi.Hunger;
             //Label_HugerIndex.Content = tamagochi.Hunger;
+
+            Console.WriteLine(tamagochi.Name);
             
             if (tamagochi.Heal == 0)
             {
                 tamagochi.Die();
+                
             }
         }
         private void Start_Tick(object sender, EventArgs e)
@@ -105,6 +112,11 @@ namespace Tamagochi_WPF
             }
         }
 
+        private void NameOfDuck_TextChanged(object sender, TextChangedEventArgs e)
+        {
+
+        }
+
         private void Button_Menu(object sender, RoutedEventArgs e)
         {
             timer.Start();
@@ -115,8 +127,9 @@ namespace Tamagochi_WPF
             if (NameOfDuck.Text.Length >= 3 && NameOfDuck.Text.Length <= 20)
             {
                 timerstart.Start();
-                tamagochi = new Tamagochi(ProgressBarOfHappy, ProgressBarOfHeal, ProgressBarOfHungry);
-
+                tamagochi.Name = NameOfDuck.Text;
+                tamagochi.Heal = 100;
+                tamagochi.Hunger = 50;
                 ProgressBarOfHeal.Value = tamagochi.Heal;         
                 ProgressBarOfHappy.Value = tamagochi.Happines;
                 ProgressBarOfHungry.Value = tamagochi.Hunger;

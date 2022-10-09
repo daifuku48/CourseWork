@@ -6,7 +6,7 @@ using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Tamagochi_WPF.Core
+namespace Tamagochi_WPF
 {
     class ObservedObj : INotifyPropertyChanged
     {

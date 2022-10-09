@@ -6,22 +6,26 @@ using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Controls;
-using Tamagochi_WPF.Core;
+using System.Xml.Linq;
+using Tamagochi_WPF;
 
 namespace Tamagochi_WPF
 {
     class Tamagochi : ObservedObj
     {
+        private string _name;
         public string Name
         {
-            get { return Name; } 
+            get { return _name; } 
             set
             {
-                Name = value;
-                OnPropertyChanged();
+                if (value != _name)
+                {
+                    _name = value;
+                    OnPropertyChanged("Name");
+                }
             }
         }
-
         public byte Happines { get; set; }
         public byte Poisoning { get; set; }
         public byte Hunger { get; set; }
@@ -40,14 +44,17 @@ namespace Tamagochi_WPF
             Hunger = 50;
             Heal = 100;
             DateTime StartTime = DateTime.Now;
-            ProgressBarOfHappy = happy;
+            //ProgressBarOfHappy = happy;
         }
-        public ProgressBar ProgressBarOfHungry;
-        public ProgressBar ProgressBarOfHeal, ProgressBarOfHappy, ProgressBarOfPoison;
+        //public ProgressBar ProgressBarOfHungry { get; set; }
+        //public ProgressBar ProgressBarOfHeal { get; set; }
+        //public ProgressBar ProgressBarOfHappy { get; set; }
+        //public ProgressBar ProgressBarOfPoison { get; set; }
 
         public void Die()
         {
             CurrentTime = DateTime.Now;
+            
             //if (Heal == 0)
             //{
             //    Console.WriteLine("Он здох");//дописать сюда адекватный код который будет выводить сдохшего 
