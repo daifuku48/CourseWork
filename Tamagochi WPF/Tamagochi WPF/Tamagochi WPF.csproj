@@ -185,5 +185,11 @@
   <ItemGroup>
     <Resource Include="exit3.png" />
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="icons\rain.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="icons\duckyDied.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

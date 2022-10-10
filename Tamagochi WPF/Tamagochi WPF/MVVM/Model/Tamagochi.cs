@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Linq;
 using System.Runtime.CompilerServices;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Controls;
 using System.Xml.Linq;
@@ -55,11 +56,10 @@ namespace Tamagochi_WPF
         {
             CurrentTime = DateTime.Now;
             
-            //if (Heal == 0)
-            //{
-            //    Console.WriteLine("Он здох");//дописать сюда адекватный код который будет выводить сдохшего 
-            //                                 //лезермена и делать запрос на нового лезермена // Звучит как план ( пс. максим )
-            //}
+            if (Heal == 0)
+            {
+                //timerEnd.Start();
+            }
 
         }
     }

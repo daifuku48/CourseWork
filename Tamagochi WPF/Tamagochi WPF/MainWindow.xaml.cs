@@ -23,10 +23,10 @@ namespace Tamagochi_WPF
     public partial class MainWindow : Window
     {
         
-        DispatcherTimer timer , timerstart, timerForTamagochi;
+        DispatcherTimer timer , timerstart, timerEnd, timerForTamagochi;
 
-        double MenuWidth , StartGameHeight;
-        bool hiddenMenu , StartGamehidden;
+        double MenuWidth , StartGameHeight, EndGameHeight;
+        bool hiddenMenu , StartGamehidden , EndGamehidden;
         Tamagochi tamagochi;
 
         public MainWindow()
@@ -40,19 +40,25 @@ namespace Tamagochi_WPF
             timerstart = new DispatcherTimer();
             timerstart.Interval = new TimeSpan (0, 0, 0, 0 , 1);
             timerstart.Tick += Start_Tick;
+            timerEnd = new DispatcherTimer();
+            timerEnd.Interval = new TimeSpan(0, 0, 0, 0, 1);
+            timerEnd.Tick += End_Tick;
 
+            EndGameHeight = EndGamePanel.Height;
             StartGameHeight = StartGamePanel.Height;
             MenuWidth = sideMenu.Width;
+
             timerForTamagochi = new DispatcherTimer();
             timerForTamagochi.Interval = new TimeSpan(0, 0, 0, 3);
-            timerForTamagochi.Tick +=Timer_Eat;
+            timerForTamagochi.Tick += Timer_Eat;
+       
             
         }
         private void Timer_Eat(object sender, EventArgs e)
         {
-            //--tamagochi.ProgressBarOfHappy.Value;
+            /*tamagochi.ProgressBarOfHappy.Value;*/
             ProgressBarOfHungry.Value = --tamagochi.Hunger;
-            //Label_HugerIndex.Content = tamagochi.Hunger;
+            Label_HugerIndex.Content = tamagochi.Hunger;
 
             Console.WriteLine(tamagochi.Name);
             
@@ -87,6 +93,31 @@ namespace Tamagochi_WPF
                 }
             }
         }
+        private void End_Tick(object sender, EventArgs e)
+        {
+            if (EndGamehidden)
+            {
+                EndGamePanel.Visibility = Visibility.Visible;
+                EndGamePanel.Height += EndGameHeight / 20;
+                if (EndGamePanel.Height >= EndGameHeight)
+                {
+                    timerEnd.Stop();
+                    EndGamehidden = false;
+
+                }
+            }
+            else
+            {
+                EndGamePanel.Height -= EndGameHeight / 20;
+                if (EndGamePanel.Height <= 0)
+                {
+                    timerEnd.Stop();
+                    EndGamehidden = true;
+                    EndGamePanel.Visibility = Visibility.Hidden;
+                    timerstart.Start();
+                }
+            }
+        }
 
         private void Timer_Tick(object sender, EventArgs e)
         {
@@ -115,6 +146,11 @@ namespace Tamagochi_WPF
         private void NameOfDuck_TextChanged(object sender, TextChangedEventArgs e)
         {
 
+        }
+
+        private void Restart_Game(object sender, RoutedEventArgs e)
+        {
+            timerEnd.Start();
         }
 
         private void Button_Menu(object sender, RoutedEventArgs e)

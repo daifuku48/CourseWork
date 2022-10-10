@@ -33,6 +33,48 @@
                         Height="28" 
                        />
             </Button>
+            <Label 
+                Grid.Column="1" 
+                x:Name="Label_Name" 
+                Content="Name"
+                HorizontalAlignment="Center" 
+                Margin="0,0,0,0" 
+                VerticalAlignment="Center" 
+                FontFamily="Open Sans"
+                FontSize="16"
+                FontWeight="Medium"
+                RenderTransformOrigin="0.578,1.837"/>
+            <Label 
+                Grid.Column="2" 
+                x:Name="Label_AgeText" 
+                Content="Age:"
+                HorizontalAlignment="Center" 
+                Margin="0,0,0,0" 
+                VerticalAlignment="Center" 
+                FontFamily="Open Sans"
+                FontSize="16"
+                FontWeight="Medium"
+                RenderTransformOrigin="0.578,1.837"/>
+            <Label 
+                Grid.Column="2" 
+                x:Name="Label_Age" 
+                Content="0"
+                HorizontalAlignment="Center" 
+                Margin="60,0,0,0" 
+                VerticalAlignment="Center" 
+                FontFamily="Open Sans"
+                FontSize="16"
+                FontWeight="Medium"
+                RenderTransformOrigin="0.578,1.837"/>
+            <Image Grid.Column="3" 
+                   HorizontalAlignment="Right" 
+                   Height="35" 
+                   Margin="0,0,20,0" 
+                   VerticalAlignment="Center" 
+                   Width="35"
+                   Source="/exit3.png" Cursor="Hand" Opacity="0.8"
+                   PreviewMouseLeftButtonDown="leftDown">
+            </Image>
         </Grid>
         <Grid Visibility="Hidden" x:Name="sideMenu" Panel.ZIndex="10" Background="#FFF897" VerticalAlignment="Top" HorizontalAlignment="Left" Width="250" Height="600" ShowGridLines="True">
             <StackPanel>
@@ -456,6 +498,141 @@
                 </Image.Effect>
 
             </Image>
+        </Grid>
+        <Grid Visibility="Hidden" x:Name="EndGamePanel" Panel.ZIndex="16" Background="#FFF897" VerticalAlignment="Top" HorizontalAlignment="Left" Width="1000" Height="600" ShowGridLines="True">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+            </Grid.RowDefinitions>
+            <Image Grid.Column="0" Grid.Row="0" Source="icons/duckyDied.png" Height="45" Width="50" RenderTransformOrigin="0.5,0.5">
+                <Image.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform/>
+                        <RotateTransform Angle="15.157"/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </Image.RenderTransform>
+            </Image>
+            <Image Grid.Column="0" Grid.Row="1" Margin="32,23,251,132" Source="icons/duckyDied.png" Height="45" Width="50" RenderTransformOrigin="0.5,0.5">
+                <Image.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform/>
+                        <RotateTransform Angle="-34.383"/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </Image.RenderTransform>
+            </Image>
+            <Image Grid.Column="2" Grid.Row="1" Margin="207,59,76,96" Source="icons/duckyDied.png" Height="45" Width="50" RenderTransformOrigin="0.5,0.5">
+                <Image.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform/>
+                        <RotateTransform Angle="-130.361"/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </Image.RenderTransform>
+            </Image>
+            <Image Grid.Column="1" Grid.Row="2" Margin="42,65,242,90" Source="icons/duckyDied.png" Height="45" Width="50" RenderTransformOrigin="0.5,0.5">
+                <Image.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform/>
+                        <RotateTransform Angle="-75.809"/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </Image.RenderTransform>
+            </Image>
+            <Image Grid.Column="2" Grid.Row="1" Margin="6,148,277,7" Source="icons/duckyDied.png" Height="45" Width="50" RenderTransformOrigin="0.5,0.5">
+                <Image.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform/>
+                        <RotateTransform Angle="-22.737"/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </Image.RenderTransform>
+            </Image>
+            <Image Grid.Column="2" Grid.Row="2" Margin="174,65,109,90" Source="icons/duckyDied.png" Height="45" Width="50" RenderTransformOrigin="0.5,0.5">
+                <Image.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform/>
+                        <RotateTransform Angle="-223.473"/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </Image.RenderTransform>
+            </Image>
+            <Image Grid.Row="2" Margin="98,61,185,94" Source="icons/duckyDied.png" Height="45" Width="50" RenderTransformOrigin="0.5,0.5">
+                <Image.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform/>
+                        <RotateTransform Angle="45.209"/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </Image.RenderTransform>
+            </Image>
+            <Label 
+            Grid.Column="1"
+            Grid.Row="0"
+            Foreground="#2B7B8F"
+            HorizontalAlignment="Center" VerticalAlignment="Top" 
+            Margin="0,100,0,0"
+            Content="You lost :("
+            FontFamily="Open Sans" FontSize="32" FontWeight="Black"/>
+            <Label 
+            Grid.Column="1"
+            Grid.Row="1"
+            Foreground="#2B7B8F"
+            HorizontalAlignment="Center" VerticalAlignment="Top" 
+            Content="Restart the game"
+            FontFamily="Open Sans" FontSize="21" FontWeight="bold" Margin="0,21,0,0"/>
+
+            <Button 
+                Click="Restart_Game"
+                Width="140" Height="30"
+                Content="DuckDuckGO!"
+                HorizontalAlignment="Center" VerticalAlignment="Top"
+                BorderBrush="Transparent" BorderThickness="0"
+                Background="#2B7B8F" Foreground="#FFF897"
+                FontFamily="Open Sans" FontSize="14" FontWeight="Normal" 
+                Grid.Column="1" Grid.Row="1" Margin="0,100,0,0" RenderTransformOrigin="0.524,1.169" />
+            <Image 
+                Grid.Column="2" 
+                Grid.Row="0"
+                HorizontalAlignment="Center" 
+                Height="160" Width="160" 
+                Margin="0,30,0,0" 
+                VerticalAlignment="Top" 
+                gif:ImageBehavior.RepeatBehavior="Forever" 
+                gif:ImageBehavior.AnimatedSource="/icons/rain.gif" />
+            <Image 
+                
+                Grid.Column="0" 
+                Grid.Row="1"
+                HorizontalAlignment="Center" 
+                Height="160" Width="160" 
+                Margin="0,80,0,-30" 
+                VerticalAlignment="Top" 
+                gif:ImageBehavior.RepeatBehavior="Forever" 
+                gif:ImageBehavior.AnimatedSource="/icons/rain.gif" />
+            <Image 
+                Grid.Column="1" 
+                Grid.Row="2"
+                HorizontalAlignment="Left" 
+                Height="110" Width="112" 
+                Margin="284,0,0,0" 
+                VerticalAlignment="Top" 
+                gif:ImageBehavior.RepeatBehavior="Forever" 
+                gif:ImageBehavior.AnimatedSource="/icons/rain.gif" Grid.ColumnSpan="2" />
         </Grid>
     </Grid>
 </Window>
