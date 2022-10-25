@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace Tamagochi_WPF
 {
-    class ObservedObj : INotifyPropertyChanged
+    public class ObservedObj : INotifyPropertyChanged
     {
         public event PropertyChangedEventHandler PropertyChanged;
 
@@ -16,5 +16,7 @@ namespace Tamagochi_WPF
         {
            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(name));
         }
+
+       
     }
 }
