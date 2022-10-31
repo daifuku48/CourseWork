@@ -16,7 +16,5 @@ namespace Tamagochi_WPF
         {
            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(name));
         }
-
-       
     }
 }
