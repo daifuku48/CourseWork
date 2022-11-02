@@ -1,311 +1,686 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+
 
 namespace Tamagochi_WPF
 {
-    
-    public interface food
+    public interface IFood
     {
-        void AffectTamagochi();
+        public string Name { get; } // имя продукта
+        public int Heal { get; } // количество здоровья которое востанавливает продукт
+        public int Poison { get; } // количество отравление продуктом
+        public int Happy { get; } // количество счастья
+        public int Satiety { get; } // количество насыщения
+        public string[] Recipe { get; } // рецепт а точнеее список необходимых ингредиентов
+        public bool HasRecipe => Recipe != null; // является ли объект приготовляемый(true) или базовым(false) продуктом
+
+        public void AffectTamagochi();
     }
 
-    public class Sugar : food // cахар
+    public class Sugar : IFood
     {
-        int _heal = -10;
-        int _poison = 5;
-        int _happy = 10;
-        int _hungry = -5;
-        public void AffectTamagochi()
-        {
+        private string _name = "sugar";
+        string IFood.Name { get { return _name; } }
 
-        }
+        private int _heal = -10;
+        int IFood.Heal { get { return _heal; } }
+
+        private int _poison = 5;
+        int IFood.Poison { get { return _poison; } }
+
+        private int _happy = 10;
+        int IFood.Happy { get { return _happy; } }
+
+        private int _satiety = 5;
+        int IFood.Satiety { get { return _satiety; } }
+
+        private string[] _recipe = null;
+        string[] IFood.Recipe { get { return _recipe; } }
+
+        void IFood.AffectTamagochi() { }
     }
 
-    public class Salt : food // соль
+    public class Salt : IFood
     {
-        int _heal = -15;
-        int _poison = 5;
-        int _happy = 5;
-        int _hungry = -5;
-        public void AffectTamagochi() { }
+        private string _name = "salt";
+        string IFood.Name { get { return _name; } }
+
+        private int _heal = -10;
+        int IFood.Heal { get { return _heal; } }
+
+        private int _poison = 5;
+        int IFood.Poison { get { return _poison; } }
+
+        private int _happy = 10;
+        int IFood.Happy { get { return _happy; } }
+
+        private int _satiety = 5;
+        int IFood.Satiety { get { return _satiety; } }
+
+        private string[] _recipe = null;
+        string[] IFood.Recipe { get { return _recipe; } }
+
+        void IFood.AffectTamagochi() { }
     }
 
-    public class Meet : food // мясо
+    public class Water : IFood
     {
-        int _heal = 10;
-        int _poison = 20;
-        int _happy = 10;
-        int _hungry = -5;
-        public void AffectTamagochi()
-        {
+        private string _name = "water";
+        string IFood.Name { get { return _name; } }
 
-        }
-    }
+        private int _heal = 0;
+        int IFood.Heal { get { return _heal; } }
 
-    public class Water : food // вода
-    {
-        int _heal = 0;
-        int _poison = -50;
-        int _happy = 1;
-        int _hungry = -5;
-        public void AffectTamagochi()
-        {
+        private int _poison = -25;
+        int IFood.Poison { get { return _poison; } }
 
-        }
-    }
+        private int _happy = 5;
+        int IFood.Happy { get { return _happy; } }
 
-    public class Fire // огонь
-    {
-        int _heal = -40;
-        int _poison = 20;
-        int _happy = -30;
-        int _hungry = 0;
-        public void AffectTamagochi()
-        {
+        private int _satiety = 0;
+        int IFood.Satiety { get { return _satiety; } }
 
-        }
+        private string[] _recipe = null;
+        string[] IFood.Recipe { get { return _recipe; } }
+
+        void IFood.AffectTamagochi() { }
     }
 
-    public class Duck : food // утка
+    public class Fire : IFood
     {
-        int _heal = 30;
-        int _poison = 50;
-        int _happy = -30;
-        int _hungry = -40;
-        public void AffectTamagochi()
-        {
+        private string _name = "fire";
+        string IFood.Name { get { return _name; } }
 
-        }
-    }
+        private int _heal = -40;
+        int IFood.Heal { get { return _heal; } }
 
-    public class Corn : food // зерно
-    {
-        int _heal = 20;
-        int _poison = 10;
-        int _happy = 20;
-        int _hungry = -30;
-        public void AffectTamagochi()
-        {
+        private int _poison = 20;
+        int IFood.Poison { get { return _poison; } }
 
-        }
-    }
+        private int _happy = -30;
+        int IFood.Happy { get { return _happy; } }
 
-    public class Fish : food // рыба
-    {
-        int _heal = 30;
-        int _poison = 30;
-        int _happy = -30;
-        int _hungry = -40;
-        public void AffectTamagochi() { }
+        private int _satiety = 0;
+        int IFood.Satiety { get { return _satiety; } }
+
+        private string[] _recipe = null;
+        string[] IFood.Recipe { get { return _recipe; } }
+
+        void IFood.AffectTamagochi() { }
     }
 
-    public class Egg : food // яичко
+    public class Duck : IFood
     {
-        int _heal = 10;
-        int _poison = 10;
-        int _happy = 10;
-        int _hungry = -10;
-        public void AffectTamagochi() { }
+        private string _name = "duck";
+        string IFood.Name { get { return _name; } }
+
+        private int _heal = 30;
+        int IFood.Heal { get { return _heal; } }
+
+        private int _poison = 50;
+        int IFood.Poison { get { return _poison; } }
+
+        private int _happy = -30;
+        int IFood.Happy { get { return _happy; } }
+
+        private int _satiety = 40;
+        int IFood.Satiety { get { return _satiety; } }
+
+        private string[] _recipe = null;
+        string[] IFood.Recipe { get { return _recipe; } }
+
+        void IFood.AffectTamagochi() { }
     }
 
-    public class Berry : food // ягода
+    public class Corn : IFood
     {
-        int _heal = 5;
-        int _poison = 0;
-        int _happy = 5;
-        int _hungry = -5;
-        public void AffectTamagochi() { }
+        private string _name = "corn";
+        string IFood.Name { get { return _name; } }
+
+        private int _heal = 5;
+        int IFood.Heal { get { return _heal; } }
+
+        private int _poison = 10;
+        int IFood.Poison { get { return _poison; } }
+
+        private int _happy = 10;
+        int IFood.Happy { get { return _happy; } }
+
+        private int _satiety = 5;
+        int IFood.Satiety { get { return _satiety; } }
+
+        private string[] _recipe = null;
+        string[] IFood.Recipe { get { return _recipe; } }
+
+        void IFood.AffectTamagochi() { }
     }
 
-    public class Mushroom : food // ну ты и гриб 
+    public class Fish : IFood
     {
-        int _heal = 10;
-        int _poison = 20;
-        int _happy = 10;
-        int _hungry = -10;
-        public void AffectTamagochi() { }
+        private string _name = "fish";
+        string IFood.Name { get { return _name; } }
+
+        private int _heal = 20;
+        int IFood.Heal { get { return _heal; } }
+
+        private int _poison = 20;
+        int IFood.Poison { get { return _poison; } }
+
+        private int _happy = 10;
+        int IFood.Happy { get { return _happy; } }
+
+        private int _satiety = 20;
+        int IFood.Satiety { get { return _satiety; } }
+
+        private string[] _recipe = null;
+        string[] IFood.Recipe { get { return _recipe; } }
+
+        void IFood.AffectTamagochi() { }
     }
 
-    public class Marshmallow : food // зефир
+    public class Egg : IFood
     {
-        int _heal = 10;
-        int _poison = 0;
-        int _happy = 30;
-        int _hungry = -10;
-        public void AffectTamagochi() { }
+        private string _name = "egg";
+        string IFood.Name { get { return _name; } }
+
+        private int _heal = 10;
+        int IFood.Heal { get { return _heal; } }
+
+        private int _poison = 5;
+        int IFood.Poison { get { return _poison; } }
+
+        private int _happy = 10;
+        int IFood.Happy { get { return _happy; } }
+
+        private int _satiety = 10;
+        int IFood.Satiety { get { return _satiety; } }
+
+        private string[] _recipe = null;
+        string[] IFood.Recipe { get { return _recipe; } }
+
+        void IFood.AffectTamagochi() { }
     }
 
-    public class Vegetable : food // овощь ( -_* )
+    public class Mushroom : IFood
     {
-        int _heal = 15;
-        int _poison = 0;
-        int _happy = 15;
-        int _hungry = -15;
-        public void AffectTamagochi() { }
-    }
-    
-    public class Flakes : food // хлопья = corn(зерно) + water(вода)
-    {
-        int _heal = 25;
-        int _poison = 0;
-        int _happy = 30;
-        int _hungry = -50;
-        public void AffectTamagochi() { }
+        private string _name = "mushroom";
+        string IFood.Name { get { return _name; } }
+
+        private int _heal = 10;
+        int IFood.Heal { get { return _heal; } }
+
+        private int _poison = 15;
+        int IFood.Poison { get { return _poison; } }
+
+        private int _happy = 10;
+        int IFood.Happy { get { return _happy; } }
+
+        private int _satiety = 10;
+        int IFood.Satiety { get { return _satiety; } }
+
+        private string[] _recipe = null;
+        string[] IFood.Recipe { get { return _recipe; } }
+
+        void IFood.AffectTamagochi() { }
     }
 
-    public class Bread : food // хлебный мякиш = corn(зерно) + fire(огонь)
+    public class Marshmallow : IFood
     {
-        int _heal = 20;
-        int _poison = 0;
-        int _happy = 5;
-        int _hungry = -20;
-        public void AffectTamagochi() { }
-    }
-    
-    public class Pie : food // пирог = bread(хлеб) + berry(ягода)
-    {
-        int _heal = 30;
-        int _poison = 0;
-        int _happy = 50;
-        int _hungry = -35;
-        public void AffectTamagochi() { }
-    }
-    
-    public class Jam : food // варенье = berry(ягоды) + sugar(сахар)
-    {
-        int _heal = 10;
-        int _poison = 0;
-        int _happy = 20;
-        int _hungry = -10;
-        public void AffectTamagochi() { }
-    }
-    
-    public class Compote : food // компот = berry(ягода) + water(вода)
-    {
-        int _heal = 5;
-        int _poison = -20;
-        int _happy = 10;
-        int _hungry = -5;
-        public void AffectTamagochi() { }
-    }
-    
-    public class Jelly : food // болотная жижа = jam(варенье) + marshmallow(зефир) 
-    {
-        int _heal = 10;
-        int _poison = -5;
-        int _happy = 40;
-        int _hungry = -15;
-        public void AffectTamagochi() { }
-    }
-    
-    public class Omelette : food // подгорелое яичко = egg(яйцо) + fire(огонь)
-    {
-        int _heal = 10;
-        int _poison = 0;
-        int _happy = 25;
-        int _hungry = -25;
-        public void AffectTamagochi() { }
+        private string _name = "marshmallow";
+        string IFood.Name { get { return _name; } }
+
+        private int _heal = 10;
+        int IFood.Heal { get { return _heal; } }
+
+        private int _poison = 0;
+        int IFood.Poison { get { return _poison; } }
+
+        private int _happy = 30;
+        int IFood.Happy { get { return _happy; } }
+
+        private int _satiety = 10;
+        int IFood.Satiety { get { return _satiety; } }
+
+        private string[] _recipe = null;
+        string[] IFood.Recipe { get { return _recipe; } }
+
+        void IFood.AffectTamagochi() { }
     }
 
-    public class Pancake : food // блинчик = jelly(желе) + bread(хлеб) 
+    public class Vegetable : IFood
     {
-        int _heal = 20;
-        int _poison = 0;
-        int _happy = 25;
-        int _hungry = -25;
-        public void AffectTamagochi() { }
+        private string _name = "vegetable";
+        string IFood.Name { get { return _name; } }
+
+        private int _heal = 15;
+        int IFood.Heal { get { return _heal; } }
+
+        private int _poison = 0;
+        int IFood.Poison { get { return _poison; } }
+
+        private int _happy = 15;
+        int IFood.Happy { get { return _happy; } }
+
+        private int _satiety = 15;
+        int IFood.Satiety { get { return _satiety; } }
+
+        private string[] _recipe = null;
+        string[] IFood.Recipe { get { return _recipe; } }
+
+        void IFood.AffectTamagochi() { }
     }
 
-    public class Toast : food // тост = corn(зерно) + fire(огонь)
+    public class Flakes : IFood
     {
-        int _heal = 10;
-        int _poison = 0;
-        int _happy = 10;
-        int _hungry = -15;
-        public void AffectTamagochi() { }
+        private string _name = "flakes";
+        string IFood.Name { get { return _name; } }
+
+        private int _heal = 25;
+        int IFood.Heal { get { return _heal; } }
+
+        private int _poison = 0;
+        int IFood.Poison { get { return _poison; } }
+
+        private int _happy = 30;
+        int IFood.Happy { get { return _happy; } }
+
+        private int _satiety = 20;
+        int IFood.Satiety { get { return _satiety; } }
+
+        private string[] _recipe = { "corn", "water"};
+        string[] IFood.Recipe { get { return _recipe; } }
+
+        void IFood.AffectTamagochi() { }
     }
 
-    public class GrilledVegetables : food // подгорелый овощ = vegetable(овощ) + fire(огонь)
+    public class Bread : IFood
     {
-        int _heal = 20;
-        int _poison = -10;
-        int _happy = 20;
-        int _hungry = -25;
-        public void AffectTamagochi() { }
+        private string _name = "bread";
+        string IFood.Name { get { return _name; } }
+
+        private int _heal = 20;
+        int IFood.Heal { get { return _heal; } }
+
+        private int _poison = 0;
+        int IFood.Poison { get { return _poison; } }
+
+        private int _happy = 5;
+        int IFood.Happy { get { return _happy; } }
+
+        private int _satiety = 20;
+        int IFood.Satiety { get { return _satiety; } }
+
+        private string[] _recipe = { "corn", "fire"};
+        string[] IFood.Recipe { get { return _recipe; } }
+
+        void IFood.AffectTamagochi() { }
     }
 
-    public class Salad : food // салат = vegetable(овощ) + salt(соль)
+    public class Pie : IFood
     {
-        int _heal = 20;
-        int _poison = 0;
-        int _happy = 15;
-        int _hungry = -25;
-        public void AffectTamagochi() { }
+        private string _name = "pie";
+        string IFood.Name { get { return _name; } }
+
+        private int _heal = 35;
+        int IFood.Heal { get { return _heal; } }
+
+        private int _poison = 0;
+        int IFood.Poison { get { return _poison; } }
+
+        private int _happy = 50;
+        int IFood.Happy { get { return _happy; } }
+
+        private int _satiety = 25;
+        int IFood.Satiety { get { return _satiety; } }
+
+        private string[] _recipe = { "bread", "berry"};
+        string[] IFood.Recipe { get { return _recipe; } }
+
+        void IFood.AffectTamagochi() { }
     }
 
-    public class Steak : food // стейк = meat(мясо) + fire(огонь)
+    public class Jam : IFood
     {
-        int _heal = 50;
-        int _poison = -10;
-        int _happy = 50;
-        int _hungry = -25;
-        public void AffectTamagochi() { }
+        private string _name = "jam";
+        string IFood.Name { get { return _name; } }
+
+        private int _heal = 15;
+        int IFood.Heal { get { return _heal; } }
+
+        private int _poison = 0;
+        int IFood.Poison { get { return _poison; } }
+
+        private int _happy = 30;
+        int IFood.Happy { get { return _happy; } }
+
+        private int _satiety = 10;
+        int IFood.Satiety { get { return _satiety; } }
+
+        private string[] _recipe = { "berry", "sugar"};
+        string[] IFood.Recipe { get { return _recipe; } }
+
+        void IFood.AffectTamagochi() { }
     }
 
-    public class Rice : food // рис = corn(зерно) + water(вода)
+    public class Compote : IFood
     {
-        int _heal = 0;
-        int _poison = 0;
-        int _happy = 0;
-        int _hungry = 0;
-        public void AffectTamagochi() { }
+        private string _name = "compote";
+        string IFood.Name { get { return _name; } }
+
+        private int _heal = 5;
+        int IFood.Heal { get { return _heal; } }
+
+        private int _poison = -20;
+        int IFood.Poison { get { return _poison; } }
+
+        private int _happy = 20;
+        int IFood.Happy { get { return _happy; } }
+
+        private int _satiety = 10;
+        int IFood.Satiety { get { return _satiety; } }
+
+        private string[] _recipe = { "berry", "water"};
+        string[] IFood.Recipe { get { return _recipe; } }
+
+        void IFood.AffectTamagochi() { }
     }
 
-    public class RiceVegetables : food // рис с о. = rice(рис) + vegetable(овощ)
+    public class Jelly : IFood
     {
-        int _heal = 0;
-        int _poison = 0;
-        int _happy = 0;
-        int _hungry = 0;
-        public void AffectTamagochi() { }
+        private string _name = "jelly";
+        string IFood.Name { get { return _name; } }
+
+        private int _heal = 15;
+        int IFood.Heal { get { return _heal; } }
+
+        private int _poison = -15;
+        int IFood.Poison { get { return _poison; } }
+
+        private int _happy = 55;
+        int IFood.Happy { get { return _happy; } }
+
+        private int _satiety = 40;
+        int IFood.Satiety { get { return _satiety; } }
+
+        private string[] _recipe = { "jam", "marshmallow"};
+        string[] IFood.Recipe { get { return _recipe; } }
+
+        void IFood.AffectTamagochi() { }
     }
 
-    public class Popcorn : food // попкорн = rice(рис) + fire(огонь)
+    public class Omelette : IFood
     {
-        int _heal = 5;
-        int _poison = 0;
-        int _happy = 5;
-        int _hungry = -10;
-        public void AffectTamagochi() { }
+        private string _name = "omelette";
+        string IFood.Name { get { return _name; } }
+
+        private int _heal = 10;
+        int IFood.Heal { get { return _heal; } }
+
+        private int _poison = 0;
+        int IFood.Poison { get { return _poison; } }
+
+        private int _happy = 30;
+        int IFood.Happy { get { return _happy; } }
+
+        private int _satiety = 20;
+        int IFood.Satiety { get { return _satiety; } }
+
+        private string[] _recipe = { "egg", "fire"};
+        string[] IFood.Recipe { get { return _recipe; } }
+
+        void IFood.AffectTamagochi() { }
     }
 
-    public class VegetableSoup : food // овощьной суп = vegetable(овощ) + water(вода)
+    public class Pancake : IFood
     {
-        int _heal = 20;
-        int _poison = -30;
-        int _happy = 50;
-        int _hungry = -40;
-        public void AffectTamagochi() { }
+        private string _name = "pancake";
+        string IFood.Name { get { return _name; } }
+
+        private int _heal = 20;
+        int IFood.Heal { get { return _heal; } }
+
+        private int _poison = -10;
+        int IFood.Poison { get { return _poison; } }
+
+        private int _happy = 40;
+        int IFood.Happy { get { return _happy; } }
+
+        private int _satiety = 40;
+        int IFood.Satiety { get { return _satiety; } }
+
+        private string[] _recipe = { "jelly", "bread"};
+        string[] IFood.Recipe { get { return _recipe; } }
+
+        void IFood.AffectTamagochi() { }
     }
 
-    public class MushroomSoup : food // грибной суп = mushroom(гриб) + water(вода)
+    public class Toast : IFood
     {
-        int _heal = 30;
-        int _poison = -30;
-        int _happy = 50;
-        int _hungry = -45;
-        public void AffectTamagochi() { }
+        private string _name = "toast";
+        string IFood.Name { get { return _name; } }
+
+        private int _heal = 10;
+        int IFood.Heal { get { return _heal; } }
+
+        private int _poison = 0;
+        int IFood.Poison { get { return _poison; } }
+
+        private int _happy = 10;
+        int IFood.Happy { get { return _happy; } }
+
+        private int _satiety = 10;
+        int IFood.Satiety { get { return _satiety; } }
+
+        private string[] _recipe = { "corn", "fire"};
+        string[] IFood.Recipe { get { return _recipe; } }
+
+        void IFood.AffectTamagochi() { }
     }
 
-    public class FishSoup : food // рибный суп = fish(рыба) + water(вода)
+    public class GrilledVegetables : IFood
     {
-        int _heal = 40;
-        int _poison = -30;
-        int _happy = 50;
-        int _hungry = -50;
-        public void AffectTamagochi() { }
+        private string _name = "grilled_vegetables";
+        string IFood.Name { get { return _name; } }
+
+        private int _heal = 20;
+        int IFood.Heal { get { return _heal; } }
+
+        private int _poison = -10;
+        int IFood.Poison { get { return _poison; } }
+
+        private int _happy = 15;
+        int IFood.Happy { get { return _happy; } }
+
+        private int _satiety = 20;
+        int IFood.Satiety { get { return _satiety; } }
+
+        private string[] _recipe = { "vegetable", "fire"};
+        string[] IFood.Recipe { get { return _recipe; } }
+
+        void IFood.AffectTamagochi() { }
+    }
+
+    public class Salad : IFood
+    {
+        private string _name = "salad";
+        string IFood.Name { get { return _name; } }
+
+        private int _heal = 20;
+        int IFood.Heal { get { return _heal; } }
+
+        private int _poison = 0;
+        int IFood.Poison { get { return _poison; } }
+
+        private int _happy = 15;
+        int IFood.Happy { get { return _happy; } }
+
+        private int _satiety = 15;
+        int IFood.Satiety { get { return _satiety; } }
+
+        private string[] _recipe = { "vegetable", "vegetable"};
+        string[] IFood.Recipe { get { return _recipe; } }
+
+        void IFood.AffectTamagochi() { }
+    }
+
+    public class Steak : IFood
+    {
+        private string _name = "steak";
+        string IFood.Name { get { return _name; } }
+
+        private int _heal = 35;
+        int IFood.Heal { get { return _heal; } }
+
+        private int _poison = -5;
+        int IFood.Poison { get { return _poison; } }
+
+        private int _happy = 40;
+        int IFood.Happy { get { return _happy; } }
+
+        private int _satiety = 35;
+        int IFood.Satiety { get { return _satiety; } }
+
+        private string[] _recipe = { "meat", "fire"};
+        string[] IFood.Recipe { get { return _recipe; } }
+
+        void IFood.AffectTamagochi() { }
+    }
+
+    public class Rice : IFood
+    {
+        private string _name = "rice";
+        string IFood.Name { get { return _name; } }
+
+        private int _heal = 20;
+        int IFood.Heal { get { return _heal; } }
+
+        private int _poison = 0;
+        int IFood.Poison { get { return _poison; } }
+
+        private int _happy = 20;
+        int IFood.Happy { get { return _happy; } }
+
+        private int _satiety = 20;
+        int IFood.Satiety { get { return _satiety; } }
+
+        private string[] _recipe = { "corn", "water"};
+        string[] IFood.Recipe { get { return _recipe; } }
+
+        void IFood.AffectTamagochi() { }
+    }
+
+    public class RiceVegetables : IFood
+    {
+        private string _name = "rice_vegetables";
+        string IFood.Name { get { return _name; } }
+
+        private int _heal = 30;
+        int IFood.Heal { get { return _heal; } }
+
+        private int _poison = -10;
+        int IFood.Poison { get { return _poison; } }
+
+        private int _happy = 35;
+        int IFood.Happy { get { return _happy; } }
+
+        private int _satiety = 30;
+        int IFood.Satiety { get { return _satiety; } }
+
+        private string[] _recipe = { "rice", "vegetable"};
+        string[] IFood.Recipe { get { return _recipe; } }
+
+        void IFood.AffectTamagochi() { }
+    }
+
+    public class Popcorn : IFood
+    {
+        private string _name = "popcorn";
+        string IFood.Name { get { return _name; } }
+
+        private int _heal = 25;
+        int IFood.Heal { get { return _heal; } }
+
+        private int _poison = 0;
+        int IFood.Poison { get { return _poison; } }
+
+        private int _happy = 25;
+        int IFood.Happy { get { return _happy; } }
+
+        private int _satiety = 25;
+        int IFood.Satiety { get { return _satiety; } }
+
+        private string[] _recipe = { "rice", "fire"};
+        string[] IFood.Recipe { get { return _recipe; } }
+
+        void IFood.AffectTamagochi() { }
+    }
+
+    public class VegetableSoup : IFood
+    {
+        private string _name = "vegetable_soup";
+        string IFood.Name { get { return _name; } }
+
+        private int _heal = 25;
+        int IFood.Heal { get { return _heal; } }
+
+        private int _poison = -30;
+        int IFood.Poison { get { return _poison; } }
+
+        private int _happy = 40;
+        int IFood.Happy { get { return _happy; } }
+
+        private int _satiety = 40;
+        int IFood.Satiety { get { return _satiety; } }
+
+        private string[] _recipe = { "vegetable", "water"};
+        string[] IFood.Recipe { get { return _recipe; } }
+
+        void IFood.AffectTamagochi() { }
+    }
+
+    public class MushroomSoup : IFood
+    {
+        private string _name = "mushroom_soup";
+        string IFood.Name { get { return _name; } }
+
+        private int _heal = 30;
+        int IFood.Heal { get { return _heal; } }
+
+        private int _poison = -30;
+        int IFood.Poison { get { return _poison; } }
+
+        private int _happy = 45;
+        int IFood.Happy { get { return _happy; } }
+
+        private int _satiety = 45;
+        int IFood.Satiety { get { return _satiety; } }
+
+        private string[] _recipe = { "mushroom", "water"};
+        string[] IFood.Recipe { get { return _recipe; } }
+
+        void IFood.AffectTamagochi() { }
+    }
+
+    public class FishSoup : IFood
+    {
+        private string _name = "fish_soup";
+        string IFood.Name { get { return _name; } }
+
+        private int _heal = 35;
+        int IFood.Heal { get { return _heal; } }
+
+        private int _poison = -30;
+        int IFood.Poison { get { return _poison; } }
+
+        private int _happy = 50;
+        int IFood.Happy { get { return _happy; } }
+
+        private int _satiety = 50;
+        int IFood.Satiety { get { return _satiety; } }
+
+        private string[] _recipe = { "fish", "water"};
+        string[] IFood.Recipe { get { return _recipe; } }
+
+        void IFood.AffectTamagochi() { }
     }
 }
+
