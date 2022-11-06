@@ -78,6 +78,22 @@ namespace Tamagochi_WPF
 
             happines_ -= 2;
             saturation_ -= 1;
+
+            if (heal_ > 100) heal_ = 100;
+
+            if (poisoning_ > 100) poisoning_ = 100;
+
+            if (saturation_ > 100) saturation_ = 100;
+
+            if (happines_ > 100) happines_ = 100;
+
+            if (happines_ < 0) happines_ = 0;
+
+            if (heal_ < 0) heal_ = 0;
+
+            if (poisoning_ < 0) poisoning_ = 0;
+
+            if (saturation_ < 0) saturation_ = 0;
         }
         // вызывается на каждый тик игрового времени (каждые 3_сек. наверное).
 

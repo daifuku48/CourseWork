@@ -52,8 +52,9 @@ namespace Tamagochi_WPF
             timerForTamagochi = new DispatcherTimer();
             timerForTamagochi.Interval = new TimeSpan(0, 0, 0, 3);
             timerForTamagochi.Tick += Timer_Eat;
-       
             
+            
+
         }
         private void Timer_Eat(object sender, EventArgs e)
         {
@@ -61,6 +62,12 @@ namespace Tamagochi_WPF
             tamagochi.StateUpdate();
             ProgressBarOfHungry.Value = tamagochi.Saturation;
             Label_HugerIndex.Content = tamagochi.Saturation;
+            ProgressBarOfHappy.Value = tamagochi.Happines;
+            Label_HappinessIndex.Content = tamagochi.Happines;
+            ProgressBarOfHeal.Value = tamagochi.Heal;
+            Label_healIndex.Content = tamagochi.Heal;
+            ProgressBarOfPoison.Value = tamagochi.Poisoning;
+            Label_PoisoningIndex.Content = tamagochi.Poisoning;
             if (tamagochi.Heal == 0)
             {
                 tamagochi.StateDestroy();

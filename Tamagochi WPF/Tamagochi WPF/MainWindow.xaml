@@ -255,7 +255,7 @@
                 VerticalAlignment="Top"
                 Width="260"
                 Background="#f0f0f0"
-                Foreground="#8B00FF"/>
+                Foreground="#8B00FF" IsEnabled="False"/>
             <Label 
                 Grid.Column="2"
                 x:Name="Label_heal_Copy5"
