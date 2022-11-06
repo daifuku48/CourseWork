@@ -286,7 +286,7 @@ namespace Tamagochi_WPF
         private int _satiety = 20;
         int IFood.Satiety { get { return _satiety; } }
 
-        private string[] _recipe = { "corn", "water"};
+        private string[] _recipe = { "corn", "water" };
         string[] IFood.Recipe { get { return _recipe; } }
 
         void IFood.AffectTamagochi() { }
@@ -309,7 +309,7 @@ namespace Tamagochi_WPF
         private int _satiety = 20;
         int IFood.Satiety { get { return _satiety; } }
 
-        private string[] _recipe = { "corn", "fire"};
+        private string[] _recipe = { "corn", "fire" };
         string[] IFood.Recipe { get { return _recipe; } }
 
         void IFood.AffectTamagochi() { }
@@ -332,7 +332,7 @@ namespace Tamagochi_WPF
         private int _satiety = 25;
         int IFood.Satiety { get { return _satiety; } }
 
-        private string[] _recipe = { "bread", "berry"};
+        private string[] _recipe = { "bread", "berry" };
         string[] IFood.Recipe { get { return _recipe; } }
 
         void IFood.AffectTamagochi() { }
@@ -355,7 +355,7 @@ namespace Tamagochi_WPF
         private int _satiety = 10;
         int IFood.Satiety { get { return _satiety; } }
 
-        private string[] _recipe = { "berry", "sugar"};
+        private string[] _recipe = { "berry", "sugar" };
         string[] IFood.Recipe { get { return _recipe; } }
 
         void IFood.AffectTamagochi() { }
@@ -378,7 +378,7 @@ namespace Tamagochi_WPF
         private int _satiety = 10;
         int IFood.Satiety { get { return _satiety; } }
 
-        private string[] _recipe = { "berry", "water"};
+        private string[] _recipe = { "berry", "water" };
         string[] IFood.Recipe { get { return _recipe; } }
 
         void IFood.AffectTamagochi() { }
@@ -401,7 +401,7 @@ namespace Tamagochi_WPF
         private int _satiety = 40;
         int IFood.Satiety { get { return _satiety; } }
 
-        private string[] _recipe = { "jam", "marshmallow"};
+        private string[] _recipe = { "jam", "marshmallow" };
         string[] IFood.Recipe { get { return _recipe; } }
 
         void IFood.AffectTamagochi() { }
@@ -424,7 +424,7 @@ namespace Tamagochi_WPF
         private int _satiety = 20;
         int IFood.Satiety { get { return _satiety; } }
 
-        private string[] _recipe = { "egg", "fire"};
+        private string[] _recipe = { "egg", "fire" };
         string[] IFood.Recipe { get { return _recipe; } }
 
         void IFood.AffectTamagochi() { }
@@ -447,7 +447,7 @@ namespace Tamagochi_WPF
         private int _satiety = 40;
         int IFood.Satiety { get { return _satiety; } }
 
-        private string[] _recipe = { "jelly", "bread"};
+        private string[] _recipe = { "jelly", "bread" };
         string[] IFood.Recipe { get { return _recipe; } }
 
         void IFood.AffectTamagochi() { }
@@ -470,7 +470,7 @@ namespace Tamagochi_WPF
         private int _satiety = 10;
         int IFood.Satiety { get { return _satiety; } }
 
-        private string[] _recipe = { "corn", "fire"};
+        private string[] _recipe = { "corn", "fire" };
         string[] IFood.Recipe { get { return _recipe; } }
 
         void IFood.AffectTamagochi() { }
@@ -493,7 +493,7 @@ namespace Tamagochi_WPF
         private int _satiety = 20;
         int IFood.Satiety { get { return _satiety; } }
 
-        private string[] _recipe = { "vegetable", "fire"};
+        private string[] _recipe = { "vegetable", "fire" };
         string[] IFood.Recipe { get { return _recipe; } }
 
         void IFood.AffectTamagochi() { }
@@ -516,7 +516,7 @@ namespace Tamagochi_WPF
         private int _satiety = 15;
         int IFood.Satiety { get { return _satiety; } }
 
-        private string[] _recipe = { "vegetable", "vegetable"};
+        private string[] _recipe = { "vegetable", "vegetable" };
         string[] IFood.Recipe { get { return _recipe; } }
 
         void IFood.AffectTamagochi() { }
@@ -539,7 +539,7 @@ namespace Tamagochi_WPF
         private int _satiety = 35;
         int IFood.Satiety { get { return _satiety; } }
 
-        private string[] _recipe = { "meat", "fire"};
+        private string[] _recipe = { "meat", "fire" };
         string[] IFood.Recipe { get { return _recipe; } }
 
         void IFood.AffectTamagochi() { }
@@ -562,7 +562,7 @@ namespace Tamagochi_WPF
         private int _satiety = 20;
         int IFood.Satiety { get { return _satiety; } }
 
-        private string[] _recipe = { "corn", "water"};
+        private string[] _recipe = { "corn", "water" };
         string[] IFood.Recipe { get { return _recipe; } }
 
         void IFood.AffectTamagochi() { }
@@ -585,7 +585,7 @@ namespace Tamagochi_WPF
         private int _satiety = 30;
         int IFood.Satiety { get { return _satiety; } }
 
-        private string[] _recipe = { "rice", "vegetable"};
+        private string[] _recipe = { "rice", "vegetable" };
         string[] IFood.Recipe { get { return _recipe; } }
 
         void IFood.AffectTamagochi() { }
@@ -608,7 +608,7 @@ namespace Tamagochi_WPF
         private int _satiety = 25;
         int IFood.Satiety { get { return _satiety; } }
 
-        private string[] _recipe = { "rice", "fire"};
+        private string[] _recipe = { "rice", "fire" };
         string[] IFood.Recipe { get { return _recipe; } }
 
         void IFood.AffectTamagochi() { }
@@ -631,7 +631,7 @@ namespace Tamagochi_WPF
         private int _satiety = 40;
         int IFood.Satiety { get { return _satiety; } }
 
-        private string[] _recipe = { "vegetable", "water"};
+        private string[] _recipe = { "vegetable", "water" };
         string[] IFood.Recipe { get { return _recipe; } }
 
         void IFood.AffectTamagochi() { }
@@ -654,7 +654,7 @@ namespace Tamagochi_WPF
         private int _satiety = 45;
         int IFood.Satiety { get { return _satiety; } }
 
-        private string[] _recipe = { "mushroom", "water"};
+        private string[] _recipe = { "mushroom", "water" };
         string[] IFood.Recipe { get { return _recipe; } }
 
         void IFood.AffectTamagochi() { }
@@ -677,7 +677,7 @@ namespace Tamagochi_WPF
         private int _satiety = 50;
         int IFood.Satiety { get { return _satiety; } }
 
-        private string[] _recipe = { "fish", "water"};
+        private string[] _recipe = { "fish", "water" };
         string[] IFood.Recipe { get { return _recipe; } }
 
         void IFood.AffectTamagochi() { }

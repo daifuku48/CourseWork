@@ -1,4 +1,7 @@
 ﻿using System;
+using Internal;
+using System.Collections.Generic;
+
 namespace Tamagochi_WPF
 {
     public class Item
@@ -91,4 +94,5 @@ namespace Tamagochi_WPF
         // тут понятно
     }
 }
+
 

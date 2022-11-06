@@ -78,7 +78,6 @@
     </Page>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="MVVM\Model\food.cs" />
     <Compile Include="MVVM\Model\Tamagochi.cs" />
     <Compile Include="MVVM\View\kitchen.xaml.cs">
       <DependentUpon>kitchen.xaml</DependentUpon>
@@ -105,6 +104,8 @@
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
+    <None Include="MVVM\Model\Food.cs" />
+    <None Include="MVVM\Model\InventoryController.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
