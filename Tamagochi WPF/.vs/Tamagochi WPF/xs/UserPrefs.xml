@@ -1,12 +1,24 @@
 ﻿<Properties>
-  <MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MultiItemStartupConfigurations />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.Workbench ActiveDocument="Tamagochi WPF/MVVM/Model/Tamagochi.cs">
+    <Files>
+      <File FileName="Tamagochi WPF/MVVM/Model/InventoryController.cs" Line="1" Column="1" />
+      <File FileName="Tamagochi WPF/MVVM/Model/Tamagochi.cs" Line="1" Column="1" />
+    </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State name="__root__">
           <Node name="Tamagochi WPF" expanded="True">
             <Node name="Tamagochi WPF" expanded="True">
-              <Node name="img" selected="True" />
-              <Node name="MVVM" expanded="True" />
+              <Node name="MVVM" expanded="True">
+                <Node name="Model" expanded="True">
+                  <Node name="Tamagochi.cs" selected="True" />
+                </Node>
+              </Node>
             </Node>
           </Node>
         </State>
@@ -16,10 +28,5 @@
       </Pad>
     </Pads>
   </MonoDevelop.Ide.Workbench>
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MultiItemStartupConfigurations />
-  <MonoDevelop.Ide.DebuggingService.Breakpoints>
-    <BreakpointStore />
-  </MonoDevelop.Ide.DebuggingService.Breakpoints>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
 </Properties>

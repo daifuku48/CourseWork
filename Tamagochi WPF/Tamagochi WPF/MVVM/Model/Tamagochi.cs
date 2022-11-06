@@ -7,7 +7,7 @@ using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Xml.Linq;
-using Internal;
+//using Internal;
 
 namespace Tamagochi_WPF
 {

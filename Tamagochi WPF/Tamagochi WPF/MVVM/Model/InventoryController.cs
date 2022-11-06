@@ -1,5 +1,5 @@
 ﻿using System;
-using Internal;
+//using Internal;
 using System.Collections.Generic;
 
 namespace Tamagochi_WPF
@@ -27,7 +27,7 @@ namespace Tamagochi_WPF
     {
         public List<Item> items_ = new List<Item>();
         // список продуктов в инвентаре
-        // список количества продуктво
+        // список количества продуктoв
 
         public bool Crafting(IFood food_, int amount_ = 1)
         {
@@ -71,17 +71,24 @@ namespace Tamagochi_WPF
             // удаление продукта из инвентаря
         }
 
-        private bool CheckItem(IFood food_)
+        public bool CheckItem(IFood food_)
         {
             foreach (Item item in items_)
-                if (item.food.Name == food_.Name) return true;
+                if (item.food.Name == food_.Name && item.amount > 0) return true;
+            return false;
+        }
+
+        public bool CheckItem(string name_)
+        {
+            foreach (Item item in items_)
+                if (item.food.Name == name_ && item.amount > 0) return true;
             return false;
         }
 
         private bool CheckCrafting(IFood food_)
         {
-            foreach (string item_name in food_.Recipe)
-                if (items_.Find(obj => obj.food.Name == item_name).amount == 0) return false;
+            foreach (string name in food_.Recipe)
+                if (CheckItem(name)) return false;
             return true;
         }
         // проверка наличия всех ингридиентов для крафта продукта
@@ -94,5 +101,3 @@ namespace Tamagochi_WPF
         // тут понятно
     }
 }
-
-
