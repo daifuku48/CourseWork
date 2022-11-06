@@ -68,11 +68,7 @@ namespace Tamagochi_WPF
             Label_healIndex.Content = tamagochi.Heal;
             ProgressBarOfPoison.Value = tamagochi.Poisoning;
             Label_PoisoningIndex.Content = tamagochi.Poisoning;
-            if (tamagochi.Heal == 0)
-            {
-                tamagochi.StateDestroy();
-                timerEnd.Tick += End_Tick;
-            }
+            if (!tamagochi.IsAlive) EndGamehidden = true;
         }
         private void Start_Tick(object sender, EventArgs e)
         {

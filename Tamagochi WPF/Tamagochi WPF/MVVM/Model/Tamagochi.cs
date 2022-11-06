@@ -71,7 +71,8 @@ namespace Tamagochi_WPF
             }
 
             if (happines_ <= 0)
-                poisoning_ = poisoning_ + Math.Abs(happines_);
+                poisoning_ += 3;
+                //poisoning_ = poisoning_ + Math.Abs(happines_);
 
             if (saturation_ <= 0)
                 heal_ -= 2;
