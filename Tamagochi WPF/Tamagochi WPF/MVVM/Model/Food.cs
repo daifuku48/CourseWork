@@ -5,15 +5,15 @@ namespace Tamagochi_WPF
 {
     public interface IFood
     {
-        public string Name { get; } // имя продукта
-        public int Heal { get; } // количество здоровья которое востанавливает продукт
-        public int Poison { get; } // количество отравление продуктом
-        public int Happy { get; } // количество счастья
-        public int Satiety { get; } // количество насыщения
-        public string[] Recipe { get; } // рецепт а точнеее список необходимых ингредиентов
-        public bool HasRecipe => Recipe != null; // является ли объект приготовляемый(true) или базовым(false) продуктом
+        string Name { get; } // имя продукта
+        int Heal { get; } // количество здоровья которое востанавливает продукт
+        int Poison { get; } // количество отравление продуктом
+        int Happy { get; } // количество счастья
+        int Satiety { get; } // количество насыщения
+        string[] Recipe { get; } // рецепт а точнеее список необходимых ингредиентов
+        bool HasRecipe(); // является ли объект приготовляемый(true) или базовым(false) продуктом
 
-        public void AffectTamagochi();
+        void AffectTamagochi();
     }
 
     public class Sugar : IFood
@@ -37,6 +37,10 @@ namespace Tamagochi_WPF
         string[] IFood.Recipe { get { return _recipe; } }
 
         void IFood.AffectTamagochi() { }
+        public bool HasRecipe()
+        {
+            return _recipe != null;
+        }
     }
 
     public class Salt : IFood
@@ -60,6 +64,10 @@ namespace Tamagochi_WPF
         string[] IFood.Recipe { get { return _recipe; } }
 
         void IFood.AffectTamagochi() { }
+        public bool HasRecipe()
+        {
+            return _recipe != null;
+        }
     }
 
     public class Water : IFood
@@ -83,6 +91,10 @@ namespace Tamagochi_WPF
         string[] IFood.Recipe { get { return _recipe; } }
 
         void IFood.AffectTamagochi() { }
+        public bool HasRecipe()
+        {
+            return _recipe != null;
+        }
     }
 
     public class Fire : IFood
@@ -106,6 +118,10 @@ namespace Tamagochi_WPF
         string[] IFood.Recipe { get { return _recipe; } }
 
         void IFood.AffectTamagochi() { }
+        public bool HasRecipe()
+        {
+            return _recipe != null;
+        }
     }
 
     public class Duck : IFood
@@ -129,6 +145,10 @@ namespace Tamagochi_WPF
         string[] IFood.Recipe { get { return _recipe; } }
 
         void IFood.AffectTamagochi() { }
+        public bool HasRecipe()
+        {
+            return _recipe != null;
+        }
     }
 
     public class Corn : IFood
@@ -152,6 +172,10 @@ namespace Tamagochi_WPF
         string[] IFood.Recipe { get { return _recipe; } }
 
         void IFood.AffectTamagochi() { }
+        public bool HasRecipe()
+        {
+            return _recipe != null;
+        }
     }
 
     public class Fish : IFood
@@ -175,6 +199,10 @@ namespace Tamagochi_WPF
         string[] IFood.Recipe { get { return _recipe; } }
 
         void IFood.AffectTamagochi() { }
+        public bool HasRecipe()
+        {
+            return _recipe != null;
+        }
     }
 
     public class Egg : IFood
@@ -198,6 +226,10 @@ namespace Tamagochi_WPF
         string[] IFood.Recipe { get { return _recipe; } }
 
         void IFood.AffectTamagochi() { }
+        public bool HasRecipe()
+        {
+            return _recipe != null;
+        }
     }
 
     public class Mushroom : IFood
@@ -221,6 +253,10 @@ namespace Tamagochi_WPF
         string[] IFood.Recipe { get { return _recipe; } }
 
         void IFood.AffectTamagochi() { }
+        public bool HasRecipe()
+        {
+            return _recipe != null;
+        }
     }
 
     public class Marshmallow : IFood
@@ -244,6 +280,10 @@ namespace Tamagochi_WPF
         string[] IFood.Recipe { get { return _recipe; } }
 
         void IFood.AffectTamagochi() { }
+        public bool HasRecipe()
+        {
+            return _recipe != null;
+        }
     }
 
     public class Vegetable : IFood
@@ -267,6 +307,10 @@ namespace Tamagochi_WPF
         string[] IFood.Recipe { get { return _recipe; } }
 
         void IFood.AffectTamagochi() { }
+        public bool HasRecipe()
+        {
+            return _recipe != null;
+        }
     }
 
     public class Flakes : IFood
@@ -290,6 +334,10 @@ namespace Tamagochi_WPF
         string[] IFood.Recipe { get { return _recipe; } }
 
         void IFood.AffectTamagochi() { }
+        public bool HasRecipe()
+        {
+            return _recipe != null;
+        }
     }
 
     public class Bread : IFood
@@ -313,6 +361,10 @@ namespace Tamagochi_WPF
         string[] IFood.Recipe { get { return _recipe; } }
 
         void IFood.AffectTamagochi() { }
+        public bool HasRecipe()
+        {
+            return _recipe != null;
+        }
     }
 
     public class Pie : IFood
@@ -336,6 +388,10 @@ namespace Tamagochi_WPF
         string[] IFood.Recipe { get { return _recipe; } }
 
         void IFood.AffectTamagochi() { }
+        public bool HasRecipe()
+        {
+            return _recipe != null;
+        }
     }
 
     public class Jam : IFood
@@ -359,6 +415,10 @@ namespace Tamagochi_WPF
         string[] IFood.Recipe { get { return _recipe; } }
 
         void IFood.AffectTamagochi() { }
+        public bool HasRecipe()
+        {
+            return _recipe != null;
+        }
     }
 
     public class Compote : IFood
@@ -382,6 +442,10 @@ namespace Tamagochi_WPF
         string[] IFood.Recipe { get { return _recipe; } }
 
         void IFood.AffectTamagochi() { }
+        public bool HasRecipe()
+        {
+            return _recipe != null;
+        }
     }
 
     public class Jelly : IFood
@@ -405,6 +469,10 @@ namespace Tamagochi_WPF
         string[] IFood.Recipe { get { return _recipe; } }
 
         void IFood.AffectTamagochi() { }
+        public bool HasRecipe()
+        {
+            return _recipe != null;
+        }
     }
 
     public class Omelette : IFood
@@ -428,6 +496,10 @@ namespace Tamagochi_WPF
         string[] IFood.Recipe { get { return _recipe; } }
 
         void IFood.AffectTamagochi() { }
+        public bool HasRecipe()
+        {
+            return _recipe != null;
+        }
     }
 
     public class Pancake : IFood
@@ -451,6 +523,10 @@ namespace Tamagochi_WPF
         string[] IFood.Recipe { get { return _recipe; } }
 
         void IFood.AffectTamagochi() { }
+        public bool HasRecipe()
+        {
+            return _recipe != null;
+        }
     }
 
     public class Toast : IFood
@@ -474,6 +550,10 @@ namespace Tamagochi_WPF
         string[] IFood.Recipe { get { return _recipe; } }
 
         void IFood.AffectTamagochi() { }
+        public bool HasRecipe()
+        {
+            return _recipe != null;
+        }
     }
 
     public class GrilledVegetables : IFood
@@ -497,6 +577,10 @@ namespace Tamagochi_WPF
         string[] IFood.Recipe { get { return _recipe; } }
 
         void IFood.AffectTamagochi() { }
+        public bool HasRecipe()
+        {
+            return _recipe != null;
+        }
     }
 
     public class Salad : IFood
@@ -520,6 +604,10 @@ namespace Tamagochi_WPF
         string[] IFood.Recipe { get { return _recipe; } }
 
         void IFood.AffectTamagochi() { }
+        public bool HasRecipe()
+        {
+            return _recipe != null;
+        }
     }
 
     public class Steak : IFood
@@ -543,6 +631,10 @@ namespace Tamagochi_WPF
         string[] IFood.Recipe { get { return _recipe; } }
 
         void IFood.AffectTamagochi() { }
+        public bool HasRecipe()
+        {
+            return _recipe != null;
+        }
     }
 
     public class Rice : IFood
@@ -566,6 +658,10 @@ namespace Tamagochi_WPF
         string[] IFood.Recipe { get { return _recipe; } }
 
         void IFood.AffectTamagochi() { }
+        public bool HasRecipe()
+        {
+            return _recipe != null;
+        }
     }
 
     public class RiceVegetables : IFood
@@ -589,6 +685,10 @@ namespace Tamagochi_WPF
         string[] IFood.Recipe { get { return _recipe; } }
 
         void IFood.AffectTamagochi() { }
+        public bool HasRecipe()
+        {
+            return _recipe != null;
+        }
     }
 
     public class Popcorn : IFood
@@ -612,6 +712,10 @@ namespace Tamagochi_WPF
         string[] IFood.Recipe { get { return _recipe; } }
 
         void IFood.AffectTamagochi() { }
+        public bool HasRecipe()
+        {
+            return _recipe != null;
+        }
     }
 
     public class VegetableSoup : IFood
@@ -635,6 +739,10 @@ namespace Tamagochi_WPF
         string[] IFood.Recipe { get { return _recipe; } }
 
         void IFood.AffectTamagochi() { }
+        public bool HasRecipe()
+        {
+            return _recipe != null;
+        }
     }
 
     public class MushroomSoup : IFood
@@ -658,6 +766,10 @@ namespace Tamagochi_WPF
         string[] IFood.Recipe { get { return _recipe; } }
 
         void IFood.AffectTamagochi() { }
+        public bool HasRecipe()
+        {
+            return _recipe != null;
+        }
     }
 
     public class FishSoup : IFood
@@ -681,6 +793,10 @@ namespace Tamagochi_WPF
         string[] IFood.Recipe { get { return _recipe; } }
 
         void IFood.AffectTamagochi() { }
+        public bool HasRecipe()
+        {
+            return _recipe != null;
+        }
     }
 }
 

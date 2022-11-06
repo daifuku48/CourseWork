@@ -13,6 +13,9 @@ namespace Tamagochi_WPF
 {
     class Tamagochi
     {
+        private string name_;
+        public string Name { get { return name_; } set { name_ = value; } }
+
         private int happines_;
         public int Happines { get { return happines_; } set { happines_ = value; } }
 

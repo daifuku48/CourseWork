@@ -31,7 +31,7 @@ namespace Tamagochi_WPF
 
         public bool Crafting(IFood food_, int amount_ = 1)
         {
-            if (!food_.HasRecipe) return false;
+            if (!food_.HasRecipe()) return false;
             // ошибка базовый продукт не может быть создан.
 
             if (!CheckCrafting(food_)) return false;
