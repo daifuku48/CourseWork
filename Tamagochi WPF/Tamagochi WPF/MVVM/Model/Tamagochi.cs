@@ -57,6 +57,7 @@ namespace Tamagochi_WPF
             saturation_ = 0;
             happines_ = 0;
             is_alive_ = false;
+            name_ = "";
         }
         // вызыватся при смерти персонажа.
 
@@ -75,10 +76,10 @@ namespace Tamagochi_WPF
                 //poisoning_ = poisoning_ + Math.Abs(happines_);
 
             if (saturation_ <= 0)
-                heal_ -= 2;
+                heal_ -= 50;
 
-            happines_ -= 2;
-            saturation_ -= 1;
+            happines_ -= 50;
+            saturation_ -= 50;
 
             if (heal_ > 100) heal_ = 100;
 

@@ -68,7 +68,12 @@ namespace Tamagochi_WPF
             Label_healIndex.Content = tamagochi.Heal;
             ProgressBarOfPoison.Value = tamagochi.Poisoning;
             Label_PoisoningIndex.Content = tamagochi.Poisoning;
-            if (!tamagochi.IsAlive) EndGamehidden = true;
+            if (!tamagochi.IsAlive)
+            {
+                EndGamehidden = true;
+                timerForTamagochi.Stop();
+                timerEnd.Start();
+            }
         }
         private void Start_Tick(object sender, EventArgs e)
         {
@@ -104,7 +109,6 @@ namespace Tamagochi_WPF
                 {
                     timerEnd.Stop();
                     EndGamehidden = false;
-
                 }
             }
             else
@@ -115,7 +119,9 @@ namespace Tamagochi_WPF
                     timerEnd.Stop();
                     EndGamehidden = true;
                     EndGamePanel.Visibility = Visibility.Hidden;
+                    tamagochi.StateCreate();
                     timerstart.Start();
+                    StartGamehidden = true;
                 }
             }
         }
@@ -165,7 +171,7 @@ namespace Tamagochi_WPF
             {
                 timerstart.Start();
                 tamagochi.Name = NameOfDuck.Text;
-                Label_Name.Content = Label_Name.Content + " " + tamagochi.Name;
+                Label_Name.Content = "Name: " + tamagochi.Name;
                 tamagochi.Heal = 100;
                 
 
