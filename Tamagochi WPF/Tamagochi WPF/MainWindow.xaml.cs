@@ -59,7 +59,7 @@ namespace Tamagochi_WPF
             timerForTakeEat.Tick += Timer_Take_Eat;
 
             timerOfLife = new DispatcherTimer();
-            timerOfLife.Interval = new TimeSpan(0, 0, 0, 10);
+            timerOfLife.Interval = new TimeSpan(0, 0, 0, 60);
             timerOfLife.Tick += TimerOfLife_Tick;
         }
 
