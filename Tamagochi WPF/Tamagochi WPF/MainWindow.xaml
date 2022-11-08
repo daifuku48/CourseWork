@@ -47,20 +47,9 @@
             <Label 
                 Grid.Column="2" 
                 x:Name="Label_AgeText" 
-                Content="Age:"
+                Content="Age: 0"
                 HorizontalAlignment="Center" 
                 Margin="0,0,0,0" 
-                VerticalAlignment="Center" 
-                FontFamily="Open Sans"
-                FontSize="16"
-                FontWeight="Medium"
-                RenderTransformOrigin="0.578,1.837"/>
-            <Label 
-                Grid.Column="2" 
-                x:Name="Label_Age" 
-                Content="0"
-                HorizontalAlignment="Center" 
-                Margin="60,0,0,0" 
                 VerticalAlignment="Center" 
                 FontFamily="Open Sans"
                 FontSize="16"
@@ -636,5 +625,14 @@
                 gif:ImageBehavior.RepeatBehavior="Forever" 
                 gif:ImageBehavior.AnimatedSource="/icons/rain.gif" Grid.ColumnSpan="2" />
         </Grid>
+        <ListBox 
+            Name ="eat_List"
+            d:ItemsSource="{d:SampleData ItemCount=40}" 
+            Margin="234,498,234,10" 
+            SnapsToDevicePixels="True"
+            FontSize="14" 
+            FontFamily="Segoe UI Semilight" 
+            Background="#FFFDFDFD" 
+            RenderTransformOrigin="0.45,0.5"/>
     </Grid>
 </Window>

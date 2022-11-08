@@ -24,12 +24,13 @@ namespace Tamagochi_WPF
     public partial class MainWindow : Window
     {
         
-        DispatcherTimer timer , timerstart, timerEnd, timerForTamagochi;
+        DispatcherTimer timer , timerstart, timerEnd, timerForTamagochi, timerForTakeEat, timerOfLife;
 
         double MenuWidth , StartGameHeight, EndGameHeight;
         bool hiddenMenu , StartGamehidden , EndGamehidden;
         Tamagochi tamagochi;
 
+        int timeOflife;
 
         public MainWindow()
         {
@@ -52,10 +53,22 @@ namespace Tamagochi_WPF
             timerForTamagochi = new DispatcherTimer();
             timerForTamagochi.Interval = new TimeSpan(0, 0, 0, 3);
             timerForTamagochi.Tick += Timer_Eat;
-            
-            
 
+            timerForTakeEat = new DispatcherTimer();
+            timerForTamagochi.Interval = new TimeSpan(0, 0, 0, 10);
+            timerForTakeEat.Tick += Timer_Take_Eat;
+
+            timerOfLife = new DispatcherTimer();
+            timerOfLife.Interval = new TimeSpan(0, 0, 0, 10);
+            timerOfLife.Tick += TimerOfLife_Tick;
         }
+
+        private void TimerOfLife_Tick(object sender, EventArgs e)
+        {
+            timeOflife++;
+            Label_AgeText.Content = "Age: " + Convert.ToString(timeOflife) + " years";
+        }
+
         private void Timer_Eat(object sender, EventArgs e)
         {
             /*tamagochi.ProgressBarOfHappy.Value;*/
@@ -75,6 +88,9 @@ namespace Tamagochi_WPF
                 timerEnd.Start();
             }
         }
+
+
+
         private void Start_Tick(object sender, EventArgs e)
         {
             if (StartGamehidden)
@@ -96,9 +112,11 @@ namespace Tamagochi_WPF
                     StartGamehidden = true;
                     StartGamePanel.Visibility = Visibility.Hidden;
                     timerForTamagochi.Start();
+                    timerOfLife.Start();
                 }
             }
         }
+        //таймер с для вывода панели в начале игры для задавания имени персонажу
         private void End_Tick(object sender, EventArgs e)
         {
             if (EndGamehidden)
@@ -125,6 +143,7 @@ namespace Tamagochi_WPF
                 }
             }
         }
+        //рестарт игры(если захотим, можно сюда еще допилить панель с результатами, сколько еды сёел и сколько минут прожил
 
         private void Timer_Tick(object sender, EventArgs e)
         {
@@ -149,11 +168,7 @@ namespace Tamagochi_WPF
                 }
             }
         }
-
-        private void NameOfDuck_TextChanged(object sender, TextChangedEventArgs e)
-        {
-
-        }
+        
 
         private void Restart_Game(object sender, RoutedEventArgs e)
         {
@@ -172,9 +187,6 @@ namespace Tamagochi_WPF
                 timerstart.Start();
                 tamagochi.Name = NameOfDuck.Text;
                 Label_Name.Content = "Name: " + tamagochi.Name;
-                tamagochi.Heal = 100;
-                
-
                 ProgressBarOfHeal.Value = tamagochi.Heal;         
                 ProgressBarOfHappy.Value = tamagochi.Happines;
                 ProgressBarOfHungry.Value = tamagochi.Saturation;
@@ -185,7 +197,7 @@ namespace Tamagochi_WPF
                 Label_PoisoningIndex.Content = tamagochi.Poisoning;
             }
         }
-
+        //передача начальных параметров в интерфейс
         private void leftDown(object sender, MouseButtonEventArgs e)
         {
             Application.Current.Shutdown();
@@ -198,24 +210,17 @@ namespace Tamagochi_WPF
             }
         }
 
-        private void GetFood(object sender, RoutedEventArgs e)
+        String[] food = { };
+
+        private void Timer_Take_Eat(object sender, EventArgs e)
         {
-            if (foodText.Text == "sugar")
-            {
-                tamagochi.Saturation += 10;
-                tamagochi.Heal--;
-                foodText.Text = "";
-            }
+
         }
 
-
-
-
-
-
-
-
-
+        private void GetFood(object sender, RoutedEventArgs e)
+        {
+            
+        }
 
         //public event PropertyChangedEventHandler PropertyChanged;
 

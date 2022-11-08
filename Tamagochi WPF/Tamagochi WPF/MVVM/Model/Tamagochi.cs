@@ -75,11 +75,11 @@ namespace Tamagochi_WPF
                 poisoning_ += 3;
                 //poisoning_ = poisoning_ + Math.Abs(happines_);
 
-            if (saturation_ <= 0)
-                heal_ -= 50;
+            if (saturation_ <= 50)
+                heal_ -= 3;
 
-            happines_ -= 50;
-            saturation_ -= 50;
+            happines_ -= 3;
+            saturation_ -= 3;
 
             if (heal_ > 100) heal_ = 100;
 
