@@ -29,12 +29,12 @@ namespace Tamagochi_WPF
         // список продуктов в инвентаре
         // список количества продуктoв
 
-        public bool Crafting(IFood food_, int amount_ = 1)
+        public String Crafting(IFood food_, int amount_ = 1)
         {
-            if (!food_.HasRecipe()) return false;
+            if (!food_.HasRecipe()) return "Trash";
             // ошибка базовый продукт не может быть создан.
 
-            if (!CheckCrafting(food_)) return false;
+            if (!CheckCrafting(food_)) return "Trash";
             // ошибка нет нужных ингридиентов.
 
             foreach (string item_name in food_.Recipe)
@@ -50,7 +50,25 @@ namespace Tamagochi_WPF
             Add(food_, amount_);
             // добавление продукта(_food) в инвентарь
 
-            return true;
+            return food_.Name;
+        }
+
+        public String Craft(IFood[] items, string itemName1, string itemName2)
+        {
+            String dish = "Trash";
+            for (int i = 0; i < items.Length; i++)
+            {
+                if (items[i].HasRecipe())
+                {
+                    string[] recipe = items[i].Recipe;
+                    if (recipe[0] == itemName1 && recipe[1] == itemName2)
+                    {
+                        dish = Crafting(items[i]);
+                        break;
+                    }
+                }
+            }
+            return dish;
         }
 
         public void Add(IFood food_, int amount_ = 1)

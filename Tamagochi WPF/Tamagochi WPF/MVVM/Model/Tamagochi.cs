@@ -78,8 +78,8 @@ namespace Tamagochi_WPF
             if (saturation_ <= 50)
                 heal_ -= 3;
 
-            happines_ -= 3;
-            saturation_ -= 3;
+            happines_ -= 5;
+            saturation_ -= 10;
 
             if (heal_ > 100) heal_ = 100;
 
@@ -102,11 +102,6 @@ namespace Tamagochi_WPF
         public void Eat(IFood food_)
         {
             if (!is_alive_) return;
-            if (!Inventory.CheckItem(food_))
-            {
-                Console.WriteLine("Idi nahyi");
-                return;
-            }
 
             if ((heal_ + food_.Heal) < 100)
                 heal_ += food_.Heal;

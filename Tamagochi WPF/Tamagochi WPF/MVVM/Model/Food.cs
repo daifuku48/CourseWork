@@ -798,5 +798,32 @@ namespace Tamagochi_WPF
             return _recipe != null;
         }
     }
+
+    public class Trash : IFood
+    {
+        private string _name = "trash";
+        string IFood.Name { get { return _name; } }
+
+        private int _heal = -20;
+        int IFood.Heal { get { return _heal; } }
+
+        private int _poison = 20;
+        int IFood.Poison { get { return _poison; } }
+
+        private int _happy = -30;
+        int IFood.Happy { get { return _happy; } }
+
+        private int _satiety = 5;
+        int IFood.Satiety { get { return _satiety; } }
+
+        private string[] _recipe = null;
+        string[] IFood.Recipe { get { return _recipe; } }
+
+        void IFood.AffectTamagochi() { }
+        public bool HasRecipe()
+        {
+            return _recipe != null;
+        }
+    }
 }
 

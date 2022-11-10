@@ -29,9 +29,10 @@ namespace Tamagochi_WPF
         double MenuWidth , StartGameHeight, EndGameHeight;
         bool hiddenMenu , StartGamehidden , EndGamehidden;
         Tamagochi tamagochi;
-
+        InventoryController inventoryController;
         int timeOflife;
-
+        IFood[] food;
+        Random randomIndex;
         public MainWindow()
         {
             tamagochi = new Tamagochi();
@@ -55,12 +56,47 @@ namespace Tamagochi_WPF
             timerForTamagochi.Tick += Timer_Eat;
 
             timerForTakeEat = new DispatcherTimer();
-            timerForTamagochi.Interval = new TimeSpan(0, 0, 0, 10);
+            timerForTakeEat.Interval = new TimeSpan(0, 0, 0, 15);
             timerForTakeEat.Tick += Timer_Take_Eat;
 
             timerOfLife = new DispatcherTimer();
-            timerOfLife.Interval = new TimeSpan(0, 0, 0, 60);
+            timerOfLife.Interval = new TimeSpan(0, 0, 0, 30);
             timerOfLife.Tick += TimerOfLife_Tick;
+
+            inventoryController = new InventoryController();
+
+            food = new IFood[30];
+            food[0] = new Sugar();
+            food[1] = new Salt();
+            food[2] = new Water();
+            food[3] = new Fire();
+            food[4] = new Duck();
+            food[5] = new Corn();
+            food[6] = new Fish();
+            food[7] = new Egg();
+            food[8] = new Mushroom();
+            food[9] = new Marshmallow();
+            food[10] = new Vegetable();
+            food[11] = new Flakes();
+            food[12] = new Bread();
+            food[13] = new Pie();
+            food[14] = new Jam();
+            food[15] = new Compote();
+            food[16] = new Jelly();
+            food[17] = new Omelette();
+            food[18] = new Pancake();
+            food[19] = new Toast();
+            food[20] = new GrilledVegetables();
+            food[21] = new Salad();
+            food[22] = new Steak();
+            food[23] = new Rice();
+            food[24] = new RiceVegetables();
+            food[25] = new Popcorn();
+            food[26] = new VegetableSoup();
+            food[27] = new MushroomSoup();
+            food[28] = new FishSoup();
+            food[29] = new Trash();
+            randomIndex = new Random();
         }
 
         private void TimerOfLife_Tick(object sender, EventArgs e)
@@ -85,6 +121,7 @@ namespace Tamagochi_WPF
             {
                 EndGamehidden = true;
                 timerForTamagochi.Stop();
+                timerForTakeEat.Stop();
                 timerEnd.Start();
             }
         }
@@ -113,6 +150,7 @@ namespace Tamagochi_WPF
                     StartGamePanel.Visibility = Visibility.Hidden;
                     timerForTamagochi.Start();
                     timerOfLife.Start();
+                    timerForTakeEat.Start();
                 }
             }
         }
@@ -202,6 +240,7 @@ namespace Tamagochi_WPF
         {
             Application.Current.Shutdown();
         }
+        //выход с проги 
         private void MenuPanel_MouseDown(object sender, MouseButtonEventArgs e)
         {
             if (e.LeftButton == MouseButtonState.Pressed)
@@ -210,17 +249,87 @@ namespace Tamagochi_WPF
             }
         }
 
-        String[] food = { };
-
         private void Timer_Take_Eat(object sender, EventArgs e)
         {
-
+            int index = randomIndex.Next(0,29);
+            eat_List.Items.Add(food[index].Name);
+            inventoryController.Add(food[index]);
         }
+        //выдает еду
 
         private void GetFood(object sender, RoutedEventArgs e)
         {
-            
+            String str = foodText.Text;
+            if (str == "")
+            {
+                labelErrorsWithList.Content = "Error";
+                return;
+            }
+            if (str[str.Length - 1] == '+')
+            {
+                labelErrorsWithList.Content = "Error";
+                return;
+            }
+            String[] masStr = str.Split('+');
+            if (masStr.Length >= 3)
+            {
+                labelErrorsWithList.Content = "Error";
+                return;
+            }
+            if (masStr.Length == 2)
+            {
+                for (int i = 0; i < masStr.Length; i++)
+                {
+                    if (masStr[i].Substring(0, 1) == " ")
+                    {
+                        masStr[i] = masStr[i].Remove(0, 1);
+                    }
+                    int ind = masStr[i].LastIndexOf(" ");
+                    if (ind == masStr[i].Length - 1)
+                    {
+                        masStr[i] = masStr[i].Remove(masStr[i].Length - 1, 1);
+                    }
+                }
+                bool checkFood1 = false, checkFood2 = false;
+                if (!inventoryController.CheckItem(masStr[1]) || !inventoryController.CheckItem(masStr[0]))
+                {
+                    labelErrorsWithList.Content = "Error";
+                    return;
+                }
+                string newFood = inventoryController.Craft(food, masStr[0], masStr[1]);
+                eat_List.Items.Remove(masStr[0]);
+                eat_List.Items.Remove(masStr[1]);
+                eat_List.Items.Add(newFood);
+                foodText.Text = "";
+            } 
+            else if (masStr.Length == 1)
+            {
+                if (masStr[0].Substring(0, 1) == " ")
+                {
+                    masStr[0] = masStr[0].Remove(0, 1);
+                }
+                int ind = masStr[0].LastIndexOf(" ");
+                if (ind == masStr[0].Length - 1)
+                {
+                    masStr[0] = masStr[0].Remove(masStr[0].Length - 1, 1);
+                }
+                bool checkFood = false;
+                if (!inventoryController.CheckItem(masStr[0]))
+                {
+                    labelErrorsWithList.Content = "Error";
+                    return;
+                }
+                IFood dish = null;
+                for (int i = 0; i < food.Length; i++)
+                {
+                    if (masStr[0] == food[i].Name) { dish = food[i]; break; } 
+                }
+                tamagochi.Eat(dish);
+                eat_List.Items.Remove(masStr[0]);
+                foodText.Text = "";
+            }
         }
+        //ест еду
 
         //public event PropertyChangedEventHandler PropertyChanged;
 
