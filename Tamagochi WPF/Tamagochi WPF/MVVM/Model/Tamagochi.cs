@@ -63,7 +63,11 @@ namespace Tamagochi_WPF
 
         public void StateUpdate()
         {
-            if (heal_ <= 0) StateDestroy();
+            if (heal_ <= 0)
+            {
+                is_alive_ = false;
+                //StateDestroy();
+            }
 
             if (poisoning_ > 0)
             {

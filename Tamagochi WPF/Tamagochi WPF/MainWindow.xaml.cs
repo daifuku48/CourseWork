@@ -15,6 +15,9 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using System.Windows.Threading;
+using System.IO;
+using System.Text.Json;
+using System.Collections.Generic;
 
 namespace Tamagochi_WPF
 {
@@ -119,6 +122,38 @@ namespace Tamagochi_WPF
             Label_PoisoningIndex.Content = tamagochi.Poisoning;
             if (!tamagochi.IsAlive)
             {
+                string fileName = "leaders.txt";
+
+                FileInfo fileInfo = new FileInfo(fileName);
+                if (fileInfo.Exists)
+                {
+                    List<TamagochiJson> ls;
+                    
+                    using (StreamReader sr = new StreamReader(fileName))
+                    {
+                        ls = JsonSerializer.Deserialize<List<TamagochiJson>>(sr.ReadToEnd());
+
+                        ls.Add(new TamagochiJson(tamagochi.Name, timeOflife));
+                    }
+                    
+                    using (StreamWriter sw = new StreamWriter(fileName))
+                    {
+                        sw.Write(JsonSerializer.Serialize(ls));
+                    }
+                }
+                else
+                {
+                    using (StreamWriter sw = new StreamWriter(fileName))
+                    {
+                        List<TamagochiJson> ls = new List<TamagochiJson>();
+                        ls.Add(new TamagochiJson(tamagochi.Name, timeOflife));
+
+                        sw.Write(JsonSerializer.Serialize(ls));
+                    }
+                }
+
+                tamagochi.StateDestroy();
+
                 EndGamehidden = true;
                 timerForTamagochi.Stop();
                 timerForTakeEat.Stop();

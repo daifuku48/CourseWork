@@ -124,6 +124,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="MVVM\Model\Tamagochi.cs" />
+    <Compile Include="MVVM\Model\TamagochiJson.cs" />
     <Compile Include="MVVM\View\kitchen.xaml.cs">
       <DependentUpon>kitchen.xaml</DependentUpon>
     </Compile>
