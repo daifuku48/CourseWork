@@ -249,7 +249,7 @@ namespace Tamagochi_WPF
             if (DelevopersGamehidden)
             {
                 DevelopersGamePanel.Visibility = Visibility.Visible;
-                DevelopersGamePanel.Height += DelevopersGameHeight / 20;
+                DevelopersGamePanel.Height += DelevopersGameHeight / 5;
                 if (DevelopersGamePanel.Height >= DelevopersGameHeight)
                 {
                     timerDevelopers.Stop();
@@ -258,7 +258,7 @@ namespace Tamagochi_WPF
             }
             else
             {
-                DevelopersGamePanel.Height -= DelevopersGameHeight / 20;
+                DevelopersGamePanel.Height -= DelevopersGameHeight / 5;
                 if (DevelopersGamePanel.Height <= 0)
                 {
                     timerDevelopers.Stop();

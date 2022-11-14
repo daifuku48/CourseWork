@@ -644,7 +644,7 @@
             Background="#FFFDFDFD" 
             RenderTransformOrigin="0.45,0.5"/>
 
-        <Grid Visibility="Hidden" x:Name="DevelopersGamePanel" Panel.ZIndex="16" Background="#FFFDFDFD" VerticalAlignment="Bottom" HorizontalAlignment="Left" Width="1000" Height="600" ShowGridLines="True">
+        <Grid Visibility="Visible" x:Name="DevelopersGamePanel" Panel.ZIndex="16" Background="#FFFDFDFD" VerticalAlignment="Bottom" HorizontalAlignment="Left" Width="1000" Height="600" ShowGridLines="False">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition></ColumnDefinition>
                 <ColumnDefinition></ColumnDefinition>
@@ -655,7 +655,6 @@
                 <RowDefinition></RowDefinition>
                 <RowDefinition></RowDefinition>
             </Grid.RowDefinitions>
-
             <Button Click="Developers_Btn"
                     Width="30"
                     Height="30"
@@ -671,6 +670,149 @@
                         Height="30" 
                        />
             </Button>
+            <Image 
+                Grid.Column="2" 
+                Grid.Row="0"
+                HorizontalAlignment="Left" 
+                Height="160" Width="160" 
+                Margin="0,0,0,0" 
+                VerticalAlignment="Center" 
+                gif:ImageBehavior.RepeatBehavior="Forever" 
+                gif:ImageBehavior.AnimatedSource="/img/avatar3.png" />
+            <Label 
+            Grid.Column="1"
+            Grid.Row="0"
+            Foreground="#2B7B8F"
+            HorizontalAlignment="left" VerticalAlignment="Center" 
+            Content="Kirill Morozov"
+            FontFamily="Open Sans" FontSize="24" FontWeight="UltraBlack" Margin="20,0,0,0"/>
+            <Label 
+            Grid.Column="1"
+            Grid.Row="0"
+            Foreground="#2B7B8F"
+            HorizontalAlignment="left" VerticalAlignment="Center" 
+            Content="Responsible for algorithms &#xD;&#xA;and exceptions"
+            FontFamily="Open Sans" FontSize="21" FontWeight="Medium" Margin="0,100,0,0"/>
+
+            <Image 
+                Grid.Column="0" 
+                Grid.Row="1"
+                HorizontalAlignment="Left" 
+                Height="160" Width="160" 
+                Margin="20,-20,0,0" 
+                VerticalAlignment="Top" 
+                gif:ImageBehavior.RepeatBehavior="Forever" 
+                gif:ImageBehavior.AnimatedSource="/img/avatar4.png" />
+            <Label 
+            Grid.Column="1"
+            Grid.Row="1"
+            Foreground="#2B7B8F"
+            HorizontalAlignment="left" VerticalAlignment="Top" 
+            Content="Maxim Ostapenko"
+            FontFamily="Open Sans" FontSize="24" FontWeight="UltraBlack" Margin="-120,40,0,0"/>
+            <Label
+            Grid.Row="1"
+            Foreground="#2B7B8F"
+            HorizontalAlignment="Left" VerticalAlignment="Top" 
+            Content="Responsible for interface,&#xD;&#xA;design and presentation"
+            FontFamily="Open Sans" FontSize="21" FontWeight="Medium" Margin="193,80,0,0" Height="71" Grid.ColumnSpan="2" Width="284"/>
+
+            <Image 
+                Grid.Column="2" 
+                Grid.Row="2"
+                HorizontalAlignment="Right" 
+                Height="160" Width="160" 
+                Margin="0,-100,20,0" 
+                VerticalAlignment="Top" 
+                gif:ImageBehavior.RepeatBehavior="Forever" 
+                gif:ImageBehavior.AnimatedSource="/img/avatar2.png" />
+            <Label 
+            Grid.Column="1"
+            Grid.Row="2"
+            Foreground="#2B7B8F"
+            HorizontalAlignment="Right" VerticalAlignment="Top" 
+            Content="Danylo Kharitonov"
+            FontFamily="Open Sans" FontSize="24" FontWeight="UltraBlack" Margin="0,-40,-50,0"/>
+            <Label 
+            Grid.Column="1"
+            Grid.Row="2"
+            Foreground="#2B7B8F"
+            HorizontalAlignment="Right" VerticalAlignment="Top" 
+            Content="Responsible for class and &#xD;&#xA;architecture development, GitHub"
+            FontFamily="Open Sans" FontSize="21" FontWeight="Medium" Margin="0,0,-140,0" Height="71"/>
+
+            <Image 
+                Grid.Column="0" 
+                Grid.Row="2"
+                HorizontalAlignment="Left" 
+                Height="160" Width="160" 
+                Margin="0,0,0,0" 
+                VerticalAlignment="Bottom" 
+                gif:ImageBehavior.RepeatBehavior="Forever" 
+                gif:ImageBehavior.AnimatedSource="/img/avatar1.png" />
+            <Label 
+            Grid.Column="1"
+            Grid.Row="2"
+            Foreground="#2B7B8F"
+            HorizontalAlignment="Left" VerticalAlignment="Bottom" 
+            Content="Mykyta Kolyada"
+            FontFamily="Open Sans" FontSize="24" FontWeight="UltraBlack" Margin="-120,0,0,70"/>
+            <Label 
+            Grid.Column="1"
+            Grid.Row="2"
+            Foreground="#2B7B8F"
+            HorizontalAlignment="Left" VerticalAlignment="Bottom" 
+            Content="Responsible for data&#xD;&#xA;and explanatory note"
+            FontFamily="Open Sans" FontSize="21" FontWeight="Medium" Margin="-140,0,0,0" Height="71"/>
+
+            <Image Grid.Row="2" Margin="161,19,122,136" Source="icons/duckyDied.png" Height="45" Width="50" RenderTransformOrigin="0.5,0.5">
+                <Image.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform/>
+                        <RotateTransform Angle="45.209"/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </Image.RenderTransform>
+            </Image>
+            <Image Grid.Row="2" Margin="55,116,218,21" Source="icons/duckyDied.png" RenderTransformOrigin="0.5,0.5" Grid.Column="2">
+                <Image.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform/>
+                        <RotateTransform Angle="210.592"/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </Image.RenderTransform>
+            </Image>
+            <Image Grid.Row="1" Margin="272,39,8,108" Source="icons/ducky.png" RenderTransformOrigin="0.5,0.5" Grid.Column="1">
+                <Image.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform/>
+                        <RotateTransform Angle="-27.817"/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </Image.RenderTransform>
+            </Image>
+            <Image Margin="11,5,245,124" Source="icons/ducky.png" RenderTransformOrigin="0.5,0.5">
+                <Image.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform/>
+                        <RotateTransform Angle="15.672"/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </Image.RenderTransform>
+            </Image>
+            <Image 
+                Grid.Column="2"
+                HorizontalAlignment="Left" 
+                Height="110" Width="112" 
+                Margin="183,180,0,0" 
+                VerticalAlignment="Top" 
+                gif:ImageBehavior.RepeatBehavior="Forever" 
+                gif:ImageBehavior.AnimatedSource="/icons/stars1.gif" Grid.RowSpan="2" />
         </Grid>
     </Grid>
 </Window>

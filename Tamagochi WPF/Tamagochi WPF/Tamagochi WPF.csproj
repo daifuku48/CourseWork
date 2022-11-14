@@ -250,5 +250,17 @@
       <Install>false</Install>
     </BootstrapperPackage>
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="img\avatar1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="img\avatar2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="img\avatar3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="img\avatar4.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
