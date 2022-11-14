@@ -27,10 +27,10 @@ namespace Tamagochi_WPF
     public partial class MainWindow : Window
     {
         
-        DispatcherTimer timer , timerstart, timerEnd, timerForTamagochi, timerForTakeEat, timerOfLife;
+        DispatcherTimer timer , timerstart, timerEnd, timerDevelopers, timerForTamagochi, timerForTakeEat, timerOfLife;
 
-        double MenuWidth , StartGameHeight, EndGameHeight;
-        bool hiddenMenu , StartGamehidden , EndGamehidden;
+        double MenuWidth , StartGameHeight, EndGameHeight, DelevopersGameHeight;
+        bool hiddenMenu , StartGamehidden , EndGamehidden, DelevopersGamehidden;
         Tamagochi tamagochi;
         InventoryController inventoryController;
         int timeOflife;
@@ -49,9 +49,13 @@ namespace Tamagochi_WPF
             timerEnd = new DispatcherTimer();
             timerEnd.Interval = new TimeSpan(0, 0, 0, 0, 1);
             timerEnd.Tick += End_Tick;
+            timerDevelopers = new DispatcherTimer();
+            timerDevelopers.Interval = new TimeSpan(0, 0, 0, 0, 1);
+            timerDevelopers.Tick += Developers_Tick;
 
             EndGameHeight = EndGamePanel.Height;
             StartGameHeight = StartGamePanel.Height;
+            DelevopersGameHeight = DevelopersGamePanel.Height;
             MenuWidth = sideMenu.Width;
 
             timerForTamagochi = new DispatcherTimer();
@@ -162,7 +166,6 @@ namespace Tamagochi_WPF
         }
 
 
-
         private void Start_Tick(object sender, EventArgs e)
         {
             if (StartGamehidden)
@@ -216,7 +219,7 @@ namespace Tamagochi_WPF
                 }
             }
         }
-        //рестарт игры(если захотим, можно сюда еще допилить панель с результатами, сколько еды сёел и сколько минут прожил
+        //рестарт игры(если захотим, можно сюда еще допилить панель с результатами, сколько еды сёел и сколько минут прожил 
 
         private void Timer_Tick(object sender, EventArgs e)
         {
@@ -241,16 +244,41 @@ namespace Tamagochi_WPF
                 }
             }
         }
-        
+        private void Developers_Tick(object sender, EventArgs e)
+        {
+            if (DelevopersGamehidden)
+            {
+                DevelopersGamePanel.Visibility = Visibility.Visible;
+                DevelopersGamePanel.Height += DelevopersGameHeight / 20;
+                if (DevelopersGamePanel.Height >= DelevopersGameHeight)
+                {
+                    timerDevelopers.Stop();
+                    DelevopersGamehidden = false;
+                }
+            }
+            else
+            {
+                DevelopersGamePanel.Height -= DelevopersGameHeight / 20;
+                if (DevelopersGamePanel.Height <= 0)
+                {
+                    timerDevelopers.Stop();
+                    DelevopersGamehidden = true;
+                    DevelopersGamePanel.Visibility = Visibility.Hidden;
+                }
+            }
+        }
 
         private void Restart_Game(object sender, RoutedEventArgs e)
         {
             timerEnd.Start();
         }
-
         private void Button_Menu(object sender, RoutedEventArgs e)
         {
             timer.Start();
+        }
+        private void Developers_Btn(object sender, RoutedEventArgs e)
+        {
+            timerDevelopers.Start();
         }
 
         private void Start_Game(object sender, RoutedEventArgs e)

@@ -42,7 +42,6 @@ D:\CourseWork\Tamagochi WPF\Tamagochi WPF\obj\Debug\MVVM\View\kitchen.g.cs
 D:\CourseWork\Tamagochi WPF\Tamagochi WPF\obj\Debug\MVVM\View\kitchen.baml
 C:\Users\user\Documents\GitHub\CourseWork\Tamagochi WPF\Tamagochi WPF\obj\Debug\MVVM\View\kitchen.g.cs
 C:\Users\user\Documents\GitHub\CourseWork\Tamagochi WPF\Tamagochi WPF\obj\Debug\MVVM\View\kitchen.baml
-D:\CourseWork\Tamagochi WPF\Tamagochi WPF\obj\Debug\GeneratedInternalTypeHelper.g.cs
 D:\ZNTU\Projects\GitCourseProject\CourseWork\Tamagochi WPF\Tamagochi WPF\bin\Debug\Tamagochi WPF.exe.config
 D:\ZNTU\Projects\GitCourseProject\CourseWork\Tamagochi WPF\Tamagochi WPF\bin\Debug\Tamagochi WPF.exe
 D:\ZNTU\Projects\GitCourseProject\CourseWork\Tamagochi WPF\Tamagochi WPF\bin\Debug\Tamagochi WPF.pdb
@@ -82,3 +81,21 @@ D:\ZNTU\Projects\GitCourseProject\CourseWork\Tamagochi WPF\Tamagochi WPF\obj\Deb
 D:\ZNTU\Projects\GitCourseProject\CourseWork\Tamagochi WPF\Tamagochi WPF\obj\Debug\Tamagochi WPF.csproj.CopyComplete
 D:\ZNTU\Projects\GitCourseProject\CourseWork\Tamagochi WPF\Tamagochi WPF\obj\Debug\Tamagochi WPF.exe
 D:\ZNTU\Projects\GitCourseProject\CourseWork\Tamagochi WPF\Tamagochi WPF\obj\Debug\Tamagochi WPF.pdb
+D:\CourseWork\Tamagochi WPF\Tamagochi WPF\bin\Debug\Microsoft.Bcl.AsyncInterfaces.dll
+D:\CourseWork\Tamagochi WPF\Tamagochi WPF\bin\Debug\System.Buffers.dll
+D:\CourseWork\Tamagochi WPF\Tamagochi WPF\bin\Debug\System.Memory.dll
+D:\CourseWork\Tamagochi WPF\Tamagochi WPF\bin\Debug\System.Numerics.Vectors.dll
+D:\CourseWork\Tamagochi WPF\Tamagochi WPF\bin\Debug\System.Runtime.CompilerServices.Unsafe.dll
+D:\CourseWork\Tamagochi WPF\Tamagochi WPF\bin\Debug\System.Text.Encodings.Web.dll
+D:\CourseWork\Tamagochi WPF\Tamagochi WPF\bin\Debug\System.Text.Json.dll
+D:\CourseWork\Tamagochi WPF\Tamagochi WPF\bin\Debug\System.Threading.Tasks.Extensions.dll
+D:\CourseWork\Tamagochi WPF\Tamagochi WPF\bin\Debug\System.ValueTuple.dll
+D:\CourseWork\Tamagochi WPF\Tamagochi WPF\bin\Debug\Microsoft.Bcl.AsyncInterfaces.xml
+D:\CourseWork\Tamagochi WPF\Tamagochi WPF\bin\Debug\System.Buffers.xml
+D:\CourseWork\Tamagochi WPF\Tamagochi WPF\bin\Debug\System.Memory.xml
+D:\CourseWork\Tamagochi WPF\Tamagochi WPF\bin\Debug\System.Numerics.Vectors.xml
+D:\CourseWork\Tamagochi WPF\Tamagochi WPF\bin\Debug\System.Runtime.CompilerServices.Unsafe.xml
+D:\CourseWork\Tamagochi WPF\Tamagochi WPF\bin\Debug\System.Text.Encodings.Web.xml
+D:\CourseWork\Tamagochi WPF\Tamagochi WPF\bin\Debug\System.Text.Json.xml
+D:\CourseWork\Tamagochi WPF\Tamagochi WPF\bin\Debug\System.Threading.Tasks.Extensions.xml
+D:\CourseWork\Tamagochi WPF\Tamagochi WPF\bin\Debug\System.ValueTuple.xml
