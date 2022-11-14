@@ -244,10 +244,28 @@ namespace Tamagochi_WPF
                 }
             }
         }
+        private bool checkPause = false;
+        private void Pause(bool check)
+        {
+            if (check)
+            {
+                timerForTamagochi.Stop();
+                timerForTakeEat.Stop();
+                timerOfLife.Stop();
+            }
+        }
+
+        private void UnPause()
+        {
+            timerForTamagochi.Start();
+            timerForTakeEat.Start();
+            timerOfLife.Start();
+        }
         private void Developers_Tick(object sender, EventArgs e)
         {
             if (DelevopersGamehidden)
             {
+                if (checkPause == false) { checkPause = true; Pause(checkPause); }
                 DevelopersGamePanel.Visibility = Visibility.Visible;
                 DevelopersGamePanel.Height += DelevopersGameHeight / 5;
                 if (DevelopersGamePanel.Height >= DelevopersGameHeight)
@@ -261,6 +279,8 @@ namespace Tamagochi_WPF
                 DevelopersGamePanel.Height -= DelevopersGameHeight / 5;
                 if (DevelopersGamePanel.Height <= 0)
                 {
+                    checkPause = false;
+                    UnPause();
                     timerDevelopers.Stop();
                     DelevopersGamehidden = true;
                     DevelopersGamePanel.Visibility = Visibility.Hidden;

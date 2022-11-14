@@ -61,7 +61,7 @@ namespace Tamagochi_WPF
                 if (items[i].HasRecipe())
                 {
                     string[] recipe = items[i].Recipe;
-                    if (recipe[0] == itemName1 && recipe[1] == itemName2)
+                    if ((recipe[0] == itemName1 && recipe[1] == itemName2) || (recipe[1] == itemName1 && recipe[0] == itemName2))
                     {
                         dish = Crafting(items[i]);
                         break;

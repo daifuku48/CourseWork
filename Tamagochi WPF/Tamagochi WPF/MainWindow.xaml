@@ -642,7 +642,7 @@
             FontSize="14" 
             FontFamily="Segoe UI Semilight" 
             Background="#FFFDFDFD" 
-            RenderTransformOrigin="0.45,0.5"/>
+            RenderTransformOrigin="0.45,0.5" Cursor="Hand"/>
 
         <Grid Visibility="Hidden" x:Name="DevelopersGamePanel" Panel.ZIndex="16" Background="#FFFDFDFD" VerticalAlignment="Bottom" HorizontalAlignment="Left" Width="1000" Height="600" ShowGridLines="False">
             <Grid.ColumnDefinitions>
