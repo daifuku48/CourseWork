@@ -171,7 +171,7 @@ namespace Tamagochi_WPF
             if (StartGamehidden)
             {
                 StartGamePanel.Visibility = Visibility.Visible;
-                StartGamePanel.Height += StartGameHeight / 20;
+                StartGamePanel.Height += StartGameHeight / 5;
                 if (StartGamePanel.Height >= StartGameHeight)
                 {
                     timerstart.Stop();
@@ -180,7 +180,7 @@ namespace Tamagochi_WPF
             }
             else
             {
-                StartGamePanel.Height -= StartGameHeight / 20;
+                StartGamePanel.Height -= StartGameHeight / 5;
                 if (StartGamePanel.Height <= 0)
                 {
                     timerstart.Stop();
@@ -198,7 +198,7 @@ namespace Tamagochi_WPF
             if (EndGamehidden)
             {
                 EndGamePanel.Visibility = Visibility.Visible;
-                EndGamePanel.Height += EndGameHeight / 20;
+                EndGamePanel.Height += EndGameHeight / 5;
                 if (EndGamePanel.Height >= EndGameHeight)
                 {
                     timerEnd.Stop();
@@ -207,7 +207,7 @@ namespace Tamagochi_WPF
             }
             else
             {
-                EndGamePanel.Height -= EndGameHeight / 20;
+                EndGamePanel.Height -= EndGameHeight / 5;
                 if (EndGamePanel.Height <= 0)
                 {
                     timerEnd.Stop();
@@ -226,7 +226,7 @@ namespace Tamagochi_WPF
             if (hiddenMenu)
             {
                 sideMenu.Visibility = Visibility.Visible;
-                sideMenu.Width += MenuWidth/10;
+                sideMenu.Width += MenuWidth/5;
                 if (sideMenu.Width >= MenuWidth)
                 {
                     timer.Stop();
@@ -235,7 +235,7 @@ namespace Tamagochi_WPF
             }
             else
             {    
-                sideMenu.Width -= MenuWidth/10;       
+                sideMenu.Width -= MenuWidth/5;       
                 if (sideMenu.Width <= 0)
                 {
                     timer.Stop();

@@ -682,14 +682,14 @@
             <Label 
             Grid.Column="1"
             Grid.Row="0"
-            Foreground="#2B7B8F"
+            Foreground="#1B7B8F"
             HorizontalAlignment="left" VerticalAlignment="Center" 
             Content="Kirill Morozov"
             FontFamily="Open Sans" FontSize="24" FontWeight="UltraBlack" Margin="20,0,0,0"/>
             <Label 
             Grid.Column="1"
             Grid.Row="0"
-            Foreground="#2B7B8F"
+            Foreground="#1B7B8F"
             HorizontalAlignment="left" VerticalAlignment="Center" 
             Content="Responsible for algorithms &#xD;&#xA;and exceptions"
             FontFamily="Open Sans" FontSize="21" FontWeight="Medium" Margin="0,100,0,0"/>
@@ -706,13 +706,13 @@
             <Label 
             Grid.Column="1"
             Grid.Row="1"
-            Foreground="#2B7B8F"
+            Foreground="#1B7B8F"
             HorizontalAlignment="left" VerticalAlignment="Top" 
             Content="Maxim Ostapenko"
             FontFamily="Open Sans" FontSize="24" FontWeight="UltraBlack" Margin="-120,40,0,0"/>
             <Label
             Grid.Row="1"
-            Foreground="#2B7B8F"
+            Foreground="#1B7B8F"
             HorizontalAlignment="Left" VerticalAlignment="Top" 
             Content="Responsible for interface,&#xD;&#xA;design and presentation"
             FontFamily="Open Sans" FontSize="21" FontWeight="Medium" Margin="193,80,0,0" Height="71" Grid.ColumnSpan="2" Width="284"/>
@@ -729,14 +729,14 @@
             <Label 
             Grid.Column="1"
             Grid.Row="2"
-            Foreground="#2B7B8F"
+            Foreground="#1B7B8F"
             HorizontalAlignment="Right" VerticalAlignment="Top" 
             Content="Danylo Kharitonov"
             FontFamily="Open Sans" FontSize="24" FontWeight="UltraBlack" Margin="0,-40,-50,0"/>
             <Label 
             Grid.Column="1"
             Grid.Row="2"
-            Foreground="#2B7B8F"
+            Foreground="#1B7B8F"
             HorizontalAlignment="Right" VerticalAlignment="Top" 
             Content="Responsible for class and &#xD;&#xA;architecture development, GitHub"
             FontFamily="Open Sans" FontSize="21" FontWeight="Medium" Margin="0,0,-140,0" Height="71"/>
@@ -753,66 +753,39 @@
             <Label 
             Grid.Column="1"
             Grid.Row="2"
-            Foreground="#2B7B8F"
+            Foreground="#1B7B8F"
             HorizontalAlignment="Left" VerticalAlignment="Bottom" 
             Content="Mykyta Kolyada"
             FontFamily="Open Sans" FontSize="24" FontWeight="UltraBlack" Margin="-120,0,0,70"/>
             <Label 
             Grid.Column="1"
             Grid.Row="2"
-            Foreground="#2B7B8F"
+            Foreground="#1B7B8F"
             HorizontalAlignment="Left" VerticalAlignment="Bottom" 
             Content="Responsible for data&#xD;&#xA;and explanatory note"
             FontFamily="Open Sans" FontSize="21" FontWeight="Medium" Margin="-140,0,0,0" Height="71"/>
-
-            <Image Grid.Row="2" Margin="161,19,122,136" Source="icons/duckyDied.png" Height="45" Width="50" RenderTransformOrigin="0.5,0.5">
+            <Image Grid.Column="2" Margin="55,189,20,91" Grid.Row="1" Source="img/ellipse.png" Stretch="Fill" Panel.ZIndex="-1" Grid.RowSpan="2"/>
+            <Image Margin="-25,138,99,162" Source="img/ellipse2.png" Stretch="Fill" Panel.ZIndex="-1" Grid.RowSpan="3" RenderTransformOrigin="0.5,0.5">
                 <Image.RenderTransform>
                     <TransformGroup>
                         <ScaleTransform/>
                         <SkewTransform/>
-                        <RotateTransform Angle="45.209"/>
+                        <RotateTransform Angle="87.701"/>
                         <TranslateTransform/>
                     </TransformGroup>
                 </Image.RenderTransform>
             </Image>
-            <Image Grid.Row="2" Margin="55,116,218,21" Source="icons/duckyDied.png" RenderTransformOrigin="0.5,0.5" Grid.Column="2">
+            <Image Margin="286,27,146,115" Source="img/ellipse3.png" Stretch="Fill" Panel.ZIndex="-1" Grid.RowSpan="2" RenderTransformOrigin="0.5,0.5" Grid.Column="1" Grid.ColumnSpan="2">
                 <Image.RenderTransform>
                     <TransformGroup>
                         <ScaleTransform/>
                         <SkewTransform/>
-                        <RotateTransform Angle="210.592"/>
+                        <RotateTransform Angle="188.158"/>
                         <TranslateTransform/>
                     </TransformGroup>
                 </Image.RenderTransform>
             </Image>
-            <Image Grid.Row="1" Margin="272,39,8,108" Source="icons/ducky.png" RenderTransformOrigin="0.5,0.5" Grid.Column="1">
-                <Image.RenderTransform>
-                    <TransformGroup>
-                        <ScaleTransform/>
-                        <SkewTransform/>
-                        <RotateTransform Angle="-27.817"/>
-                        <TranslateTransform/>
-                    </TransformGroup>
-                </Image.RenderTransform>
-            </Image>
-            <Image Margin="11,5,245,124" Source="icons/ducky.png" RenderTransformOrigin="0.5,0.5">
-                <Image.RenderTransform>
-                    <TransformGroup>
-                        <ScaleTransform/>
-                        <SkewTransform/>
-                        <RotateTransform Angle="15.672"/>
-                        <TranslateTransform/>
-                    </TransformGroup>
-                </Image.RenderTransform>
-            </Image>
-            <Image 
-                Grid.Column="2"
-                HorizontalAlignment="Left" 
-                Height="110" Width="112" 
-                Margin="183,180,0,0" 
-                VerticalAlignment="Top" 
-                gif:ImageBehavior.RepeatBehavior="Forever" 
-                gif:ImageBehavior.AnimatedSource="/icons/stars1.gif" Grid.RowSpan="2" />
+            <Image Margin="-61,-24,94,0" Source="img/ellipse4.png" Stretch="Fill" Panel.ZIndex="-1" Grid.RowSpan="3" RenderTransformOrigin="0.5,0.5" Grid.ColumnSpan="2"/>
         </Grid>
     </Grid>
 </Window>
