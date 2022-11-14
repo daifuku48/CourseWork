@@ -333,7 +333,7 @@
                 VerticalAlignment="Top" 
                 RenderTransformOrigin="0.254,0" Foreground="#FFF90101"/>
         </Grid>
-        <Grid Visibility="Hidden" x:Name="StartGamePanel" Panel.ZIndex="15" Background="#FFF897" VerticalAlignment="Top" HorizontalAlignment="Left" Width="1000" Height="600" ShowGridLines="True">
+        <Grid Visibility="Visible" x:Name="StartGamePanel" Panel.ZIndex="15" Background="#FFF897" VerticalAlignment="Top" HorizontalAlignment="Left" Width="1000" Height="600" ShowGridLines="True">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition></ColumnDefinition>
                 <ColumnDefinition></ColumnDefinition>
@@ -644,7 +644,7 @@
             Background="#FFFDFDFD" 
             RenderTransformOrigin="0.45,0.5"/>
 
-        <Grid Visibility="Visible" x:Name="DevelopersGamePanel" Panel.ZIndex="16" Background="#FFFDFDFD" VerticalAlignment="Bottom" HorizontalAlignment="Left" Width="1000" Height="600" ShowGridLines="False">
+        <Grid Visibility="Hidden" x:Name="DevelopersGamePanel" Panel.ZIndex="16" Background="#FFFDFDFD" VerticalAlignment="Bottom" HorizontalAlignment="Left" Width="1000" Height="600" ShowGridLines="False">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition></ColumnDefinition>
                 <ColumnDefinition></ColumnDefinition>
