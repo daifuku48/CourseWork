@@ -17,7 +17,7 @@ using System.Windows.Shapes;
 using System.Windows.Threading;
 using System.IO;
 using System.Text.Json;
-using System.Collections.Generic;
+using System.Reflection;
 
 namespace Tamagochi_WPF
 {
@@ -63,11 +63,11 @@ namespace Tamagochi_WPF
             timerForTamagochi.Tick += Timer_Eat;
 
             timerForTakeEat = new DispatcherTimer();
-            timerForTakeEat.Interval = new TimeSpan(0, 0, 0, 15);
+            timerForTakeEat.Interval = new TimeSpan(0, 0, 0, 10);
             timerForTakeEat.Tick += Timer_Take_Eat;
 
             timerOfLife = new DispatcherTimer();
-            timerOfLife.Interval = new TimeSpan(0, 0, 0, 30);
+            timerOfLife.Interval = new TimeSpan(0, 0, 0, 20);
             timerOfLife.Tick += TimerOfLife_Tick;
 
             inventoryController = new InventoryController();
@@ -342,7 +342,7 @@ namespace Tamagochi_WPF
 
         private void GetFood(object sender, RoutedEventArgs e)
         {
-            String str = foodText.Text;
+            String str = foodText.Text.ToLower();
             if (str == "")
             {
                 labelErrorsWithList.Content = "Error";
@@ -373,7 +373,6 @@ namespace Tamagochi_WPF
                         masStr[i] = masStr[i].Remove(masStr[i].Length - 1, 1);
                     }
                 }
-                bool checkFood1 = false, checkFood2 = false;
                 if (!inventoryController.CheckItem(masStr[1]) || !inventoryController.CheckItem(masStr[0]))
                 {
                     labelErrorsWithList.Content = "Error";
@@ -383,6 +382,12 @@ namespace Tamagochi_WPF
                 eat_List.Items.Remove(masStr[0]);
                 eat_List.Items.Remove(masStr[1]);
                 eat_List.Items.Add(newFood);
+                IFood dish = null;
+                for (int i = 0; i < food.Length; i++)
+                {
+                    if (newFood == food[i].Name) { dish = food[i]; break; }
+                }
+                inventoryController.Add(dish);
                 foodText.Text = "";
             } 
             else if (masStr.Length == 1)
@@ -396,17 +401,18 @@ namespace Tamagochi_WPF
                 {
                     masStr[0] = masStr[0].Remove(masStr[0].Length - 1, 1);
                 }
-                bool checkFood = false;
                 if (!inventoryController.CheckItem(masStr[0]))
                 {
                     labelErrorsWithList.Content = "Error";
                     return;
                 }
                 IFood dish = null;
+                int index = 30;
                 for (int i = 0; i < food.Length; i++)
                 {
-                    if (masStr[0] == food[i].Name) { dish = food[i]; break; } 
+                    if (masStr[0] == food[i].Name) { dish = food[i]; index = i; break; } 
                 }
+                inventoryController.Remove(dish);
                 tamagochi.Eat(dish);
                 eat_List.Items.Remove(masStr[0]);
                 foodText.Text = "";

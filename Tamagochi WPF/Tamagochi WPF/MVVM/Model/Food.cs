@@ -627,7 +627,7 @@ namespace Tamagochi_WPF
         private int _satiety = 35;
         int IFood.Satiety { get { return _satiety; } }
 
-        private string[] _recipe = { "meat", "fire" };
+        private string[] _recipe = { "duck", "fire" };
         string[] IFood.Recipe { get { return _recipe; } }
 
         void IFood.AffectTamagochi() { }

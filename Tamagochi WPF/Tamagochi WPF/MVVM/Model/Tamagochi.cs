@@ -69,21 +69,28 @@ namespace Tamagochi_WPF
                 //StateDestroy();
             }
 
+            if (saturation_ > 75)
+            {
+                heal_ += 5;
+                happines_ += 3;
+            }
+
             if (poisoning_ > 0)
             {
-                heal_ -= 1;
+                heal_ -= 4;
                 poisoning_ -= 1;
             }
 
-            if (happines_ <= 0)
-                poisoning_ += 3;
+            if (happines_ <= 25)
+            { poisoning_ += 1; heal_ -= 10;}
+               
                 //poisoning_ = poisoning_ + Math.Abs(happines_);
 
-            if (saturation_ <= 50)
-                heal_ -= 3;
+            if (saturation_ <= 75)
+                heal_ -= 10;
 
             happines_ -= 5;
-            saturation_ -= 10;
+            saturation_ -= 5;
 
             if (heal_ > 100) heal_ = 100;
 
