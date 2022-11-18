@@ -22,7 +22,7 @@ using System.Reflection;
 namespace Tamagochi_WPF
 {
     /// <summary>
-    /// Логика взаимодействия для MainWindow.xaml
+    /// Логіка взаємодії для MainWindow.xaml
     /// </summary>
     public partial class MainWindow : Window
     {
@@ -192,7 +192,7 @@ namespace Tamagochi_WPF
                 }
             }
         }
-        //таймер с для вывода панели в начале игры для задавания имени персонажу
+        //таймер для виведення панелі на початку гри для задання імені персонажу
         private void End_Tick(object sender, EventArgs e)
         {
             if (EndGamehidden)
@@ -219,7 +219,7 @@ namespace Tamagochi_WPF
                 }
             }
         }
-        //рестарт игры(если захотим, можно сюда еще допилить панель с результатами, сколько еды сёел и сколько минут прожил 
+        //рестарт гри (якщо захочемо, можна сюди ще допиляти панель з результатами, скільки їжі сів і скільки хвилин прожив
 
         private void Timer_Tick(object sender, EventArgs e)
         {
@@ -318,12 +318,12 @@ namespace Tamagochi_WPF
                 Label_PoisoningIndex.Content = tamagochi.Poisoning;
             }
         }
-        //передача начальных параметров в интерфейс
+        //передача початкових параметрів в інтерфейс
         private void leftDown(object sender, MouseButtonEventArgs e)
         {
             Application.Current.Shutdown();
         }
-        //выход с проги 
+        //вихід з проги 
         private void MenuPanel_MouseDown(object sender, MouseButtonEventArgs e)
         {
             if (e.LeftButton == MouseButtonState.Pressed)
@@ -338,7 +338,7 @@ namespace Tamagochi_WPF
             eat_List.Items.Add(food[index].Name);
             inventoryController.Add(food[index]);
         }
-        //выдает еду
+        //видає їжу
 
         private void GetFood(object sender, RoutedEventArgs e)
         {
@@ -423,69 +423,6 @@ namespace Tamagochi_WPF
                 foodText.Text = "";
             }
         }
-        //ест еду
-
-        //public event PropertyChangedEventHandler PropertyChanged;
-
-        //protected void OnPropertyChanged([CallerMemberName] string name = null) //оно будет реагировать на изменения 
-        //{
-        //    PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(name));
-        //}
-
-        //public class Tamagochi : ObservedObj
-        //{
-        //    private string _name;
-        //    public string Name
-        //    {
-        //        get { return _name; }
-        //        set
-        //        {
-        //            if (value != _name)
-        //            {
-        //                _name = value;
-        //                OnPropertyChanged(nameof(_name));
-        //            }
-        //        }
-        //    }
-        //    public byte Happines { get; set; }
-        //    public byte Poisoning { get; set; }
-        //    public byte Hunger { get; set; }
-        //    public byte Heal { get; set; }
-        //    public DateTime StartTime { get; }
-        //    public DateTime CurrentTime { get; set; }
-        //    public Tamagochi()
-        //    {
-
-        //    }
-        //    public Tamagochi(ProgressBar happy, ProgressBar heal, ProgressBar hungry)
-        //    {
-
-        //        Happines = 50;
-        //        Poisoning = 0;
-        //        Hunger = 50;
-        //        Heal = 100;
-        //        DateTime StartTime = DateTime.Now;
-        //        //ProgressBarOfHappy = happy;
-        //    }
-
-            
-        //    //public ProgressBar ProgressBarOfHungry { get; set; }
-        //    //public ProgressBar ProgressBarOfHeal { get; set; }
-        //    //public ProgressBar ProgressBarOfHappy { get; set; }
-        //    //public ProgressBar ProgressBarOfPoison { get; set; }
-
-        //    public void Die()
-        //    {
-        //        CurrentTime = DateTime.Now;
-
-        //        if (Heal == 0)
-        //        {
-        //            //timerEnd.Start();
-        //        }
-
-        //    }
-
-
-        //}
+        //їсть їжу
     }
 }

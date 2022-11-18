@@ -7,7 +7,6 @@ using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Xml.Linq;
-//using Internal;
 
 namespace Tamagochi_WPF
 {
@@ -47,7 +46,7 @@ namespace Tamagochi_WPF
             happines_ = 100;
             is_alive_ = true;
         }
-        // вызывается при создании персонажа. (╯✧▽✧)╯
+        // викликається під час створення персонажа. (╯✧▽✧)╯
 
         public void StateDestroy()
         {
@@ -59,7 +58,7 @@ namespace Tamagochi_WPF
             is_alive_ = false;
             name_ = "";
         }
-        // вызыватся при смерти персонажа.
+        // викликається за смерті персонажа.(╯✧▽✧)╯
 
         public void StateUpdate()
         {
@@ -108,7 +107,7 @@ namespace Tamagochi_WPF
 
             if (saturation_ < 0) saturation_ = 0;
         }
-        // вызывается на каждый тик игрового времени (каждые 3_сек. наверное).
+        //викликається на кожен тик ігрового часу (кожні 3_сек. напевно).
 
         public void Eat(IFood food_)
         {
@@ -136,6 +135,6 @@ namespace Tamagochi_WPF
 
             Console.WriteLine("Вы покушац");
         }
-        // кушац. (o･ω･o)
+        // їм. (o･ω･o)
     }
 }

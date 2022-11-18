@@ -26,8 +26,8 @@ namespace Tamagochi_WPF
     public class InventoryController // (-_*)
     {
         public List<Item> items_ = new List<Item>();
-        // список продуктов в инвентаре
-        // список количества продуктoв
+        // Список продуктів у інвентарі
+        // Список кількості продуктів
         public List<Item> products_ = new List<Item>();
 
         public void FillProducts(IFood[] food)
@@ -41,23 +41,21 @@ namespace Tamagochi_WPF
         public String Crafting(IFood food_, int amount_ = 1)
         {
             if (!food_.HasRecipe()) return "trash";
-            // ошибка базовый продукт не может быть создан.
+            // помилка базового продукту не може бути створено.
 
             //if (!CheckCrafting(food_)) return "trash";
-            // ошибка нет нужных ингридиентов.
+            // помилка не має потрібних інгредієнтів.
 
             foreach (string item_name in food_.Recipe)
             {
                 items_.Find(obj => obj.food.Name == item_name).amount -= 1;
-                // спросишь что это за хуйня?
                 if (items_.Find(obj => obj.food.Name == item_name).amount == 0)
                     items_.Remove(items_.Find(obj => obj.food.Name == item_name));
-                // очистка инвентаря от хуйни(всех продуктов количество которых == 0)
             }
-            // изятие всех ингридиентов из инвентаря
+            // вилучення всіх інгредієнтів із інвентарю
 
             Add(food_, amount_);
-            // добавление продукта(_food) в инвентарь
+            // додавання продукту(_food) до інвентарю
 
             return food_.Name;
         }
@@ -92,10 +90,10 @@ namespace Tamagochi_WPF
         public void Remove(IFood food_)
         {
             if (items_.Count == 0) return;
-            // ошибка список продуктов пуст. 
+            // помилка список продуктів порожній.
 
             items_.Remove(items_.Find(obj => obj.food == food_));
-            // удаление продукта из инвентаря
+            //видалення продукту із інвентарю
         }
 
         public bool CheckItem(IFood food_)
@@ -118,13 +116,12 @@ namespace Tamagochi_WPF
                 if (CheckItem(name)) return false;
             return true;
         }
-        // проверка наличия всех ингридиентов для крафта продукта
+        // перевірка наявності всіх інгредієнтів для крафту продукту
 
         public void Debug()
         {
             for (int index = 0; index < items_.Count; index++)
                 Console.WriteLine($"Name: {items_[index].food.Name} | Count: {items_[index].amount}");
         }
-        // тут понятно
     }
 }
