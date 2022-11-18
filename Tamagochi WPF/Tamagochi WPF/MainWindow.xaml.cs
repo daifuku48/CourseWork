@@ -378,6 +378,11 @@ namespace Tamagochi_WPF
                     labelErrorsWithList.Content = "Error";
                     return;
                 }
+                if (masStr[0] == masStr[1])
+                {
+                    labelErrorsWithList.Content = "Product are same";
+                    return;
+                }
                 string newFood = inventoryController.Craft(food, masStr[0], masStr[1]);
                 eat_List.Items.Remove(masStr[0]);
                 eat_List.Items.Remove(masStr[1]);

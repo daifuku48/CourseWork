@@ -324,14 +324,13 @@
                 FontFamily="Open Sans" FontSize="14" FontWeight="Medium" 
                 RenderTransformOrigin="0.077,0.542"/>
             <Label 
-                Name="labelErrorsWithList"
-                Grid.Column="1" 
+                Name="labelErrorsWithList" 
                 Content="" 
                 HorizontalAlignment="Left" 
-                Margin="17,3,0,0"
+                Margin="333,0,0,0"
                 FontFamily="Open Sans"
                 VerticalAlignment="Top" 
-                RenderTransformOrigin="0.254,0" Foreground="#FFF90101"/>
+                RenderTransformOrigin="0.254,0" Foreground="#FFF90101" Width="99" FontSize="10" Height="23" Grid.ColumnSpan="2"/>
         </Grid>
         <Grid Visibility="Visible" x:Name="StartGamePanel" Panel.ZIndex="15" Background="#FFF897" VerticalAlignment="Top" HorizontalAlignment="Left" Width="1000" Height="600" ShowGridLines="True">
             <Grid.ColumnDefinitions>
