@@ -27,10 +27,10 @@ namespace Tamagochi_WPF
     public partial class MainWindow : Window
     {
         
-        DispatcherTimer timer , timerstart, timerEnd, timerDevelopers, timerForTamagochi, timerForTakeEat, timerOfLife;
+        DispatcherTimer timer , timerstart, timerEnd, timerDevelopers, timerInstruction , timerForTamagochi, timerForTakeEat, timerOfLife;
 
-        double MenuWidth , StartGameHeight, EndGameHeight, DelevopersGameHeight;
-        bool hiddenMenu , StartGamehidden , EndGamehidden, DelevopersGamehidden;
+        double MenuWidth , StartGameHeight, EndGameHeight, DelevopersGameHeight , InstructionGameHeight;
+        bool hiddenMenu , StartGamehidden , EndGamehidden, DelevopersGamehidden , InstructionGamehidden;
         Tamagochi tamagochi;
         InventoryController inventoryController;
         int timeOflife;
@@ -52,10 +52,14 @@ namespace Tamagochi_WPF
             timerDevelopers = new DispatcherTimer();
             timerDevelopers.Interval = new TimeSpan(0, 0, 0, 0, 1);
             timerDevelopers.Tick += Developers_Tick;
+            timerInstruction = new DispatcherTimer();
+            timerInstruction.Interval = new TimeSpan(0, 0, 0, 0, 1);
+            timerInstruction.Tick += Instruction_Tick;
 
             EndGameHeight = EndGamePanel.Height;
             StartGameHeight = StartGamePanel.Height;
             DelevopersGameHeight = DevelopersGamePanel.Height;
+            InstructionGameHeight = InstructionGamePanel.Height;
             MenuWidth = sideMenu.Width;
 
             timerForTamagochi = new DispatcherTimer();
@@ -288,6 +292,33 @@ namespace Tamagochi_WPF
             }
         }
 
+        private void Instruction_Tick(object sender, EventArgs e)
+        {
+            if (InstructionGamehidden)
+            {
+                if (checkPause == false) { checkPause = true; Pause(checkPause); }
+                InstructionGamePanel.Visibility = Visibility.Visible;
+                InstructionGamePanel.Height += InstructionGameHeight / 5;
+                if (InstructionGamePanel.Height >= InstructionGameHeight)
+                {
+                    timerInstruction.Stop();
+                    InstructionGamehidden = false;
+                }
+            }
+            else
+            {
+                InstructionGamePanel.Height -= InstructionGameHeight / 5;
+                if (InstructionGamePanel.Height <= 0)
+                {
+                    checkPause = false;
+                    UnPause();
+                    timerInstruction.Stop();
+                    InstructionGamehidden = true;
+                    InstructionGamePanel.Visibility = Visibility.Hidden;
+                }
+            }
+        }
+
         private void Restart_Game(object sender, RoutedEventArgs e)
         {
             timerEnd.Start();
@@ -299,6 +330,10 @@ namespace Tamagochi_WPF
         private void Developers_Btn(object sender, RoutedEventArgs e)
         {
             timerDevelopers.Start();
+        }
+        private void instruction_Btn(object sender, RoutedEventArgs e)
+        {
+            timerInstruction.Start();
         }
 
         private void Start_Game(object sender, RoutedEventArgs e)

@@ -14,11 +14,11 @@ namespace Tamagochi_WPF
             food = food_;
             amount = amount_;
         }
-        public static bool operator ==(Item this_, Item other_)
+        public static bool operator == (Item this_, Item other_)
         {
             return this_.food == other_.food;
         }
-        public static bool operator !=(Item this_, Item other_)
+        public static bool operator != (Item this_, Item other_)
         {
             return this_.food != other_.food;
         }
