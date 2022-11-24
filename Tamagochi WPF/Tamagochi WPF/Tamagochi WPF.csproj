@@ -275,5 +275,29 @@
   <ItemGroup>
     <Resource Include="img\ellipse4.png" />
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="icons\information.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="information.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="icons\top.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="top.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="icons\top-rated.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="top-rated.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="icons\podium.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="podium.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

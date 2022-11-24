@@ -95,10 +95,36 @@
                         Cursor="Hand">
                         <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" VerticalAlignment="Center" Width="230" Height="40">
                             <Image Source="icons/coding.png" Height="25" />
-                            <TextBlock Text="Разрабочики" Margin="15,0,0,0" VerticalAlignment="Center" />
+                            <TextBlock Text="Developers" Margin="15,0,0,0" VerticalAlignment="Center" />
                         </StackPanel>
                     </Button>
-                    <Button Grid.Row="3" HorizontalAlignment="Left" VerticalAlignment="Center" Background="Transparent" BorderThickness="0" Click="Button_Menu"
+                    <Button Grid.Row="2" HorizontalAlignment="Left" VerticalAlignment="Center" Background="Transparent" BorderThickness="0"  Click="instruction_Btn"
+                        Margin="0,0,0,0" Padding="20,0,0,0"
+                        Width="250" Height="78.333"
+                        FontFamily="Open Sans" 
+                        FontSize="16"
+                        FontWeight="Normal"
+                        Panel.ZIndex="9"
+                        Cursor="Hand">
+                        <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" VerticalAlignment="Center" Width="230" Height="40">
+                            <Image Source="/information.png" Height="25" />
+                            <TextBlock Text="Instruction" Margin="15,0,0,0" VerticalAlignment="Center" />
+                        </StackPanel>
+                    </Button>
+                    <Button Grid.Row="3" HorizontalAlignment="Left" VerticalAlignment="Center" Background="Transparent" BorderThickness="0"
+                        Margin="0,0,0,0" Padding="20,0,0,0"
+                        Width="250" Height="78.333"
+                        FontFamily="Open Sans" 
+                        FontSize="16"
+                        FontWeight="Normal"
+                        Panel.ZIndex="9"
+                        Cursor="Hand">
+                        <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" VerticalAlignment="Center" Width="230" Height="40">
+                            <Image Source="/top-rated.png" Height="25" />
+                            <TextBlock Text="Top scores" Margin="15,0,0,0" VerticalAlignment="Center" />
+                        </StackPanel>
+                    </Button>
+                    <Button Grid.Row="5" HorizontalAlignment="Left" VerticalAlignment="Center" Background="Transparent" BorderThickness="0" Click="Button_Menu"
                         Margin="0,0,0,0" Padding="20,0,0,0"
                         Width="250" Height="78.333"
                         FontFamily="Open Sans" 
@@ -108,10 +134,10 @@
                         Cursor="Hand">
                         <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" VerticalAlignment="Center" Width="230" Height="40">
                             <Image Source="icons/exit1.png" Height="25" />
-                            <TextBlock Text="Скрыть меню" Margin="15,0,0,0" VerticalAlignment="Center" />
+                            <TextBlock Text="Hide menu" Margin="15,0,0,0" VerticalAlignment="Center" />
                         </StackPanel>
                     </Button>
-                    <Button Grid.Row="2" HorizontalAlignment="Left" VerticalAlignment="Center" Background="Transparent" BorderThickness="0" Click="Start_Game"
+                    <Button Grid.Row="4" HorizontalAlignment="Left" VerticalAlignment="Center" Background="Transparent" BorderThickness="0" Click="Start_Game"
                         Margin="0,0,0,0" Padding="20,0,0,0"
                         Width="250" Height="78.333"
                         FontFamily="Open Sans" 
@@ -121,7 +147,7 @@
                         Cursor="Hand">
                         <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" VerticalAlignment="Center" Width="230" Height="40">
                             <Image Source="icons/clockwise.png" Height="25" />
-                            <TextBlock Text="Начать заново" Margin="15,0,0,0" VerticalAlignment="Center" />
+                            <TextBlock Text="Start over" Margin="15,0,0,0" VerticalAlignment="Center" />
                         </StackPanel>
                     </Button>
                 </Grid>
@@ -134,7 +160,8 @@
                 <ColumnDefinition></ColumnDefinition>
             </Grid.ColumnDefinitions>
             <Image 
-                Name ="GifOfDuck"
+                Name ="GifOfDuckStandart"
+                Visibility="Visible"
                 Grid.Column="1" 
                 HorizontalAlignment="Center" 
                 Height="300" Margin="0,0,0,0" 
@@ -142,6 +169,17 @@
                 Width="300" 
                 gif:ImageBehavior.RepeatBehavior="Forever" 
                 gif:ImageBehavior.AnimatedSource="/img/normal.gif" />
+            <Image 
+                Name ="GifOfDuckEat"
+                Visibility="Hidden"
+                Grid.Column="1" 
+                HorizontalAlignment="Center" 
+                Height="300" Margin="0,0,0,0" 
+                VerticalAlignment="Top" 
+                Width="300" 
+                gif:ImageBehavior.RepeatBehavior="Forever" 
+                gif:ImageBehavior.AnimatedSource="/img/eat-love.gif" />
+            
             <ProgressBar 
                 Name ="ProgressBarOfHeal"
                 Grid.Column="0" 
@@ -332,7 +370,7 @@
                 VerticalAlignment="Top" 
                 RenderTransformOrigin="0.254,0" Foreground="#FFF90101" Width="99" FontSize="10" Height="23" Grid.ColumnSpan="2"/>
         </Grid>
-        <Grid Visibility="Visible" x:Name="StartGamePanel" Panel.ZIndex="15" Background="#FFF897" VerticalAlignment="Top" HorizontalAlignment="Left" Width="1000" Height="600" ShowGridLines="True">
+        <Grid Visibility="Hidden" x:Name="StartGamePanel" Panel.ZIndex="15" Background="#FFF897" VerticalAlignment="Top" HorizontalAlignment="Left" Width="1000" Height="600" ShowGridLines="True">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition></ColumnDefinition>
                 <ColumnDefinition></ColumnDefinition>
@@ -785,6 +823,110 @@
                 </Image.RenderTransform>
             </Image>
             <Image Margin="-61,-24,94,0" Source="img/ellipse4.png" Stretch="Fill" Panel.ZIndex="-1" Grid.RowSpan="3" RenderTransformOrigin="0.5,0.5" Grid.ColumnSpan="2"/>
+        </Grid>
+
+        <Grid Visibility="Visible" x:Name="InstructionGamePanel" Panel.ZIndex="16" Background="#FFFDFDFD" VerticalAlignment="Bottom" HorizontalAlignment="Left" Width="1000" Height="600" ShowGridLines="False">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+            </Grid.RowDefinitions>
+            <Image 
+                Grid.Column="1" 
+                Grid.Row="0"
+                HorizontalAlignment="Left" 
+                Height="160" Width="160" 
+                Margin="323,-9,0,0" 
+                VerticalAlignment="Top" 
+                gif:ImageBehavior.RepeatBehavior="Forever" 
+                gif:ImageBehavior.AnimatedSource="/img/avatar3.png" RenderTransformOrigin="0.5,0.5" Grid.ColumnSpan="2" >
+                <Image.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform/>
+                        <RotateTransform Angle="-178.625"/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </Image.RenderTransform>
+            </Image>
+            <Label
+            Foreground="#1B7B8F"
+            HorizontalAlignment="Left" VerticalAlignment="Top" 
+            Content="Duck Guide"
+            FontFamily="Open Sans" FontSize="24" FontWeight="UltraBlack" Margin="160,69,0,0"/>
+            <Label
+            Foreground="#1B7B8F"
+            HorizontalAlignment="Left" VerticalAlignment="Top" 
+            Content="The point of the game is to keep your duckling alive as long as &#xD;&#xA;possible.&#xD;&#xA;&#xD;&#xA;You can feed it food that appears over time in the food list. You can &#xD;&#xA;take food from the list and enter it in the input field. You can also&#xD;&#xA;prepare a new product by entering 'product' + 'product' in the&#xD;&#xA;input field. The list will delete the given food and add a new cooked&#xD;&#xA;food.&#xD;&#xA;&#xD;&#xA;The duck has indicators for health, satiety, poisoning, and joy.&#xD;&#xA;Products can change these parameters.  Each of the 4 parameters&#xD;&#xA;depends on each other, and will change over time. If the duck's&#xD;&#xA;health drops to 0 it will die, your game results will be recorded in &#xD;&#xA;your best attempts table.&#xD;&#xA;&#xD;&#xA;Have a good game"
+            FontFamily="Open Sans" FontSize="21" FontWeight="Medium" Margin="160,112,0,0" Grid.ColumnSpan="3" Height="469" Width="710" Grid.RowSpan="3"/>
+
+            <Image 
+                Grid.Column="0"
+                HorizontalAlignment="Left" 
+                Height="160" Width="160" 
+                Margin="-43,77,0,0" 
+                VerticalAlignment="Top" 
+                gif:ImageBehavior.RepeatBehavior="Forever" 
+                gif:ImageBehavior.AnimatedSource="/img/avatar4.png" Grid.RowSpan="2" RenderTransformOrigin="0.5,0.5" >
+                <Image.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform/>
+                        <RotateTransform Angle="68.804"/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </Image.RenderTransform>
+            </Image>
+
+            <Image 
+                Grid.Column="2" 
+                Grid.Row="1"
+                HorizontalAlignment="Right" 
+                Height="160" Width="160" 
+                Margin="0,135,-34,0" 
+                VerticalAlignment="Top" 
+                gif:ImageBehavior.RepeatBehavior="Forever" 
+                gif:ImageBehavior.AnimatedSource="/img/avatar2.png" RenderTransformOrigin="0.5,0.5" Grid.RowSpan="2" >
+                <Image.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform/>
+                        <RotateTransform Angle="-65.909"/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </Image.RenderTransform>
+            </Image>
+
+            <Image 
+                Grid.Column="0" 
+                Grid.Row="2"
+                HorizontalAlignment="Left" 
+                Height="160" Width="160" 
+                Margin="0,0,0,0" 
+                VerticalAlignment="Bottom" 
+                gif:ImageBehavior.RepeatBehavior="Forever" 
+                gif:ImageBehavior.AnimatedSource="/img/avatar1.png" />
+            <Button Click="instruction_Btn"
+                    Width="30"
+                    Height="30"
+                    Grid.Column="2"
+                    HorizontalAlignment="Right"
+                    VerticalAlignment="Top"
+                    Background="Transparent"
+                    BorderBrush="Transparent" BorderThickness="0"
+                    Margin="0,5,5,0"
+                    Cursor="Hand"
+                    Panel.ZIndex="3">
+                <Image 
+                        Source="icons/exit3.png" 
+                        Height="30" 
+                       />
+            </Button>
         </Grid>
     </Grid>
 </Window>
