@@ -39,24 +39,46 @@ namespace Tamagochi_WPF
 
         public void StateCreate()
         {
-            if (is_alive_) return;
-            heal_ = 100;
-            poisoning_ = 0;
-            saturation_ = 100;
-            happines_ = 100;
-            is_alive_ = true;
+            try
+            {
+                if (!is_alive_)
+                {
+                    throw new ExceptionController("Error: You are dead");
+                }
+                heal_ = 100;
+                poisoning_ = 0;
+                saturation_ = 100;
+                happines_ = 100;
+                is_alive_ = true;
+            }
+            catch (ExceptionController ex)
+            {
+                Console.WriteLine(ex.Message);
+                return;
+            }
         }
         // викликається під час створення персонажа. (╯✧▽✧)╯
 
         public void StateDestroy()
         {
-            if (!is_alive_) return;
-            heal_ = 0;
-            poisoning_ = 0;
-            saturation_ = 0;
-            happines_ = 0;
-            is_alive_ = false;
-            name_ = "";
+            try
+            {
+                if (!is_alive_)
+                {
+                    throw new ExceptionController("Error: You are dead");
+                }
+                heal_ = 0;
+                poisoning_ = 0;
+                saturation_ = 0;
+                happines_ = 0;
+                is_alive_ = false;
+                name_ = "";
+            }
+            catch (ExceptionController ex) 
+            {
+                Console.WriteLine(ex.Message);
+                return;
+            }
         }
         // викликається за смерті персонажа.(╯✧▽✧)╯
 
@@ -111,29 +133,40 @@ namespace Tamagochi_WPF
 
         public void Eat(IFood food_)
         {
-            if (!is_alive_) return;
+            try
+            {
+                if (!is_alive_)
+                {
+                    throw new ExceptionController("Error: You are dead");
+                }
 
-            if ((heal_ + food_.Heal) < 100)
-                heal_ += food_.Heal;
-            else
-                heal_ = 100;
+                if ((heal_ + food_.Heal) < 100)
+                    heal_ += food_.Heal;
+                else
+                    heal_ = 100;
 
-            if ((saturation_ + food_.Satiety) < 100)
-                saturation_ += food_.Satiety;
-            else
-                saturation_ = 100;
+                if ((saturation_ + food_.Satiety) < 100)
+                    saturation_ += food_.Satiety;
+                else
+                    saturation_ = 100;
 
-            if ((poisoning_ + food_.Poison) < 100)
-                poisoning_ += food_.Poison;
-            else
-                poisoning_ = 100;
+                if ((poisoning_ + food_.Poison) < 100)
+                    poisoning_ += food_.Poison;
+                else
+                    poisoning_ = 100;
 
-            if ((happines_ + food_.Happy) < 100)
-                happines_ += food_.Happy;
-            else
-                happines_ = 100;
+                if ((happines_ + food_.Happy) < 100)
+                    happines_ += food_.Happy;
+                else
+                    happines_ = 100;
 
-            Console.WriteLine("Вы покушац");
+                Console.WriteLine("Вы покушац");
+            }
+            catch (ExceptionController ex)
+            {
+                Console.WriteLine(ex.Message);
+                return;
+            }
         }
         // їм. (o･ω･o)
     }

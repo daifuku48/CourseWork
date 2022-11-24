@@ -40,60 +40,96 @@ namespace Tamagochi_WPF
 
         public String Crafting(IFood food_, int amount_ = 1)
         {
-            if (!food_.HasRecipe()) return "trash";
-            // помилка базового продукту не може бути створено.
-
-            //if (!CheckCrafting(food_)) return "trash";
-            // помилка не має потрібних інгредієнтів.
-
-            foreach (string item_name in food_.Recipe)
+            try
             {
-                items_.Find(obj => obj.food.Name == item_name).amount -= 1;
-                if (items_.Find(obj => obj.food.Name == item_name).amount == 0)
-                    items_.Remove(items_.Find(obj => obj.food.Name == item_name));
+                if (!food_.HasRecipe())
+                {
+                    throw new ExceptionController("Error: Base class product could not de instantiated.");
+                }
+                // помилка базового продукту не може бути створено.
+
+                //if (!CheckCrafting(food_)) return "trash";
+                // помилка не має потрібних інгредієнтів.
+
+                foreach (string item_name in food_.Recipe)
+                {
+                    items_.Find(obj => obj.food.Name == item_name).amount -= 1;
+                    if (items_.Find(obj => obj.food.Name == item_name).amount == 0)
+                        items_.Remove(items_.Find(obj => obj.food.Name == item_name));
+                }
+                // вилучення всіх інгредієнтів із інвентарю
+
+                Add(food_, amount_);
+                // додавання продукту(_food) до інвентарю
+
+                return food_.Name;
             }
-            // вилучення всіх інгредієнтів із інвентарю
-
-            Add(food_, amount_);
-            // додавання продукту(_food) до інвентарю
-
-            return food_.Name;
+            catch (ExceptionController ex) 
+            {
+                Console.WriteLine(ex.Message);
+                return "trash";
+            }
         }
 
         public String Craft(IFood[] items, string itemName1, string itemName2)
         {
-            String dish = "trash";
-            for (int i = 0; i < items.Length; i++)
+
+            try
             {
-                if (items[i].HasRecipe())
+                for (int i = 0; i < items.Length; i++)
                 {
-                    string[] recipe = items[i].Recipe;
-                    if ((recipe[0] == itemName1 && recipe[1] == itemName2) || (recipe[1] == itemName1 && recipe[0] == itemName2))
+                    if (items[i].HasRecipe())
                     {
-                        dish = Crafting(items[i]);
-                        break;
+                        string[] recipe = items[i].Recipe;
+                        if ((recipe[0] == itemName1 && recipe[1] == itemName2) || 
+                            (recipe[1] == itemName1 && recipe[0] == itemName2))
+                        {
+                            return Crafting(items[i]);
+                        }
                     }
                 }
+                throw new ExceptionController("Error: Udefined item.");
             }
-            return dish;
+            catch (ExceptionController ex)
+            {
+                Console.WriteLine(ex.Message);
+                return "trash";
+            }
         }
 
         public void Add(IFood food_, int amount_ = 1)
         {
             if (CheckItem(food_))
+            {
                 for (int index = 0; index < amount_; index++)
+                {
                     items_.Find(obj => obj.food.Name == food_.Name).amount += 1;
+                }
+            }
             else
+            {
                 items_.Add(new Item(food_, amount_));
+            }
         }
 
         public void Remove(IFood food_)
         {
-            if (items_.Count == 0) return;
-            // помилка список продуктів порожній.
+            try
+            {
+                if (items_.Count == 0)
+                {
+                    throw new ExceptionController("Error: Product list is empty.");
+                }
+                // помилка список продуктів порожній.
 
-            items_.Remove(items_.Find(obj => obj.food == food_));
-            //видалення продукту із інвентарю
+                items_.Remove(items_.Find(obj => obj.food == food_));
+                //видалення продукту із інвентарю
+            }
+            catch (ExceptionController ex) 
+            {
+                Console.WriteLine(ex.Message);
+                return;
+            }
         }
 
         public bool CheckItem(IFood food_)
