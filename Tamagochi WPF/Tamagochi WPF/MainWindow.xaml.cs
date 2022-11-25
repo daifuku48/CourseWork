@@ -161,7 +161,7 @@ namespace Tamagochi_WPF
                 }
 
                 tamagochi.StateDestroy();
-
+                eat_List.Items.Clear();
                 EndGamehidden = true;
                 timerForTamagochi.Stop();
                 timerForTakeEat.Stop();
@@ -233,21 +233,6 @@ namespace Tamagochi_WPF
             } else if (foodText.Text.EndsWith("+ ") || foodText.Text.EndsWith("+"))
             {
                 foodText.Text = foodText.Text + s;
-            }
-        }
-
-        private void Button_Click(object sender, RoutedEventArgs e)
-        {
-            //if ((foodText.Text == "" || foodText.Text != null) || (!foodText.Text.EndsWith("+") || !foodText.Text.EndsWith("+ ")))
-            //{
-            //    foodText.Text = foodText.Text + " + ";
-            //}
-            if (foodText.Text != "")
-            {
-                if (!foodText.Text.EndsWith("+ ") || !foodText.Text.EndsWith("+"))
-                {
-                    foodText.Text = foodText.Text + " + ";
-                }
             }
         }
 
