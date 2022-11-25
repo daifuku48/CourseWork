@@ -26,8 +26,8 @@ namespace Tamagochi_WPF
     /// </summary>
     public partial class MainWindow : Window
     {
-        
-        DispatcherTimer timer , timerstart, timerEnd, timerDevelopers, timerInstruction , timerForTamagochi, timerForTakeEat, timerOfLife;
+
+        DispatcherTimer timer, timerstart, timerEnd, timerDevelopers, timerInstruction, timerForTamagochi, timerForTakeEat, timerOfLife, timerForGifPetting, timerForEatGif;
 
         double MenuWidth , StartGameHeight, EndGameHeight, DelevopersGameHeight , InstructionGameHeight;
         bool hiddenMenu , StartGamehidden , EndGamehidden, DelevopersGamehidden , InstructionGamehidden;
@@ -75,6 +75,14 @@ namespace Tamagochi_WPF
             timerOfLife.Tick += TimerOfLife_Tick;
 
             inventoryController = new InventoryController();
+
+            timerForGifPetting = new DispatcherTimer();
+            timerForGifPetting.Interval = new TimeSpan(0, 0, 0, 3);
+            timerForGifPetting.Tick += TimerOfPetting_Tick;
+
+            timerForEatGif = new DispatcherTimer();
+            timerForEatGif.Interval = new TimeSpan(0, 0, 0, 3);
+            timerForEatGif.Tick += TimerEatGif_Tick;
 
             food = new IFood[30];
             food[0] = new Sugar();
@@ -223,7 +231,7 @@ namespace Tamagochi_WPF
                 }
             }
         }
-
+        //рестарт гри (якщо захочемо, можна сюди ще допиляти панель з результатами, скільки їжі сів і скільки хвилин прожив
         private void eat_List_MouseDoubleClick(object sender, MouseButtonEventArgs e)
         {
             string s = eat_List.SelectedItem.ToString();
@@ -251,8 +259,44 @@ namespace Tamagochi_WPF
                
             }
         }
+        bool isPetting = false;
+        private void GifOfDuckStandart_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            if (!isPetting)
+            {
+                isPetting = true;
+                GifOfDuckPat.Visibility = Visibility.Visible;
+                GifOfDuckStandart.Visibility = Visibility.Hidden;
+                GifOfDuckEat1.Visibility = Visibility.Hidden;
+                GifOfDuckEat2.Visibility = Visibility.Hidden;
+                GifOfDuckEat3.Visibility = Visibility.Hidden; 
+                GifOfDuckEatTrash.Visibility = Visibility.Hidden;
+                timerForGifPetting.Start();
+            }
+        }
 
-        //рестарт гри (якщо захочемо, можна сюди ще допиляти панель з результатами, скільки їжі сів і скільки хвилин прожив
+        private void TimerOfPetting_Tick(object sender, EventArgs e)
+        {
+            timerForGifPetting.Stop();
+            GifOfDuckStandart.Visibility = Visibility.Visible;
+            GifOfDuckPat.Visibility = Visibility.Hidden;
+            GifOfDuckEat1.Visibility = Visibility.Hidden;
+            GifOfDuckEat2.Visibility = Visibility.Hidden;
+            GifOfDuckEat3.Visibility = Visibility.Hidden;
+            GifOfDuckEatTrash.Visibility = Visibility.Hidden;
+            isPetting =false;
+        }
+
+        private void TimerEatGif_Tick(object sender, EventArgs e)
+        {
+            timerForGifPetting.Stop();
+            GifOfDuckPat.Visibility = Visibility.Hidden;
+            GifOfDuckStandart.Visibility = Visibility.Visible;
+            GifOfDuckEat1.Visibility = Visibility.Hidden;
+            GifOfDuckEat2.Visibility = Visibility.Hidden;
+            GifOfDuckEat3.Visibility = Visibility.Hidden;
+            GifOfDuckEatTrash.Visibility = Visibility.Hidden;
+        }
 
         private void Timer_Tick(object sender, EventArgs e)
         {
@@ -403,7 +447,7 @@ namespace Tamagochi_WPF
             inventoryController.Add(food[index]);
         }
         //видає їжу
-
+        bool gifeat1 = false, gifeat2 = false, gifeat3 = false, gifeat4 = false;
         private void GetFood(object sender, RoutedEventArgs e)
         {
             String str = foodText.Text.ToLower();
@@ -480,6 +524,43 @@ namespace Tamagochi_WPF
                 for (int i = 0; i < food.Length; i++)
                 {
                     if (masStr[0] == food[i].Name) { dish = food[i]; index = i; break; } 
+                }
+                if (index >= 0 && index <=10)
+                {
+                    GifOfDuckPat.Visibility = Visibility.Hidden;
+                    GifOfDuckStandart.Visibility = Visibility.Hidden;
+                    GifOfDuckEat1.Visibility = Visibility.Visible;
+                    GifOfDuckEat2.Visibility = Visibility.Hidden;
+                    GifOfDuckEat3.Visibility = Visibility.Hidden;
+                    GifOfDuckEatTrash.Visibility = Visibility.Hidden;
+                    timerForEatGif.Start();
+                } else if (index >10 && index <= 20)
+                {
+                    GifOfDuckPat.Visibility = Visibility.Hidden;
+                    GifOfDuckStandart.Visibility = Visibility.Hidden;
+                    GifOfDuckEat1.Visibility = Visibility.Hidden;
+                    GifOfDuckEat2.Visibility = Visibility.Visible;
+                    GifOfDuckEat3.Visibility = Visibility.Hidden;
+                    GifOfDuckEatTrash.Visibility = Visibility.Hidden;
+                    timerForEatGif.Start();
+                } else if (index > 20 && index <= 28)
+                {
+                    GifOfDuckPat.Visibility = Visibility.Hidden;
+                    GifOfDuckStandart.Visibility = Visibility.Hidden;
+                    GifOfDuckEat1.Visibility = Visibility.Hidden;
+                    GifOfDuckEat2.Visibility = Visibility.Hidden;
+                    GifOfDuckEat3.Visibility = Visibility.Visible;
+                    GifOfDuckEatTrash.Visibility = Visibility.Hidden;
+                    timerForEatGif.Start();
+                } else 
+                {
+                    GifOfDuckPat.Visibility = Visibility.Hidden;
+                    GifOfDuckStandart.Visibility = Visibility.Hidden;
+                    GifOfDuckEat1.Visibility = Visibility.Hidden;
+                    GifOfDuckEat2.Visibility = Visibility.Hidden;
+                    GifOfDuckEat3.Visibility = Visibility.Hidden;
+                    GifOfDuckEatTrash.Visibility = Visibility.Visible;
+                    timerForEatGif.Start();
                 }
                 inventoryController.Remove(dish);
                 tamagochi.Eat(dish);

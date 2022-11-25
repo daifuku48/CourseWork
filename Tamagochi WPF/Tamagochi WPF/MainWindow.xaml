@@ -168,9 +168,29 @@
                 VerticalAlignment="Top" 
                 Width="300" 
                 gif:ImageBehavior.RepeatBehavior="Forever" 
-                gif:ImageBehavior.AnimatedSource="/img/normal.gif" />
+                gif:ImageBehavior.AnimatedSource="/img/normal.gif" MouseDown="GifOfDuckStandart_MouseDown" Cursor="Hand" />
             <Image 
-                Name ="GifOfDuckEat"
+                Name ="GifOfDuckEat1"
+                Visibility="Hidden"
+                Grid.Column="1" 
+                HorizontalAlignment="Center" 
+                Height="300" Margin="0,0,0,0" 
+                VerticalAlignment="Top" 
+                Width="300" 
+                gif:ImageBehavior.RepeatBehavior="Forever" 
+                gif:ImageBehavior.AnimatedSource="/img/eat-normal.gif" />
+            <Image 
+                Name ="GifOfDuckEat2"
+                Visibility="Hidden"
+                Grid.Column="1" 
+                HorizontalAlignment="Center" 
+                Height="300" Margin="0,0,0,0" 
+                VerticalAlignment="Top" 
+                Width="300" 
+                gif:ImageBehavior.RepeatBehavior="Forever" 
+                gif:ImageBehavior.AnimatedSource="/img/eat-normal2.gif" />
+            <Image 
+                Name ="GifOfDuckEat3"
                 Visibility="Hidden"
                 Grid.Column="1" 
                 HorizontalAlignment="Center" 
@@ -179,7 +199,27 @@
                 Width="300" 
                 gif:ImageBehavior.RepeatBehavior="Forever" 
                 gif:ImageBehavior.AnimatedSource="/img/eat-love.gif" />
-            
+            <Image 
+                Name ="GifOfDuckEatTrash"
+                Visibility="Hidden"
+                Grid.Column="1" 
+                HorizontalAlignment="Center" 
+                Height="300" Margin="0,0,0,0" 
+                VerticalAlignment="Top" 
+                Width="300" 
+                gif:ImageBehavior.RepeatBehavior="Forever" 
+                gif:ImageBehavior.AnimatedSource="/img/eat-zero.gif" />
+            <Image 
+                Name ="GifOfDuckPat"
+                Visibility="Hidden"
+                Grid.Column="1" 
+                HorizontalAlignment="Center" 
+                Height="300" Margin="0,0,0,0" 
+                VerticalAlignment="Top" 
+                Width="300" 
+                gif:ImageBehavior.RepeatBehavior="Forever" 
+                gif:ImageBehavior.AnimatedSource="/img/love-max.gif" />
+
             <ProgressBar 
                 Name ="ProgressBarOfHeal"
                 Grid.Column="0" 

@@ -299,5 +299,8 @@
   <ItemGroup>
     <Resource Include="podium.png" />
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="img\eat-normal - Копировать.gif" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
