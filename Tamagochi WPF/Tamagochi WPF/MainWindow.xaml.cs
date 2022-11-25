@@ -63,15 +63,15 @@ namespace Tamagochi_WPF
             MenuWidth = sideMenu.Width;
 
             timerForTamagochi = new DispatcherTimer();
-            timerForTamagochi.Interval = new TimeSpan(0, 0, 0, 3);
+            timerForTamagochi.Interval = new TimeSpan(0, 0, 0, 2);
             timerForTamagochi.Tick += Timer_Eat;
 
             timerForTakeEat = new DispatcherTimer();
-            timerForTakeEat.Interval = new TimeSpan(0, 0, 0, 10);
+            timerForTakeEat.Interval = new TimeSpan(0, 0, 0, 8);
             timerForTakeEat.Tick += Timer_Take_Eat;
 
             timerOfLife = new DispatcherTimer();
-            timerOfLife.Interval = new TimeSpan(0, 0, 0, 20);
+            timerOfLife.Interval = new TimeSpan(0, 0, 0, 15);
             timerOfLife.Tick += TimerOfLife_Tick;
 
             inventoryController = new InventoryController();
@@ -223,6 +223,50 @@ namespace Tamagochi_WPF
                 }
             }
         }
+
+        private void eat_List_MouseDoubleClick(object sender, MouseButtonEventArgs e)
+        {
+            string s = eat_List.SelectedItem.ToString();
+            if (foodText.Text == "")
+            {
+                foodText.Text = s;
+            } else if (foodText.Text.EndsWith("+ ") || foodText.Text.EndsWith("+"))
+            {
+                foodText.Text = foodText.Text + s;
+            }
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            //if ((foodText.Text == "" || foodText.Text != null) || (!foodText.Text.EndsWith("+") || !foodText.Text.EndsWith("+ ")))
+            //{
+            //    foodText.Text = foodText.Text + " + ";
+            //}
+            if (foodText.Text != "")
+            {
+                if (!foodText.Text.EndsWith("+ ") || !foodText.Text.EndsWith("+"))
+                {
+                    foodText.Text = foodText.Text + " + ";
+                }
+            }
+        }
+
+        private void Button_Plus_Click(object sender, RoutedEventArgs e)
+        {
+            if (foodText.Text != "")
+            {
+                if (!foodText.Text.EndsWith("+ "))
+                {
+                    foodText.Text = foodText.Text + " + ";
+                }
+                else if (foodText.Text.EndsWith("+"))
+                {
+                    foodText.Text = foodText.Text + " + ";
+                }
+               
+            }
+        }
+
         //рестарт гри (якщо захочемо, можна сюди ще допиляти панель з результатами, скільки їжі сів і скільки хвилин прожив
 
         private void Timer_Tick(object sender, EventArgs e)

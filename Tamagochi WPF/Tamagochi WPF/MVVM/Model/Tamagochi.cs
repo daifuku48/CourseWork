@@ -41,10 +41,6 @@ namespace Tamagochi_WPF
         {
             try
             {
-                if (!is_alive_)
-                {
-                    throw new ExceptionController("Error: You are dead");
-                }
                 heal_ = 100;
                 poisoning_ = 0;
                 saturation_ = 100;
@@ -103,7 +99,7 @@ namespace Tamagochi_WPF
             }
 
             if (happines_ <= 25)
-            { poisoning_ += 1; heal_ -= 10;}
+            { poisoning_ += 1; heal_ -= 5;}
                
                 //poisoning_ = poisoning_ + Math.Abs(happines_);
 
