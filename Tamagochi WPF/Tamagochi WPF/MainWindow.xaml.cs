@@ -34,11 +34,45 @@ namespace Tamagochi_WPF
         Tamagochi tamagochi;
         InventoryController inventoryController;
         int timeOflife;
-        IFood[] food;
+        List<IFood> food;
         Random randomIndex;
         public MainWindow()
         {
-            tamagochi = new Tamagochi();
+            food = new List<IFood>();
+            food.Add(new Sugar());
+            food.Add(new Salt());
+            food.Add(new Water());
+            food.Add(new Fire());
+            food.Add(new Duck());
+            food.Add(new Corn());
+            food.Add(new Fish());
+            food.Add(new Egg());
+            food.Add(new Mushroom());
+            food.Add(new Marshmallow());
+            food.Add(new Vegetable());
+            food.Add(new Flakes());
+            food.Add(new Bread());
+            food.Add(new Pie());
+            food.Add(new Jam());
+            food.Add(new Compote());
+            food.Add(new Jelly());
+            food.Add(new Omelette());
+            food.Add(new Pancake());
+            food.Add(new Toast());
+            food.Add(new GrilledVegetables());
+            food.Add(new Salad());
+            food.Add(new Steak());
+            food.Add(new Rice());
+            food.Add(new RiceVegetables());
+            food.Add(new Popcorn());
+            food.Add(new VegetableSoup());
+            food.Add(new MushroomSoup());
+            food.Add(new FishSoup());
+            food.Add(new Trash());
+
+            inventoryController = new InventoryController(food);
+
+            tamagochi = new Tamagochi(food);
             InitializeComponent();
             timer = new DispatcherTimer();
             timer.Interval = new TimeSpan(0, 0, 0, 0 , 1);
@@ -78,8 +112,6 @@ namespace Tamagochi_WPF
             timerOfLife.Interval = new TimeSpan(0, 0, 0, 15);
             timerOfLife.Tick += TimerOfLife_Tick;
 
-            inventoryController = new InventoryController();
-
             timerForGifPetting = new DispatcherTimer();
             timerForGifPetting.Interval = new TimeSpan(0, 0, 0, 3);
             timerForGifPetting.Tick += TimerOfPetting_Tick;
@@ -88,37 +120,6 @@ namespace Tamagochi_WPF
             timerForEatGif.Interval = new TimeSpan(0, 0, 0, 3);
             timerForEatGif.Tick += TimerEatGif_Tick;
 
-            food = new IFood[30];
-            food[0] = new Sugar();
-            food[1] = new Salt();
-            food[2] = new Water();
-            food[3] = new Fire();
-            food[4] = new Duck();
-            food[5] = new Corn();
-            food[6] = new Fish();
-            food[7] = new Egg();
-            food[8] = new Mushroom();
-            food[9] = new Marshmallow();
-            food[10] = new Vegetable();
-            food[11] = new Flakes();
-            food[12] = new Bread();
-            food[13] = new Pie();
-            food[14] = new Jam();
-            food[15] = new Compote();
-            food[16] = new Jelly();
-            food[17] = new Omelette();
-            food[18] = new Pancake();
-            food[19] = new Toast();
-            food[20] = new GrilledVegetables();
-            food[21] = new Salad();
-            food[22] = new Steak();
-            food[23] = new Rice();
-            food[24] = new RiceVegetables();
-            food[25] = new Popcorn();
-            food[26] = new VegetableSoup();
-            food[27] = new MushroomSoup();
-            food[28] = new FishSoup();
-            food[29] = new Trash();
             randomIndex = new Random();
         }
 
@@ -526,12 +527,12 @@ namespace Tamagochi_WPF
                     labelErrorsWithList.Content = "Product are same";
                     return;
                 }
-                string newFood = inventoryController.Craft(food, masStr[0], masStr[1]);
+                string newFood = inventoryController.Craft(masStr[0], masStr[1]).Name;
                 eat_List.Items.Remove(masStr[0]);
                 eat_List.Items.Remove(masStr[1]);
                 eat_List.Items.Add(newFood);
                 IFood dish = null;
-                for (int i = 0; i < food.Length; i++)
+                for (int i = 0; i < food.Count; i++)
                 {
                     if (newFood == food[i].Name) { dish = food[i]; break; }
                 }
@@ -556,7 +557,7 @@ namespace Tamagochi_WPF
                 }
                 IFood dish = null;
                 int index = 30;
-                for (int i = 0; i < food.Length; i++)
+                for (int i = 0; i < food.Count; i++)
                 {
                     if (masStr[0] == food[i].Name) { dish = food[i]; index = i; break; } 
                 }

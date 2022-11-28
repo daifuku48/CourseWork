@@ -1,6 +1,8 @@
 ﻿using System;
-//using Internal;
 using System.Collections.Generic;
+using System.ComponentModel;
+using System.Runtime.InteropServices;
+using Tamagochi_WPF;
 
 namespace Tamagochi_WPF
 {
@@ -14,101 +16,84 @@ namespace Tamagochi_WPF
             food = food_;
             amount = amount_;
         }
-        public static bool operator == (Item this_, Item other_)
+        public static bool operator ==(Item this_, Item other_)
         {
             return this_.food == other_.food;
         }
-        public static bool operator != (Item this_, Item other_)
+        public static bool operator !=(Item this_, Item other_)
         {
             return this_.food != other_.food;
         }
     }
+
     public class InventoryController // (-_*)
     {
-        public List<Item> items_ = new List<Item>();
+        public List<Item> _items = new List<Item>();
         // Список продуктів у інвентарі
-        // Список кількості продуктів
-        public List<Item> products_ = new List<Item>();
 
-        public void FillProducts(IFood[] food)
+        public InventoryController(List<IFood> foods_)
         {
-            for (int i = 0; i < food.Length; i++)
+            foreach (IFood food in foods_)
             {
-                products_.Add(new Item(food[i]));
+                _items.Add(new Item(food));
             }
         }
 
-        public String Crafting(IFood food_, int amount_ = 1)
+        // Test U( t _ t )U
+        public IFood Craft(string ingredient_right_, string ingredient_left_)
         {
-            try
+            if (!CheckItem(ingredient_right_) || !CheckItem(ingredient_left_))
             {
-                if (!food_.HasRecipe())
-                {
-                    throw new ExceptionController("Error: Base class product could not de instantiated.");
-                }
-                // помилка базового продукту не може бути створено.
-
-                //if (!CheckCrafting(food_)) return "trash";
-                // помилка не має потрібних інгредієнтів.
-
-                foreach (string item_name in food_.Recipe)
-                {
-                    items_.Find(obj => obj.food.Name == item_name).amount -= 1;
-                    if (items_.Find(obj => obj.food.Name == item_name).amount == 0)
-                        items_.Remove(items_.Find(obj => obj.food.Name == item_name));
-                }
-                // вилучення всіх інгредієнтів із інвентарю
-
-                Add(food_, amount_);
-                // додавання продукту(_food) до інвентарю
-
-                return food_.Name;
+                return new Trash();
             }
-            catch (ExceptionController ex) 
-            {
-                Console.WriteLine(ex.Message);
-                return "trash";
-            }
-        }
 
-        public String Craft(IFood[] items, string itemName1, string itemName2)
-        {
-
-            try
+            foreach (Item item in this._items)
             {
-                for (int i = 0; i < items.Length; i++)
+                if (item.food.Recipe == null)
                 {
-                    if (items[i].HasRecipe())
+                    continue;
+                }
+                if (item.food.Recipe[0] == ingredient_right_ && item.food.Recipe[1] == ingredient_left_)
+                {
+                    foreach (string item_name in item.food.Recipe)
                     {
-                        string[] recipe = items[i].Recipe;
-                        if ((recipe[0] == itemName1 && recipe[1] == itemName2) || 
-                            (recipe[1] == itemName1 && recipe[0] == itemName2))
+                        this._items.Find(obj => obj.food.Name == item_name).amount -= 1;
+
+                        if (_items.Find(obj => obj.food.Name == item_name).amount == 0)
                         {
-                            return Crafting(items[i]);
+                            _items.Remove(_items.Find(obj => obj.food.Name == item_name));
                         }
                     }
+                    return item.food;
                 }
-                throw new ExceptionController("Error: Udefined item.");
             }
-            catch (ExceptionController ex)
-            {
-                Console.WriteLine(ex.Message);
-                return "trash";
-            }
+            return new Trash();
         }
 
+/*        private bool CheckItem(IFood item_, int amount_ = 1)
+        {
+            foreach (Item item in this._items)
+            {
+                if (item_.Name == item.food.Name && item.amount >= amount_)
+                {
+                    return true;
+                }
+            }
+            return false;
+        }
+*/
         public void Add(IFood food_, int amount_ = 1)
         {
             if (CheckItem(food_))
             {
                 for (int index = 0; index < amount_; index++)
                 {
-                    items_.Find(obj => obj.food.Name == food_.Name).amount += 1;
+                    _items.Find(obj => obj.food.Name == food_.Name).amount += 1;
                 }
             }
             else
             {
-                items_.Add(new Item(food_, amount_));
+                _items.Add(new Item(food_, amount_));
             }
         }
 
@@ -116,16 +101,16 @@ namespace Tamagochi_WPF
         {
             try
             {
-                if (items_.Count == 0)
+                if (_items.Count == 0)
                 {
                     throw new ExceptionController("Error: Product list is empty.");
                 }
                 // помилка список продуктів порожній.
 
-                items_.Remove(items_.Find(obj => obj.food == food_));
+                _items.Remove(_items.Find(obj => obj.food == food_));
                 //видалення продукту із інвентарю
             }
-            catch (ExceptionController ex) 
+            catch (ExceptionController ex)
             {
                 Console.WriteLine(ex.Message);
                 return;
@@ -134,14 +119,14 @@ namespace Tamagochi_WPF
 
         public bool CheckItem(IFood food_)
         {
-            foreach (Item item in items_)
+            foreach (Item item in _items)
                 if (item.food.Name == food_.Name && item.amount > 0) return true;
             return false;
         }
 
         public bool CheckItem(string name_)
         {
-            foreach (Item item in items_)
+            foreach (Item item in _items)
                 if (item.food.Name == name_ && item.amount > 0) return true;
             return false;
         }
@@ -154,10 +139,5 @@ namespace Tamagochi_WPF
         }
         // перевірка наявності всіх інгредієнтів для крафту продукту
 
-        public void Debug()
-        {
-            for (int index = 0; index < items_.Count; index++)
-                Console.WriteLine($"Name: {items_[index].food.Name} | Count: {items_[index].amount}");
-        }
     }
 }

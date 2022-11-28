@@ -30,11 +30,12 @@ namespace Tamagochi_WPF
         private bool is_alive_;
         public bool IsAlive { get { return is_alive_; } set { is_alive_ = value; } }
 
-        public InventoryController Inventory = new InventoryController();
+        public InventoryController Inventory;
 
-        public Tamagochi()
+        public Tamagochi(List<IFood> food_)
         {
             StateCreate();
+            Inventory = new InventoryController(food_);
         }
 
         public void StateCreate()
