@@ -157,3 +157,43 @@ C:\Projects\CourseWork\Tamagochi WPF\Tamagochi WPF\obj\Debug\Tamagochi WPF.cspro
 C:\Projects\CourseWork\Tamagochi WPF\Tamagochi WPF\obj\Debug\Tamagochi WPF.csproj.CopyComplete
 C:\Projects\CourseWork\Tamagochi WPF\Tamagochi WPF\obj\Debug\Tamagochi WPF.exe
 C:\Projects\CourseWork\Tamagochi WPF\Tamagochi WPF\obj\Debug\Tamagochi WPF.pdb
+E:\CourseWork\Tamagochi WPF\Tamagochi WPF\bin\Debug\Tamagochi WPF.exe.config
+E:\CourseWork\Tamagochi WPF\Tamagochi WPF\bin\Debug\Tamagochi WPF.exe
+E:\CourseWork\Tamagochi WPF\Tamagochi WPF\bin\Debug\Tamagochi WPF.pdb
+E:\CourseWork\Tamagochi WPF\Tamagochi WPF\bin\Debug\Microsoft.Bcl.AsyncInterfaces.dll
+E:\CourseWork\Tamagochi WPF\Tamagochi WPF\bin\Debug\System.Buffers.dll
+E:\CourseWork\Tamagochi WPF\Tamagochi WPF\bin\Debug\System.Memory.dll
+E:\CourseWork\Tamagochi WPF\Tamagochi WPF\bin\Debug\System.Numerics.Vectors.dll
+E:\CourseWork\Tamagochi WPF\Tamagochi WPF\bin\Debug\System.Runtime.CompilerServices.Unsafe.dll
+E:\CourseWork\Tamagochi WPF\Tamagochi WPF\bin\Debug\System.Text.Encodings.Web.dll
+E:\CourseWork\Tamagochi WPF\Tamagochi WPF\bin\Debug\System.Text.Json.dll
+E:\CourseWork\Tamagochi WPF\Tamagochi WPF\bin\Debug\System.Threading.Tasks.Extensions.dll
+E:\CourseWork\Tamagochi WPF\Tamagochi WPF\bin\Debug\System.ValueTuple.dll
+E:\CourseWork\Tamagochi WPF\Tamagochi WPF\bin\Debug\WpfAnimatedGif.dll
+E:\CourseWork\Tamagochi WPF\Tamagochi WPF\bin\Debug\Microsoft.Bcl.AsyncInterfaces.xml
+E:\CourseWork\Tamagochi WPF\Tamagochi WPF\bin\Debug\System.Buffers.xml
+E:\CourseWork\Tamagochi WPF\Tamagochi WPF\bin\Debug\System.Memory.xml
+E:\CourseWork\Tamagochi WPF\Tamagochi WPF\bin\Debug\System.Numerics.Vectors.xml
+E:\CourseWork\Tamagochi WPF\Tamagochi WPF\bin\Debug\System.Runtime.CompilerServices.Unsafe.xml
+E:\CourseWork\Tamagochi WPF\Tamagochi WPF\bin\Debug\System.Text.Encodings.Web.xml
+E:\CourseWork\Tamagochi WPF\Tamagochi WPF\bin\Debug\System.Text.Json.xml
+E:\CourseWork\Tamagochi WPF\Tamagochi WPF\bin\Debug\System.Threading.Tasks.Extensions.xml
+E:\CourseWork\Tamagochi WPF\Tamagochi WPF\bin\Debug\System.ValueTuple.xml
+E:\CourseWork\Tamagochi WPF\Tamagochi WPF\bin\Debug\WpfAnimatedGif.pdb
+E:\CourseWork\Tamagochi WPF\Tamagochi WPF\bin\Debug\WpfAnimatedGif.xml
+E:\CourseWork\Tamagochi WPF\Tamagochi WPF\obj\Debug\Tamagochi WPF.csproj.AssemblyReference.cache
+E:\CourseWork\Tamagochi WPF\Tamagochi WPF\obj\Debug\Tamagochi WPF.csproj.SuggestedBindingRedirects.cache
+E:\CourseWork\Tamagochi WPF\Tamagochi WPF\obj\Debug\MainWindow.g.cs
+E:\CourseWork\Tamagochi WPF\Tamagochi WPF\obj\Debug\MVVM\View\kitchen.g.cs
+E:\CourseWork\Tamagochi WPF\Tamagochi WPF\obj\Debug\App.g.cs
+E:\CourseWork\Tamagochi WPF\Tamagochi WPF\obj\Debug\Tamagochi WPF_MarkupCompile.cache
+E:\CourseWork\Tamagochi WPF\Tamagochi WPF\obj\Debug\Tamagochi WPF_MarkupCompile.lref
+E:\CourseWork\Tamagochi WPF\Tamagochi WPF\obj\Debug\MainWindow.baml
+E:\CourseWork\Tamagochi WPF\Tamagochi WPF\obj\Debug\MVVM\View\kitchen.baml
+E:\CourseWork\Tamagochi WPF\Tamagochi WPF\obj\Debug\Tamagochi WPF.g.resources
+E:\CourseWork\Tamagochi WPF\Tamagochi WPF\obj\Debug\Tamagochi_WPF.Properties.Resources.resources
+E:\CourseWork\Tamagochi WPF\Tamagochi WPF\obj\Debug\Tamagochi WPF.csproj.GenerateResource.cache
+E:\CourseWork\Tamagochi WPF\Tamagochi WPF\obj\Debug\Tamagochi WPF.csproj.CoreCompileInputs.cache
+E:\CourseWork\Tamagochi WPF\Tamagochi WPF\obj\Debug\Tamagochi WPF.csproj.CopyComplete
+E:\CourseWork\Tamagochi WPF\Tamagochi WPF\obj\Debug\Tamagochi WPF.exe
+E:\CourseWork\Tamagochi WPF\Tamagochi WPF\obj\Debug\Tamagochi WPF.pdb

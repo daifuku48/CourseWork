@@ -27,10 +27,10 @@ namespace Tamagochi_WPF
     public partial class MainWindow : Window
     {
 
-        DispatcherTimer timer, timerstart, timerEnd, timerDevelopers, timerInstruction, timerForTamagochi, timerForTakeEat, timerOfLife, timerForGifPetting, timerForEatGif;
+        DispatcherTimer timer, timerstart, timerEnd, timerTop , timerDevelopers, timerInstruction, timerForTamagochi, timerForTakeEat, timerOfLife, timerForGifPetting, timerForEatGif;
 
-        double MenuWidth , StartGameHeight, EndGameHeight, DelevopersGameHeight , InstructionGameHeight;
-        bool hiddenMenu , StartGamehidden , EndGamehidden, DelevopersGamehidden , InstructionGamehidden;
+        double MenuWidth , StartGameHeight, EndGameHeight, DelevopersGameHeight , InstructionGameHeight, TopGameHeight;
+        bool hiddenMenu , StartGamehidden , EndGamehidden, DelevopersGamehidden , InstructionGamehidden, TopGamehidden;
         Tamagochi tamagochi;
         InventoryController inventoryController;
         int timeOflife;
@@ -55,11 +55,15 @@ namespace Tamagochi_WPF
             timerInstruction = new DispatcherTimer();
             timerInstruction.Interval = new TimeSpan(0, 0, 0, 0, 1);
             timerInstruction.Tick += Instruction_Tick;
+            timerTop = new DispatcherTimer();
+            timerTop.Interval = new TimeSpan(0, 0, 0, 0, 1);
+            timerTop.Tick += Top_Tick;
 
             EndGameHeight = EndGamePanel.Height;
             StartGameHeight = StartGamePanel.Height;
             DelevopersGameHeight = DevelopersGamePanel.Height;
             InstructionGameHeight = InstructionGamePanel.Height;
+            TopGameHeight = TopGamePanel.Height;
             MenuWidth = sideMenu.Width;
 
             timerForTamagochi = new DispatcherTimer();
@@ -392,6 +396,33 @@ namespace Tamagochi_WPF
             }
         }
 
+        private void Top_Tick(object sender, EventArgs e)
+        {
+            if (TopGamehidden)
+            {
+                if (checkPause == false) { checkPause = true; Pause(checkPause); }
+                TopGamePanel.Visibility = Visibility.Visible;
+                TopGamePanel.Height += TopGameHeight / 5;
+                if (TopGamePanel.Height >= TopGameHeight)
+                {
+                    timerTop.Stop();
+                    TopGamehidden = false;
+                }
+            }
+            else
+            {
+                TopGamePanel.Height -= TopGameHeight / 5;
+                if (TopGamePanel.Height <= 0)
+                {
+                    checkPause = false;
+                    UnPause();
+                    timerTop.Stop();
+                    TopGamehidden = true;
+                    TopGamePanel.Visibility = Visibility.Hidden;
+                }
+            }
+        }
+
         private void Restart_Game(object sender, RoutedEventArgs e)
         {
             timerEnd.Start();
@@ -407,6 +438,10 @@ namespace Tamagochi_WPF
         private void instruction_Btn(object sender, RoutedEventArgs e)
         {
             timerInstruction.Start();
+        }
+        private void Top_Btn(object sender, RoutedEventArgs e)
+        {
+            timerTop.Start();
         }
 
         private void Start_Game(object sender, RoutedEventArgs e)

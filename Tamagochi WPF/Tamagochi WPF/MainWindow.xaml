@@ -15,7 +15,7 @@
         Icon="icons/ducky.png">
 
     <Grid VerticalAlignment="Top" Height="Auto" Margin="0,0,0,0" Background="Azure">
-        <Grid x:Name="MenuPanel" VerticalAlignment="Top" ShowGridLines="True" Height="60" Background="#FFF897" MouseDown="MenuPanel_MouseDown">
+        <Grid x:Name="MenuPanel" VerticalAlignment="Top"  Height="60" Background="#FFF897" MouseDown="MenuPanel_MouseDown">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition></ColumnDefinition>
                 <ColumnDefinition Width="*"></ColumnDefinition>
@@ -65,7 +65,7 @@
                    PreviewMouseLeftButtonDown="leftDown">
             </Image>
         </Grid>
-        <Grid Visibility="Hidden" x:Name="sideMenu" Panel.ZIndex="10" Background="#FFF897" VerticalAlignment="Top" HorizontalAlignment="Left" Width="250" Height="600" ShowGridLines="True">
+        <Grid Visibility="Collapsed" x:Name="sideMenu" Panel.ZIndex="10" Background="#FFF897" VerticalAlignment="Top" HorizontalAlignment="Left" Width="250" Height="600">
             <StackPanel>
                 <Grid Height="130" Background="White">
                     <Image  
@@ -111,7 +111,7 @@
                             <TextBlock Text="Instruction" Margin="15,0,0,0" VerticalAlignment="Center" />
                         </StackPanel>
                     </Button>
-                    <Button Grid.Row="3" HorizontalAlignment="Left" VerticalAlignment="Center" Background="Transparent" BorderThickness="0"
+                    <Button Grid.Row="3" HorizontalAlignment="Left" VerticalAlignment="Center" Background="Transparent" BorderThickness="0" Click="Top_Btn"
                         Margin="0,0,0,0" Padding="20,0,0,0"
                         Width="250" Height="78.333"
                         FontFamily="Open Sans" 
@@ -153,7 +153,7 @@
                 </Grid>
             </StackPanel>
         </Grid>
-        <Grid VerticalAlignment="Top" Height="300" ShowGridLines="True" Margin="0,65,0,0">
+        <Grid VerticalAlignment="Top" Height="300"  Margin="0,65,0,0">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition></ColumnDefinition>
                 <ColumnDefinition></ColumnDefinition>
@@ -344,7 +344,7 @@
                 FontSize="16"
                 RenderTransformOrigin="0.681,1.805"/>
         </Grid>
-        <Grid VerticalAlignment="Top" Height="Auto" ShowGridLines="True" Margin="0,420,0,0">
+        <Grid VerticalAlignment="Top" Height="Auto"  Margin="0,420,0,0">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition></ColumnDefinition>
                 <ColumnDefinition></ColumnDefinition>
@@ -410,7 +410,7 @@
                 VerticalAlignment="Top" 
                 RenderTransformOrigin="0.254,0" Foreground="#FFF90101" Width="99" FontSize="10" Height="23" Grid.ColumnSpan="2"/>
         </Grid>
-        <Grid Visibility="Visible" x:Name="StartGamePanel" Panel.ZIndex="15" Background="#FFF897" VerticalAlignment="Top" HorizontalAlignment="Left" Width="1000" Height="600" ShowGridLines="True">
+        <Grid Visibility="Visible" x:Name="StartGamePanel" Panel.ZIndex="15" Background="#FFF897" VerticalAlignment="Top" HorizontalAlignment="Left" Width="1000" Height="600">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition></ColumnDefinition>
                 <ColumnDefinition></ColumnDefinition>
@@ -576,7 +576,7 @@
 
             </Image>
         </Grid>
-        <Grid Visibility="Hidden" x:Name="EndGamePanel" Panel.ZIndex="16" Background="#FFF897" VerticalAlignment="Top" HorizontalAlignment="Left" Width="1000" Height="600" ShowGridLines="True">
+        <Grid Visibility="Hidden" x:Name="EndGamePanel" Panel.ZIndex="16" Background="#FFF897" VerticalAlignment="Top" HorizontalAlignment="Left" Width="1000" Height="600">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition></ColumnDefinition>
                 <ColumnDefinition></ColumnDefinition>
@@ -721,7 +721,7 @@
             Background="#FFFDFDFD" 
             RenderTransformOrigin="0.45,0.5" Cursor="Hand" MouseDoubleClick="eat_List_MouseDoubleClick"/>
 
-        <Grid Visibility="Hidden" x:Name="DevelopersGamePanel" Panel.ZIndex="16" Background="#FFFDFDFD" VerticalAlignment="Bottom" HorizontalAlignment="Left" Width="1000" Height="600" ShowGridLines="False">
+        <Grid Visibility="Hidden" x:Name="DevelopersGamePanel" Panel.ZIndex="16" Background="#FFFDFDFD" VerticalAlignment="Bottom" HorizontalAlignment="Left" Width="1000" Height="600">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition></ColumnDefinition>
                 <ColumnDefinition></ColumnDefinition>
@@ -865,7 +865,7 @@
             <Image Margin="-61,-24,94,0" Source="img/ellipse4.png" Stretch="Fill" Panel.ZIndex="-1" Grid.RowSpan="3" RenderTransformOrigin="0.5,0.5" Grid.ColumnSpan="2"/>
         </Grid>
 
-        <Grid Visibility="Hidden" x:Name="InstructionGamePanel" Panel.ZIndex="16" Background="#FFFDFDFD" VerticalAlignment="Bottom" HorizontalAlignment="Left" Width="1000" Height="600" ShowGridLines="False">
+        <Grid Visibility="Hidden" x:Name="InstructionGamePanel" Panel.ZIndex="16" Background="#FFFDFDFD" VerticalAlignment="Bottom" HorizontalAlignment="Left" Width="1000" Height="600">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition></ColumnDefinition>
                 <ColumnDefinition></ColumnDefinition>
@@ -952,6 +952,87 @@
                 gif:ImageBehavior.RepeatBehavior="Forever" 
                 gif:ImageBehavior.AnimatedSource="/img/avatar1.png" />
             <Button Click="instruction_Btn"
+                    Width="30"
+                    Height="30"
+                    Grid.Column="2"
+                    HorizontalAlignment="Right"
+                    VerticalAlignment="Top"
+                    Background="Transparent"
+                    BorderBrush="Transparent" BorderThickness="0"
+                    Margin="0,5,5,0"
+                    Cursor="Hand"
+                    Panel.ZIndex="3">
+                <Image 
+                        Source="icons/exit3.png" 
+                        Height="30" 
+                       />
+            </Button>
+        </Grid>
+        <Grid Visibility="Hidden" x:Name="TopGamePanel" Panel.ZIndex="16" Background="#FFFDFDFD" VerticalAlignment="Bottom" HorizontalAlignment="Left" Width="1000" Height="600">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+            </Grid.RowDefinitions>
+            <Image 
+                Grid.Column="2" 
+                Grid.Row="0"
+                HorizontalAlignment="Left" 
+                Height="97" Width="111" 
+                Margin="177,59,0,0" 
+                VerticalAlignment="Top" 
+                gif:ImageBehavior.RepeatBehavior="Forever" 
+                gif:ImageBehavior.AnimatedSource="/icons/ducky.png" RenderTransformOrigin="0.5,0.5" >
+                <Image.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform/>
+                        <RotateTransform Angle="-143.126"/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </Image.RenderTransform>
+            </Image>
+            <Label
+            Foreground="#1B7B8F"
+            HorizontalAlignment="Left" VerticalAlignment="Top" 
+            Content="Top scores"
+            FontFamily="Open Sans" FontSize="26" FontWeight="UltraBlack" Margin="160,69,0,0"/>
+            <ListBox d:ItemsSource="{d:SampleData ItemCount=5}" FontFamily="Open Sans" FontSize="18" FontWeight="Medium" Grid.ColumnSpan="3" Margin="160,120,180,120" Padding="15" Grid.RowSpan="3"/>
+
+            <Image 
+                Grid.Column="2" 
+                Grid.Row="2"
+                HorizontalAlignment="Right" 
+                Height="82" Width="85" 
+                Margin="0,98,92,0" 
+                VerticalAlignment="Top" 
+                gif:ImageBehavior.RepeatBehavior="Forever" 
+                gif:ImageBehavior.AnimatedSource="/icons/duckyDied.png" RenderTransformOrigin="0.5,0.5" >
+                <Image.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform/>
+                        <RotateTransform Angle="-65.909"/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </Image.RenderTransform>
+            </Image>
+
+            <Image 
+                Grid.Column="0" 
+                Grid.Row="2"
+                HorizontalAlignment="Left" 
+                Height="160" Width="160" 
+                Margin="0,0,0,0" 
+                VerticalAlignment="Bottom" 
+                gif:ImageBehavior.RepeatBehavior="Forever" 
+                gif:ImageBehavior.AnimatedSource="/icons/ducky.png" />
+            <Button Click="Top_Btn"
                     Width="30"
                     Height="30"
                     Grid.Column="2"
