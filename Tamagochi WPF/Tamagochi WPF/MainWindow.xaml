@@ -575,6 +575,15 @@
                 </Image.Effect>
 
             </Image>
+            <Button 
+                Click="Load"
+                Width="140" Height="30"
+                Content="Load Game"
+                HorizontalAlignment="Center" VerticalAlignment="Top"
+                BorderBrush="Transparent" BorderThickness="0"
+                Background="#2B7B8F" Foreground="#FFF897"
+                FontFamily="Open Sans" FontSize="14" FontWeight="Normal" 
+                Grid.Column="1" Grid.Row="1" Margin="0,139,0,0" RenderTransformOrigin="0.524,1.169" />
         </Grid>
         <Grid Visibility="Hidden" x:Name="EndGamePanel" Panel.ZIndex="16" Background="#FFF897" VerticalAlignment="Top" HorizontalAlignment="Left" Width="1000" Height="600">
             <Grid.ColumnDefinitions>
