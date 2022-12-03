@@ -74,6 +74,46 @@ namespace Tamagochi_WPF
 
             tamagochi = new Tamagochi(food);
             InitializeComponent();
+
+            FileInfo info = new FileInfo(leadersFileName);
+            if (info.Exists)
+            {
+                using (FileStream fs = new FileStream(leadersFileName, FileMode.Open))
+                {
+                    List<TamagochiJson> ls = JsonSerializer.Deserialize<List<TamagochiJson>>(fs);
+
+                    ls.Sort(CompareTamagochJson);
+
+
+                    for (int i = 0; i < 8; i++)
+                    {
+                        if (i == ls.Count) break;
+                        Grid grid = new Grid();
+
+                        grid.HorizontalAlignment = HorizontalAlignment.Stretch;
+
+                        grid.ColumnDefinitions.Add(new ColumnDefinition());
+                        grid.ColumnDefinitions.Add(new ColumnDefinition());
+
+                        grid.ColumnDefinitions[0].MinWidth = 550;
+
+                        //grid.ShowGridLines = true;
+
+                        Label name = new Label();
+                        name.Content = ls[i].Name;
+
+                        Label rating = new Label();
+                        rating.Content = ls[i].Rating.ToString();
+                        Grid.SetColumn(rating, 1);
+
+                        grid.Children.Add(name);
+                        grid.Children.Add(rating);
+
+                        TopListBox.Items.Add(grid);
+                    }
+                }
+            }
+
             timer = new DispatcherTimer();
             timer.Interval = new TimeSpan(0, 0, 0, 0 , 1);
             timer.Tick += Timer_Tick;
@@ -123,12 +163,18 @@ namespace Tamagochi_WPF
             randomIndex = new Random();
         }
 
+        private int CompareTamagochJson(TamagochiJson t1, TamagochiJson t2)
+        {
+            return t2.Rating - t1.Rating;
+        }
+
         private void TimerOfLife_Tick(object sender, EventArgs e)
         {
             timeOflife++;
             Label_AgeText.Content = "Age: " + Convert.ToString(timeOflife) + " years";
         }
 
+        string leadersFileName = "leaders.txt";
         private void Timer_Eat(object sender, EventArgs e)
         {
             /*tamagochi.ProgressBarOfHappy.Value;*/
@@ -143,28 +189,26 @@ namespace Tamagochi_WPF
             Label_PoisoningIndex.Content = tamagochi.Poisoning;
             if (!tamagochi.IsAlive)
             {
-                string fileName = "leaders.txt";
-
-                FileInfo fileInfo = new FileInfo(fileName);
+                FileInfo fileInfo = new FileInfo(leadersFileName);
                 if (fileInfo.Exists)
                 {
                     List<TamagochiJson> ls;
-                    
-                    using (StreamReader sr = new StreamReader(fileName))
+
+                    using (StreamReader sr = new StreamReader(leadersFileName))
                     {
                         ls = JsonSerializer.Deserialize<List<TamagochiJson>>(sr.ReadToEnd());
 
                         ls.Add(new TamagochiJson(tamagochi.Name, timeOflife));
                     }
-                    
-                    using (StreamWriter sw = new StreamWriter(fileName))
+
+                    using (StreamWriter sw = new StreamWriter(leadersFileName))
                     {
                         sw.Write(JsonSerializer.Serialize(ls));
                     }
                 }
                 else
                 {
-                    using (StreamWriter sw = new StreamWriter(fileName))
+                    using (StreamWriter sw = new StreamWriter(leadersFileName))
                     {
                         List<TamagochiJson> ls = new List<TamagochiJson>();
                         ls.Add(new TamagochiJson(tamagochi.Name, timeOflife));

@@ -1002,7 +1002,7 @@
             HorizontalAlignment="Left" VerticalAlignment="Top" 
             Content="Top scores"
             FontFamily="Open Sans" FontSize="26" FontWeight="UltraBlack" Margin="160,69,0,0"/>
-            <ListBox d:ItemsSource="{d:SampleData ItemCount=5}" FontFamily="Open Sans" FontSize="18" FontWeight="Medium" Grid.ColumnSpan="3" Margin="160,120,180,120" Padding="15" Grid.RowSpan="3"/>
+            <ListBox x:Name="TopListBox" d:ItemsSource="{d:SampleData ItemCount=5}" FontFamily="Open Sans" FontSize="18" FontWeight="Medium" Grid.ColumnSpan="3" Margin="160,120,180,120" Padding="15" Grid.RowSpan="3"/>
 
             <Image 
                 Grid.Column="2" 

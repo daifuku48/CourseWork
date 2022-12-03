@@ -126,6 +126,7 @@
     <Compile Include="MVVM\Model\ExceptionController.cs" />
     <Compile Include="MVVM\Model\Tamagochi.cs" />
     <Compile Include="MVVM\Model\TamagochiJson.cs" />
+    <Compile Include="MVVM\Model\TamagochiXml.cs" />
     <Compile Include="MVVM\View\kitchen.xaml.cs">
       <DependentUpon>kitchen.xaml</DependentUpon>
     </Compile>
