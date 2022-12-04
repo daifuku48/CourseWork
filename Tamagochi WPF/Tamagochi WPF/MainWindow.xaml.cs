@@ -18,6 +18,7 @@ using System.Windows.Threading;
 using System.IO;
 using System.Text.Json;
 using System.Reflection;
+using System.Xml.Serialization;
 
 namespace Tamagochi_WPF
 {
@@ -36,6 +37,8 @@ namespace Tamagochi_WPF
         int timeOflife;
         List<IFood> food;
         Random randomIndex;
+        TamagochiXml tamagochiXml;
+        string tamagochiFileName = "tamagochi.xml";
         public MainWindow()
         {
             food = new List<IFood>();
@@ -114,6 +117,18 @@ namespace Tamagochi_WPF
                 }
             }
 
+            info = new FileInfo(tamagochiFileName);
+            if (info.Exists)
+            {
+                using (FileStream fs = new FileStream(tamagochiFileName, FileMode.Open))
+                {
+                    XmlSerializer serializer = new XmlSerializer(typeof(TamagochiXml));
+                    tamagochiXml = serializer.Deserialize(fs) as TamagochiXml;
+
+                    if (tamagochiXml.Name.Length >= 2) loadGame.Visibility = Visibility.Visible;
+                }
+            }
+
             timer = new DispatcherTimer();
             timer.Interval = new TimeSpan(0, 0, 0, 0 , 1);
             timer.Tick += Timer_Tick;
@@ -166,6 +181,33 @@ namespace Tamagochi_WPF
         private int CompareTamagochJson(TamagochiJson t1, TamagochiJson t2)
         {
             return t2.Rating - t1.Rating;
+        }
+
+        private void LoadGame_Click(object sender, RoutedEventArgs e)
+        {
+            loadGame.Visibility = Visibility.Hidden;
+
+            tamagochi.Name = tamagochiXml.Name;
+            tamagochi.Poisoning = tamagochiXml.Poisoning;
+            tamagochi.Saturation = tamagochiXml.Saturation;
+            tamagochi.Heal = tamagochiXml.Heal;
+            tamagochi.Happines = tamagochiXml.Happines;
+            NameOfDuck.Text = tamagochi.Name;
+            timeOflife = tamagochiXml.timeOflife;
+            Label_AgeText.Content = "Age: " + Convert.ToString(tamagochiXml.timeOflife) + " years";
+            Start_Game(sender, e);
+            //timerstart.Start();
+        }
+
+        private void Window_Closing(object sender, CancelEventArgs e)
+        {
+            using (FileStream fs = new FileStream(tamagochiFileName, FileMode.Create))
+            {
+                TamagochiXml tXml = new TamagochiXml(tamagochi, timeOflife);
+
+                XmlSerializer serializer = new XmlSerializer(typeof(TamagochiXml));
+                serializer.Serialize(fs, tXml);
+            }
         }
 
         private void TimerOfLife_Tick(object sender, EventArgs e)
@@ -324,6 +366,7 @@ namespace Tamagochi_WPF
             }
         }
 
+
         private void TimerOfPetting_Tick(object sender, EventArgs e)
         {
             timerForGifPetting.Stop();
@@ -470,6 +513,7 @@ namespace Tamagochi_WPF
 
         private void Restart_Game(object sender, RoutedEventArgs e)
         {
+            // loadGame.Visibility = Visibility.Visible;
             timerEnd.Start();
         }
         private void Button_Menu(object sender, RoutedEventArgs e)

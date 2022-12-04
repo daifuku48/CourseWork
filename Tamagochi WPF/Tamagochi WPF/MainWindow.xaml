@@ -12,6 +12,7 @@
         ResizeMode="NoResize"
         Background="Transparent"
         Title="Ducky" Height="600" Width="1000"
+        Closing="Window_Closing"
         Icon="icons/ducky.png">
 
     <Grid VerticalAlignment="Top" Height="Auto" Margin="0,0,0,0" Background="Azure">
@@ -576,7 +577,9 @@
 
             </Image>
             <Button 
-                Click="Load"
+                x:Name="loadGame"
+                Visibility="Hidden"
+                Click="LoadGame_Click"
                 Width="140" Height="30"
                 Content="Load Game"
                 HorizontalAlignment="Center" VerticalAlignment="Top"
@@ -752,7 +755,7 @@
                     Margin="0,5,5,0"
                     Cursor="Hand">
                 <Image 
-                        Source="icons/exit3.png" 
+                        Source="/exit3.png" 
                         Height="30" 
                        />
             </Button>
@@ -972,7 +975,7 @@
                     Cursor="Hand"
                     Panel.ZIndex="3">
                 <Image 
-                        Source="icons/exit3.png" 
+                        Source="/exit3.png" 
                         Height="30" 
                        />
             </Button>
@@ -1053,7 +1056,7 @@
                     Cursor="Hand"
                     Panel.ZIndex="3">
                 <Image 
-                        Source="icons/exit3.png" 
+                        Source="/exit3.png" 
                         Height="30" 
                        />
             </Button>

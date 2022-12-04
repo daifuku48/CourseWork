@@ -10,7 +10,7 @@ using System.Xml.Linq;
 
 namespace Tamagochi_WPF
 {
-    class Tamagochi
+    public class Tamagochi
     {
         private string name_;
         public string Name { get { return name_; } set { name_ = value; } }
@@ -60,6 +60,7 @@ namespace Tamagochi_WPF
         {
             try
             {
+                name_ = "";
                 if (!is_alive_)
                 {
                     throw new ExceptionController("Error: You are dead");
@@ -69,7 +70,7 @@ namespace Tamagochi_WPF
                 saturation_ = 0;
                 happines_ = 0;
                 is_alive_ = false;
-                name_ = "";
+                
             }
             catch (ExceptionController ex) 
             {
