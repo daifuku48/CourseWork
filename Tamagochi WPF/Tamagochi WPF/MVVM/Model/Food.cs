@@ -12,8 +12,6 @@ namespace Tamagochi_WPF
         int Satiety { get; } // количество насыщения
         string[] Recipe { get; } // рецепт а точнеее список необходимых ингредиентов
         bool HasRecipe(); // является ли объект приготовляемый(true) или базовым(false) продуктом
-
-        void AffectTamagochi();
     }
 
     public class Sugar : IFood
@@ -36,7 +34,6 @@ namespace Tamagochi_WPF
         private string[] _recipe = null;
         string[] IFood.Recipe { get { return _recipe; } }
 
-        void IFood.AffectTamagochi() { }
         public bool HasRecipe()
         {
             return _recipe != null;
@@ -63,7 +60,6 @@ namespace Tamagochi_WPF
         private string[] _recipe = null;
         string[] IFood.Recipe { get { return _recipe; } }
 
-        void IFood.AffectTamagochi() { }
         public bool HasRecipe()
         {
             return _recipe != null;
@@ -89,8 +85,6 @@ namespace Tamagochi_WPF
 
         private string[] _recipe = null;
         string[] IFood.Recipe { get { return _recipe; } }
-
-        void IFood.AffectTamagochi() { }
         public bool HasRecipe()
         {
             return _recipe != null;
@@ -116,8 +110,6 @@ namespace Tamagochi_WPF
 
         private string[] _recipe = null;
         string[] IFood.Recipe { get { return _recipe; } }
-
-        void IFood.AffectTamagochi() { }
         public bool HasRecipe()
         {
             return _recipe != null;
@@ -143,8 +135,6 @@ namespace Tamagochi_WPF
 
         private string[] _recipe = null;
         string[] IFood.Recipe { get { return _recipe; } }
-
-        void IFood.AffectTamagochi() { }
         public bool HasRecipe()
         {
             return _recipe != null;
@@ -170,8 +160,6 @@ namespace Tamagochi_WPF
 
         private string[] _recipe = null;
         string[] IFood.Recipe { get { return _recipe; } }
-
-        void IFood.AffectTamagochi() { }
         public bool HasRecipe()
         {
             return _recipe != null;
@@ -197,8 +185,6 @@ namespace Tamagochi_WPF
 
         private string[] _recipe = null;
         string[] IFood.Recipe { get { return _recipe; } }
-
-        void IFood.AffectTamagochi() { }
         public bool HasRecipe()
         {
             return _recipe != null;
@@ -225,7 +211,6 @@ namespace Tamagochi_WPF
         private string[] _recipe = null;
         string[] IFood.Recipe { get { return _recipe; } }
 
-        void IFood.AffectTamagochi() { }
         public bool HasRecipe()
         {
             return _recipe != null;
@@ -252,7 +237,6 @@ namespace Tamagochi_WPF
         private string[] _recipe = null;
         string[] IFood.Recipe { get { return _recipe; } }
 
-        void IFood.AffectTamagochi() { }
         public bool HasRecipe()
         {
             return _recipe != null;
@@ -279,7 +263,6 @@ namespace Tamagochi_WPF
         private string[] _recipe = null;
         string[] IFood.Recipe { get { return _recipe; } }
 
-        void IFood.AffectTamagochi() { }
         public bool HasRecipe()
         {
             return _recipe != null;
@@ -306,7 +289,6 @@ namespace Tamagochi_WPF
         private string[] _recipe = null;
         string[] IFood.Recipe { get { return _recipe; } }
 
-        void IFood.AffectTamagochi() { }
         public bool HasRecipe()
         {
             return _recipe != null;
@@ -333,7 +315,6 @@ namespace Tamagochi_WPF
         private string[] _recipe = { "corn", "water" };
         string[] IFood.Recipe { get { return _recipe; } }
 
-        void IFood.AffectTamagochi() { }
         public bool HasRecipe()
         {
             return _recipe != null;
@@ -360,7 +341,6 @@ namespace Tamagochi_WPF
         private string[] _recipe = { "corn", "fire" };
         string[] IFood.Recipe { get { return _recipe; } }
 
-        void IFood.AffectTamagochi() { }
         public bool HasRecipe()
         {
             return _recipe != null;
@@ -387,7 +367,6 @@ namespace Tamagochi_WPF
         private string[] _recipe = { "bread", "berry" };
         string[] IFood.Recipe { get { return _recipe; } }
 
-        void IFood.AffectTamagochi() { }
         public bool HasRecipe()
         {
             return _recipe != null;
@@ -414,7 +393,6 @@ namespace Tamagochi_WPF
         private string[] _recipe = { "berry", "sugar" };
         string[] IFood.Recipe { get { return _recipe; } }
 
-        void IFood.AffectTamagochi() { }
         public bool HasRecipe()
         {
             return _recipe != null;
@@ -441,7 +419,6 @@ namespace Tamagochi_WPF
         private string[] _recipe = { "berry", "water" };
         string[] IFood.Recipe { get { return _recipe; } }
 
-        void IFood.AffectTamagochi() { }
         public bool HasRecipe()
         {
             return _recipe != null;
@@ -468,7 +445,6 @@ namespace Tamagochi_WPF
         private string[] _recipe = { "jam", "marshmallow" };
         string[] IFood.Recipe { get { return _recipe; } }
 
-        void IFood.AffectTamagochi() { }
         public bool HasRecipe()
         {
             return _recipe != null;
@@ -495,7 +471,6 @@ namespace Tamagochi_WPF
         private string[] _recipe = { "egg", "fire" };
         string[] IFood.Recipe { get { return _recipe; } }
 
-        void IFood.AffectTamagochi() { }
         public bool HasRecipe()
         {
             return _recipe != null;
@@ -522,7 +497,6 @@ namespace Tamagochi_WPF
         private string[] _recipe = { "jelly", "bread" };
         string[] IFood.Recipe { get { return _recipe; } }
 
-        void IFood.AffectTamagochi() { }
         public bool HasRecipe()
         {
             return _recipe != null;
@@ -549,7 +523,6 @@ namespace Tamagochi_WPF
         private string[] _recipe = { "corn", "fire" };
         string[] IFood.Recipe { get { return _recipe; } }
 
-        void IFood.AffectTamagochi() { }
         public bool HasRecipe()
         {
             return _recipe != null;
@@ -576,7 +549,6 @@ namespace Tamagochi_WPF
         private string[] _recipe = { "vegetable", "fire" };
         string[] IFood.Recipe { get { return _recipe; } }
 
-        void IFood.AffectTamagochi() { }
         public bool HasRecipe()
         {
             return _recipe != null;
@@ -603,7 +575,6 @@ namespace Tamagochi_WPF
         private string[] _recipe = { "vegetable", "vegetable" };
         string[] IFood.Recipe { get { return _recipe; } }
 
-        void IFood.AffectTamagochi() { }
         public bool HasRecipe()
         {
             return _recipe != null;
@@ -630,7 +601,6 @@ namespace Tamagochi_WPF
         private string[] _recipe = { "duck", "fire" };
         string[] IFood.Recipe { get { return _recipe; } }
 
-        void IFood.AffectTamagochi() { }
         public bool HasRecipe()
         {
             return _recipe != null;
@@ -657,7 +627,6 @@ namespace Tamagochi_WPF
         private string[] _recipe = { "corn", "water" };
         string[] IFood.Recipe { get { return _recipe; } }
 
-        void IFood.AffectTamagochi() { }
         public bool HasRecipe()
         {
             return _recipe != null;
@@ -684,7 +653,6 @@ namespace Tamagochi_WPF
         private string[] _recipe = { "rice", "vegetable" };
         string[] IFood.Recipe { get { return _recipe; } }
 
-        void IFood.AffectTamagochi() { }
         public bool HasRecipe()
         {
             return _recipe != null;
@@ -711,7 +679,6 @@ namespace Tamagochi_WPF
         private string[] _recipe = { "rice", "fire" };
         string[] IFood.Recipe { get { return _recipe; } }
 
-        void IFood.AffectTamagochi() { }
         public bool HasRecipe()
         {
             return _recipe != null;
@@ -738,7 +705,6 @@ namespace Tamagochi_WPF
         private string[] _recipe = { "vegetable", "water" };
         string[] IFood.Recipe { get { return _recipe; } }
 
-        void IFood.AffectTamagochi() { }
         public bool HasRecipe()
         {
             return _recipe != null;
@@ -764,8 +730,6 @@ namespace Tamagochi_WPF
 
         private string[] _recipe = { "mushroom", "water" };
         string[] IFood.Recipe { get { return _recipe; } }
-
-        void IFood.AffectTamagochi() { }
         public bool HasRecipe()
         {
             return _recipe != null;
@@ -792,7 +756,6 @@ namespace Tamagochi_WPF
         private string[] _recipe = { "fish", "water" };
         string[] IFood.Recipe { get { return _recipe; } }
 
-        void IFood.AffectTamagochi() { }
         public bool HasRecipe()
         {
             return _recipe != null;
@@ -818,8 +781,6 @@ namespace Tamagochi_WPF
 
         private string[] _recipe = null;
         string[] IFood.Recipe { get { return _recipe; } }
-
-        void IFood.AffectTamagochi() { }
         public bool HasRecipe()
         {
             return _recipe != null;
