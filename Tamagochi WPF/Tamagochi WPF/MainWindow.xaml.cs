@@ -125,7 +125,10 @@ namespace Tamagochi_WPF
                     XmlSerializer serializer = new XmlSerializer(typeof(TamagochiXml));
                     tamagochiXml = serializer.Deserialize(fs) as TamagochiXml;
 
-                    if (tamagochiXml.Name.Length >= 2) loadGame.Visibility = Visibility.Visible;
+                    if (tamagochiXml.Name != null)
+                    {
+                        if (tamagochiXml.Name.Length >= 2) loadGame.Visibility = Visibility.Visible;
+                    }
                 }
             }
 
