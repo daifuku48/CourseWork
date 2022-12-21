@@ -594,6 +594,10 @@ namespace Tamagochi_WPF
         private void Take_Eat()
         {
             int index;
+            eat_List.Items.Add(food[3].Name);
+            inventoryController.Add(food[3]);
+            eat_List.Items.Add(food[4].Name);
+            inventoryController.Add(food[4]);
             for (int i = 0; i < 5; i++)
             {
                 index = randomIndex.Next(0, 29);
