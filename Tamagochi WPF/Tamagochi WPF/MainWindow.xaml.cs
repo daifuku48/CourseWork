@@ -163,7 +163,7 @@ namespace Tamagochi_WPF
             timerForTamagochi.Tick += Timer_Eat;
 
             timerForTakeEat = new DispatcherTimer();
-            timerForTakeEat.Interval = new TimeSpan(0, 0, 0, 8);
+            timerForTakeEat.Interval = new TimeSpan(0, 0, 0, 5);
             timerForTakeEat.Tick += Timer_Take_Eat;
 
             timerOfLife = new DispatcherTimer();
@@ -177,8 +177,9 @@ namespace Tamagochi_WPF
             timerForEatGif = new DispatcherTimer();
             timerForEatGif.Interval = new TimeSpan(0, 0, 0, 3);
             timerForEatGif.Tick += TimerEatGif_Tick;
-
+            
             randomIndex = new Random();
+            
         }
 
         private int CompareTamagochJson(TamagochiJson t1, TamagochiJson t2)
@@ -518,6 +519,15 @@ namespace Tamagochi_WPF
         {
             // loadGame.Visibility = Visibility.Visible;
             timerEnd.Start();
+            Label_Name.Content = "Name: " + tamagochi.Name;
+            ProgressBarOfHeal.Value = tamagochi.Heal;
+            ProgressBarOfHappy.Value = tamagochi.Happines;
+            ProgressBarOfHungry.Value = tamagochi.Saturation;
+            ProgressBarOfPoison.Value = tamagochi.Poisoning;
+            Label_healIndex.Content = tamagochi.Heal;
+            Label_HappinessIndex.Content = tamagochi.Happines;
+            Label_HugerIndex.Content = tamagochi.Saturation;
+            Label_PoisoningIndex.Content = tamagochi.Poisoning;
         }
         private void Button_Menu(object sender, RoutedEventArgs e)
         {
@@ -540,7 +550,15 @@ namespace Tamagochi_WPF
         {
             if (NameOfDuck.Text.Length >= 3 && NameOfDuck.Text.Length <= 20)
             {
+                inventoryController.Clear();
                 timerstart.Start();
+                Take_Eat();
+                tamagochi.Happines = 100;
+                tamagochi.Heal = 100;
+                tamagochi.Name = "";
+                tamagochi.Poisoning = 0;
+                tamagochi.Saturation = 100;
+                timeOflife = 0;
                 tamagochi.Name = NameOfDuck.Text;
                 Label_Name.Content = "Name: " + tamagochi.Name;
                 ProgressBarOfHeal.Value = tamagochi.Heal;         
@@ -573,8 +591,17 @@ namespace Tamagochi_WPF
             eat_List.Items.Add(food[index].Name);
             inventoryController.Add(food[index]);
         }
+        private void Take_Eat()
+        {
+            int index;
+            for (int i = 0; i < 5; i++)
+            {
+                index = randomIndex.Next(0, 29);
+                eat_List.Items.Add(food[index].Name);
+                inventoryController.Add(food[index]);
+            }
+        }
         //видає їжу
-        bool gifeat1 = false, gifeat2 = false, gifeat3 = false, gifeat4 = false;
         private void GetFood(object sender, RoutedEventArgs e)
         {
             String str = foodText.Text.ToLower();

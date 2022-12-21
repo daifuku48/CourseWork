@@ -138,6 +138,9 @@ namespace Tamagochi_WPF
             return true;
         }
         // перевірка наявності всіх інгредієнтів для крафту продукту
-
+        public void Clear()
+        {
+            _items.Clear();
+        }
     }
 }
