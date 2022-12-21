@@ -519,6 +519,7 @@ namespace Tamagochi_WPF
         {
             // loadGame.Visibility = Visibility.Visible;
             timerEnd.Start();
+                       Label_AgeText.Content = "Age: " + Convert.ToString(timeOflife) + " years";
             Label_Name.Content = "Name: " + tamagochi.Name;
             ProgressBarOfHeal.Value = tamagochi.Heal;
             ProgressBarOfHappy.Value = tamagochi.Happines;
@@ -559,6 +560,7 @@ namespace Tamagochi_WPF
                 tamagochi.Poisoning = 0;
                 tamagochi.Saturation = 100;
                 timeOflife = 0;
+                Label_AgeText.Content = "Age: " + Convert.ToString(timeOflife) + " years";
                 tamagochi.Name = NameOfDuck.Text;
                 Label_Name.Content = "Name: " + tamagochi.Name;
                 ProgressBarOfHeal.Value = tamagochi.Heal;         
