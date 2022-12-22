@@ -1,19 +1,5 @@
-﻿using System;
-
-
-namespace Tamagochi_WPF
+﻿namespace Tamagochi_WPF
 {
-    public interface IFood
-    {
-        string Name { get; } // имя продукта
-        int Heal { get; } // количество здоровья которое востанавливает продукт
-        int Poison { get; } // количество отравление продуктом
-        int Happy { get; } // количество счастья
-        int Satiety { get; } // количество насыщения
-        string[] Recipe { get; } // рецепт а точнеее список необходимых ингредиентов
-        bool HasRecipe(); // является ли объект приготовляемый(true) или базовым(false) продуктом
-    }
-
     public class Sugar : IFood
     {
         private string _name = "sugar";

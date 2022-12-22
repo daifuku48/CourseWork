@@ -2,82 +2,80 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
-using System.Runtime.CompilerServices;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
 using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 using System.Windows.Threading;
 using System.IO;
 using System.Text.Json;
-using System.Reflection;
 using System.Xml.Serialization;
+
 
 namespace Tamagochi_WPF
 {
-    /// <summary>
-    /// Логіка взаємодії для MainWindow.xaml
-    /// </summary>
+    // Логіка взаємодії для MainWindow.xaml
     public partial class MainWindow : Window
     {
+        //=VARS==============================================================
+        #region [ VARS ]
+        DispatcherTimer     timer,
+                            timerStart,
+                            timerEnd,
+                            timerTop,
+                            timerDevelopers,
+                            timerInstruction,
+                            timerForTamagochi,
+                            timerForTakeEat,
+                            timerOfLife,
+                            timerForGifPetting,
+                            timerForEatGif;
 
-        DispatcherTimer timer, timerstart, timerEnd, timerTop , timerDevelopers, timerInstruction, timerForTamagochi, timerForTakeEat, timerOfLife, timerForGifPetting, timerForEatGif;
+        double              MenuWidth,
+                            StartGameHeight,
+                            EndGameHeight,
+                            DelevopersGameHeight,
+                            InstructionGameHeight,
+                            TopGameHeight;
 
-        double MenuWidth , StartGameHeight, EndGameHeight, DelevopersGameHeight , InstructionGameHeight, TopGameHeight;
-        bool hiddenMenu , StartGamehidden , EndGamehidden, DelevopersGamehidden , InstructionGamehidden, TopGamehidden;
-        Tamagochi tamagochi;
-        InventoryController inventoryController;
-        int timeOflife;
-        List<IFood> food;
-        Random randomIndex;
-        TamagochiXml tamagochiXml;
-        string tamagochiFileName = "tamagochi.xml";
+        bool                hiddenMenu,
+                            StartGamehidden,
+                            EndGamehidden,
+                            DelevopersGamehidden,
+                            InstructionGamehidden,
+                            TopGamehidden;
+
+        bool                isPetting = false,
+                            gifeat1 = false,
+                            gifeat2 = false,
+                            gifeat3 = false,
+                            gifeat4 = false;
+
+        bool                checkPause = false;
+
+        Random              randomIndex;
+        TamagochiXml        tamagochiXml;
+        string              tamagochiFileName = "tamagochi.xml";
+        string              leadersFileName = "leaders.txt";
+        int                 timeOflife;
+
+        List<IFood>         food;
+        Tamagochi           tamagochi;
+
+        //InventoryController inventoryController;
+        #endregion
+        //=END_VARS==========================================================
+
+        //=SYSTEM============================================================
+        #region [ SYSTEM ]
         public MainWindow()
         {
-            food = new List<IFood>();
-            food.Add(new Sugar());
-            food.Add(new Salt());
-            food.Add(new Water());
-            food.Add(new Fire());
-            food.Add(new Duck());
-            food.Add(new Corn());
-            food.Add(new Fish());
-            food.Add(new Egg());
-            food.Add(new Mushroom());
-            food.Add(new Marshmallow());
-            food.Add(new Vegetable());
-            food.Add(new Flakes());
-            food.Add(new Bread());
-            food.Add(new Pie());
-            food.Add(new Jam());
-            food.Add(new Compote());
-            food.Add(new Jelly());
-            food.Add(new Omelette());
-            food.Add(new Pancake());
-            food.Add(new Toast());
-            food.Add(new GrilledVegetables());
-            food.Add(new Salad());
-            food.Add(new Steak());
-            food.Add(new Rice());
-            food.Add(new RiceVegetables());
-            food.Add(new Popcorn());
-            food.Add(new VegetableSoup());
-            food.Add(new MushroomSoup());
-            food.Add(new FishSoup());
-            food.Add(new Trash());
+            init_food_list();
+            init_object();
 
-            inventoryController = new InventoryController(food);
-
-            tamagochi = new Tamagochi(food);
+            // base functions;
             InitializeComponent();
 
+            // ???;
             FileInfo info = new FileInfo(leadersFileName);
             if (info.Exists)
             {
@@ -133,11 +131,11 @@ namespace Tamagochi_WPF
             }
 
             timer = new DispatcherTimer();
-            timer.Interval = new TimeSpan(0, 0, 0, 0 , 1);
+            timer.Interval = new TimeSpan(0, 0, 0, 0, 1);
             timer.Tick += Timer_Tick;
-            timerstart = new DispatcherTimer();
-            timerstart.Interval = new TimeSpan (0, 0, 0, 0 , 1);
-            timerstart.Tick += Start_Tick;
+            timerStart = new DispatcherTimer();
+            timerStart.Interval = new TimeSpan(0, 0, 0, 0, 1);
+            timerStart.Tick += Start_Tick;
             timerEnd = new DispatcherTimer();
             timerEnd.Interval = new TimeSpan(0, 0, 0, 0, 1);
             timerEnd.Tick += End_Tick;
@@ -163,7 +161,7 @@ namespace Tamagochi_WPF
             timerForTamagochi.Tick += Timer_Eat;
 
             timerForTakeEat = new DispatcherTimer();
-            timerForTakeEat.Interval = new TimeSpan(0, 0, 0, 5);
+            timerForTakeEat.Interval = new TimeSpan(0, 0, 0, 8);
             timerForTakeEat.Tick += Timer_Take_Eat;
 
             timerOfLife = new DispatcherTimer();
@@ -177,9 +175,8 @@ namespace Tamagochi_WPF
             timerForEatGif = new DispatcherTimer();
             timerForEatGif.Interval = new TimeSpan(0, 0, 0, 3);
             timerForEatGif.Tick += TimerEatGif_Tick;
-            
+
             randomIndex = new Random();
-            
         }
 
         private int CompareTamagochJson(TamagochiJson t1, TamagochiJson t2)
@@ -199,21 +196,50 @@ namespace Tamagochi_WPF
             NameOfDuck.Text = tamagochi.Name;
             timeOflife = tamagochiXml.timeOflife;
             Label_AgeText.Content = "Age: " + Convert.ToString(tamagochiXml.timeOflife) + " years";
-            tamagochi.Name = NameOfDuck.Text;
-            Label_Name.Content = "Name: " + tamagochi.Name;
-            ProgressBarOfHeal.Value = tamagochi.Heal;
-            ProgressBarOfHappy.Value = tamagochi.Happines;
-            ProgressBarOfHungry.Value = tamagochi.Saturation;
-            ProgressBarOfPoison.Value = tamagochi.Poisoning;
-            Label_healIndex.Content = tamagochi.Heal;
-            Label_HappinessIndex.Content = tamagochi.Happines;
-            Label_HugerIndex.Content = tamagochi.Saturation;
-            Label_PoisoningIndex.Content = tamagochi.Poisoning;
-            inventoryController.Clear();
-            timerstart.Start();
-            Take_Eat();
-            //Start_Game(sender, e);
-            //timerstart.Start();
+            Start_Game(sender, e);
+            //timerStart.Start();
+        }
+
+        // initialize food list
+        void init_food_list()
+        {
+            food = new List<IFood>();
+            food.Add(new Sugar());
+            food.Add(new Salt());
+            food.Add(new Water());
+            food.Add(new Fire());
+            food.Add(new Duck());
+            food.Add(new Corn());
+            food.Add(new Fish());
+            food.Add(new Egg());
+            food.Add(new Mushroom());
+            food.Add(new Marshmallow());
+            food.Add(new Vegetable());
+            food.Add(new Flakes());
+            food.Add(new Bread());
+            food.Add(new Pie());
+            food.Add(new Jam());
+            food.Add(new Compote());
+            food.Add(new Jelly());
+            food.Add(new Omelette());
+            food.Add(new Pancake());
+            food.Add(new Toast());
+            food.Add(new GrilledVegetables());
+            food.Add(new Salad());
+            food.Add(new Steak());
+            food.Add(new Rice());
+            food.Add(new RiceVegetables());
+            food.Add(new Popcorn());
+            food.Add(new VegetableSoup());
+            food.Add(new MushroomSoup());
+            food.Add(new FishSoup());
+            food.Add(new Trash());
+        }
+
+        // initialize all controller
+        void init_object()
+        {
+            tamagochi = new Tamagochi();
         }
 
         private void Window_Closing(object sender, CancelEventArgs e)
@@ -227,17 +253,368 @@ namespace Tamagochi_WPF
             }
         }
 
+        private void GifOfDuckStandart_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            if (!isPetting)
+            {
+                isPetting = true;
+                GifOfDuckPat.Visibility = Visibility.Visible;
+                GifOfDuckStandart.Visibility = Visibility.Hidden;
+                GifOfDuckEat1.Visibility = Visibility.Hidden;
+                GifOfDuckEat2.Visibility = Visibility.Hidden;
+                GifOfDuckEat3.Visibility = Visibility.Hidden;
+                GifOfDuckEatTrash.Visibility = Visibility.Hidden;
+                timerForGifPetting.Start();
+            }
+        }
+
+        private void Pause(bool check)
+        {
+            if (check)
+            {
+                timerForTamagochi.Stop();
+                timerForTakeEat.Stop();
+                timerOfLife.Stop();
+            }
+        }
+
+        private void UnPause()
+        {
+            timerForTamagochi.Start();
+            timerForTakeEat.Start();
+            timerOfLife.Start();
+        }
+
+        private void Restart_Game(object sender, RoutedEventArgs e)
+        {
+            // loadGame.Visibility = Visibility.Visible;
+            timerEnd.Start();
+        }
+
+        private void Button_Menu(object sender, RoutedEventArgs e)
+        {
+            timer.Start();
+        }
+
+        //передача початкових параметрів в інтерфейс;
+        private void Start_Game(object sender, RoutedEventArgs e)
+        {
+            if (NameOfDuck.Text.Length >= 3 && NameOfDuck.Text.Length <= 20)
+            {
+                timerStart.Start();
+                tamagochi.Name = NameOfDuck.Text;
+                Label_Name.Content = "Name: " + tamagochi.Name;
+                ProgressBarOfHeal.Value = tamagochi.Heal;
+                ProgressBarOfHappy.Value = tamagochi.Happines;
+                ProgressBarOfHungry.Value = tamagochi.Saturation;
+                ProgressBarOfPoison.Value = tamagochi.Poisoning;
+                Label_healIndex.Content = tamagochi.Heal;
+                Label_HappinessIndex.Content = tamagochi.Happines;
+                Label_HugerIndex.Content = tamagochi.Saturation;
+                Label_PoisoningIndex.Content = tamagochi.Poisoning;
+            }
+        }
+
+        private void Developers_Btn(object sender, RoutedEventArgs e)
+        {
+            timerDevelopers.Start();
+        }
+
+        private void instruction_Btn(object sender, RoutedEventArgs e)
+        {
+            timerInstruction.Start();
+        }
+
+        private void Top_Btn(object sender, RoutedEventArgs e)
+        {
+            timerTop.Start();
+        }
+
+        //вихід з проги;
+        private void leftDown(object sender, MouseButtonEventArgs e)
+        {
+            Application.Current.Shutdown();
+        }
+
+
+        #endregion
+        //=END_SYSTEM========================================================
+
+
+        //=BUTTON_ACTION=====================================================
+        #region [ BUTTON ACTION ]
+        
+        private void eat_List_MouseDoubleClick(object sender, MouseButtonEventArgs e)
+        {
+            if (eat_List.SelectedItem != null)
+            {
+                string s = eat_List.SelectedItem.ToString();
+                if (foodText.Text == "")
+                {
+                    foodText.Text = s;
+                }
+                else if (foodText.Text.EndsWith("+ ") || foodText.Text.EndsWith("+"))
+                {
+                    foodText.Text = foodText.Text + s;
+                }
+            }
+        }
+
+        private void Button_Plus_Click(object sender, RoutedEventArgs e)
+        {
+            if (foodText.Text != "")
+            {
+                if (!foodText.Text.EndsWith("+ "))
+                {
+                    foodText.Text = foodText.Text + " + ";
+                }
+                else if (foodText.Text.EndsWith("+"))
+                {
+                    foodText.Text = foodText.Text + " + ";
+                }
+
+            }
+        }
+
+        private void MenuPanel_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            if (e.LeftButton == MouseButtonState.Pressed)
+            {
+                DragMove();
+            }
+        }
+
+        //їсть їжу;
+        private void GetFood(object sender, RoutedEventArgs e)
+        {
+            labelErrorsWithList.Content = "";
+            // error
+            if (foodText.Text == null)
+            {
+                return;
+            }
+            if (foodText.Text.Contains('+'))
+            {
+                crafting();
+            }
+            else
+            {
+                eating();
+            }
+        }
+
+        private void eating()
+        {
+            string food_name = foodText.Text;
+            foodText.Text = "";
+            eat_List.Items.Remove(food_name);
+
+            if (!tamagochi.Inventory.CheckItem(food_name))
+            {
+                labelErrorsWithList.Content = "Error";
+                return;
+            }
+
+            IFood food_ = new Trash();
+            for (int index = 0;
+                index < food.Count;
+                index++)
+            {
+                if (food_name == food[index].Name) 
+                {
+                    food_ = food[index];
+                    break;
+                }
+            }
+
+            tamagochi.Inventory.Remove(food_name);
+            tamagochi.Eat(food_);
+
+            // animation
+            int chose_animation = randomIndex.Next(0, 3);
+            GifOfDuckPat.Visibility = Visibility.Hidden;
+            GifOfDuckStandart.Visibility = Visibility.Hidden;
+            switch (chose_animation)
+            {
+                case 0:
+                    GifOfDuckEat1.Visibility = Visibility.Visible;
+
+                    GifOfDuckEat2.Visibility = Visibility.Hidden;
+                    GifOfDuckEat3.Visibility = Visibility.Hidden;
+                    break;
+                case 1:
+                    GifOfDuckEat2.Visibility = Visibility.Visible;
+
+                    GifOfDuckEat1.Visibility = Visibility.Hidden;
+                    GifOfDuckEat3.Visibility = Visibility.Hidden;
+                    break;
+                case 2:
+                    GifOfDuckEat3.Visibility = Visibility.Visible;
+
+                    GifOfDuckEat1.Visibility = Visibility.Hidden;
+                    GifOfDuckEat2.Visibility = Visibility.Hidden;
+                    break;
+            }
+            GifOfDuckEatTrash.Visibility = Visibility.Hidden;
+            timerForEatGif.Start();
+        }
+
+        private void crafting()
+        {
+            string[] recipe = foodText.Text.Trim().Split('+');
+            foodText.Text = "";
+            // error
+            if (recipe[0].Length == 0 || recipe[1].Length == 0)
+            {
+                labelErrorsWithList.Content = "Error";
+                return;
+            }
+
+            IFood food = tamagochi.Inventory.Craft(recipe[0].Trim(), recipe[1].Trim());
+
+            tamagochi.Inventory.Add(food);
+
+            eat_List.Items.Remove(recipe[0].Trim());
+            eat_List.Items.Remove(recipe[1].Trim());
+            eat_List.Items.Add(food.Name);
+        }
+        #endregion
+        //=END_BUTTON_ACTION=================================================
+
+
+        //=TIMER=============================================================
+        #region [ TIMER ]
+        //видає їжу
+        private void Timer_Take_Eat(object sender, EventArgs e)
+        {
+            int index = randomIndex.Next(0, 29);
+            tamagochi.Inventory.Add(food[index]);
+
+            eat_List.Items.Clear();
+            foreach (Item item in tamagochi.Inventory._items)
+            {
+                if (item.amount > 0)
+                {
+                    eat_List.Items.Add(item.food.Name);
+                }
+            }
+        }
+
+        private void Timer_Tick(object sender, EventArgs e)
+        {
+            if (hiddenMenu)
+            {
+                sideMenu.Visibility = Visibility.Visible;
+                sideMenu.Width += MenuWidth / 5;
+                if (sideMenu.Width >= MenuWidth)
+                {
+                    timer.Stop();
+                    hiddenMenu = false;
+                }
+            }
+            else
+            {
+                sideMenu.Width -= MenuWidth / 5;
+                if (sideMenu.Width <= 0)
+                {
+                    timer.Stop();
+                    hiddenMenu = true;
+                    sideMenu.Visibility = Visibility.Hidden;
+                }
+            }
+        }
+
+        private void TimerOfPetting_Tick(object sender, EventArgs e)
+        {
+            timerForGifPetting.Stop();
+            GifOfDuckStandart.Visibility = Visibility.Visible;
+            GifOfDuckPat.Visibility = Visibility.Hidden;
+            GifOfDuckEat1.Visibility = Visibility.Hidden;
+            GifOfDuckEat2.Visibility = Visibility.Hidden;
+            GifOfDuckEat3.Visibility = Visibility.Hidden;
+            GifOfDuckEatTrash.Visibility = Visibility.Hidden;
+            isPetting = false;
+        }
+        
+        private void TimerEatGif_Tick(object sender, EventArgs e)
+        {
+            timerForGifPetting.Stop();
+            GifOfDuckPat.Visibility = Visibility.Hidden;
+            GifOfDuckStandart.Visibility = Visibility.Visible;
+            GifOfDuckEat1.Visibility = Visibility.Hidden;
+            GifOfDuckEat2.Visibility = Visibility.Hidden;
+            GifOfDuckEat3.Visibility = Visibility.Hidden;
+            GifOfDuckEatTrash.Visibility = Visibility.Hidden;
+        }
+
+        //таймер для виведення панелі на початку гри для задання імені персонажу
+        private void Start_Tick(object sender, EventArgs e)
+        {
+            if (StartGamehidden)
+            {
+                StartGamePanel.Visibility = Visibility.Visible;
+                StartGamePanel.Height += StartGameHeight / 5;
+                if (StartGamePanel.Height >= StartGameHeight)
+                {
+                    timerStart.Stop();
+                    StartGamehidden = false;
+                }
+            }
+            else
+            {
+                StartGamePanel.Height -= StartGameHeight / 5;
+                if (StartGamePanel.Height <= 0)
+                {
+                    timerStart.Stop();
+                    StartGamehidden = true;
+                    StartGamePanel.Visibility = Visibility.Hidden;
+                    timerForTamagochi.Start();
+                    timerOfLife.Start();
+                    timerForTakeEat.Start();
+                }
+            }
+        }
+        
+        //рестарт гри (якщо захочемо, можна сюди ще допиляти панель з результатами, скільки їжі сів і скільки хвилин прожив
+        private void End_Tick(object sender, EventArgs e)
+        {
+            if (EndGamehidden)
+            {
+                EndGamePanel.Visibility = Visibility.Visible;
+                EndGamePanel.Height += EndGameHeight / 5;
+                if (EndGamePanel.Height >= EndGameHeight)
+                {
+                    timerEnd.Stop();
+                    EndGamehidden = false;
+                }
+            }
+            else
+            {
+                EndGamePanel.Height -= EndGameHeight / 5;
+                if (EndGamePanel.Height <= 0)
+                {
+                    timerEnd.Stop();
+                    EndGamehidden = true;
+                    EndGamePanel.Visibility = Visibility.Hidden;
+                    tamagochi.StateCreate();
+                    timerStart.Start();
+                    StartGamehidden = true;
+                }
+            }
+        }
+        
         private void TimerOfLife_Tick(object sender, EventArgs e)
         {
             timeOflife++;
             Label_AgeText.Content = "Age: " + Convert.ToString(timeOflife) + " years";
         }
 
-        string leadersFileName = "leaders.txt";
         private void Timer_Eat(object sender, EventArgs e)
         {
             /*tamagochi.ProgressBarOfHappy.Value;*/
+
             tamagochi.StateUpdate();
+
             ProgressBarOfHungry.Value = tamagochi.Saturation;
             Label_HugerIndex.Content = tamagochi.Saturation;
             ProgressBarOfHappy.Value = tamagochi.Happines;
@@ -285,168 +662,6 @@ namespace Tamagochi_WPF
             }
         }
 
-
-        private void Start_Tick(object sender, EventArgs e)
-        {
-            if (StartGamehidden)
-            {
-                StartGamePanel.Visibility = Visibility.Visible;
-                StartGamePanel.Height += StartGameHeight / 5;
-                if (StartGamePanel.Height >= StartGameHeight)
-                {
-                    timerstart.Stop();
-                    StartGamehidden = false;
-                }
-            }
-            else
-            {
-                StartGamePanel.Height -= StartGameHeight / 5;
-                if (StartGamePanel.Height <= 0)
-                {
-                    timerstart.Stop();
-                    StartGamehidden = true;
-                    StartGamePanel.Visibility = Visibility.Hidden;
-                    timerForTamagochi.Start();
-                    timerOfLife.Start();
-                    timerForTakeEat.Start();
-                }
-            }
-        }
-        //таймер для виведення панелі на початку гри для задання імені персонажу
-        private void End_Tick(object sender, EventArgs e)
-        {
-            if (EndGamehidden)
-            {
-                EndGamePanel.Visibility = Visibility.Visible;
-                EndGamePanel.Height += EndGameHeight / 5;
-                if (EndGamePanel.Height >= EndGameHeight)
-                {
-                    timerEnd.Stop();
-                    EndGamehidden = false;
-                }
-            }
-            else
-            {
-                EndGamePanel.Height -= EndGameHeight / 5;
-                if (EndGamePanel.Height <= 0)
-                {
-                    timerEnd.Stop();
-                    EndGamehidden = true;
-                    EndGamePanel.Visibility = Visibility.Hidden;
-                    tamagochi.StateCreate();
-                    timerstart.Start();
-                    StartGamehidden = true;
-                }
-            }
-        }
-        //рестарт гри (якщо захочемо, можна сюди ще допиляти панель з результатами, скільки їжі сів і скільки хвилин прожив
-        private void eat_List_MouseDoubleClick(object sender, MouseButtonEventArgs e)
-        {
-            string s = eat_List.SelectedItem.ToString();
-            if (foodText.Text == "")
-            {
-                foodText.Text = s;
-            } else if (foodText.Text.EndsWith("+ ") || foodText.Text.EndsWith("+"))
-            {
-                foodText.Text = foodText.Text + s;
-            }
-        }
-
-        private void Button_Plus_Click(object sender, RoutedEventArgs e)
-        {
-            if (foodText.Text != "")
-            {
-                if (!foodText.Text.EndsWith("+ "))
-                {
-                    foodText.Text = foodText.Text + " + ";
-                }
-                else if (foodText.Text.EndsWith("+"))
-                {
-                    foodText.Text = foodText.Text + " + ";
-                }
-               
-            }
-        }
-        bool isPetting = false;
-        private void GifOfDuckStandart_MouseDown(object sender, MouseButtonEventArgs e)
-        {
-            if (!isPetting)
-            {
-                isPetting = true;
-                GifOfDuckPat.Visibility = Visibility.Visible;
-                GifOfDuckStandart.Visibility = Visibility.Hidden;
-                GifOfDuckEat1.Visibility = Visibility.Hidden;
-                GifOfDuckEat2.Visibility = Visibility.Hidden;
-                GifOfDuckEat3.Visibility = Visibility.Hidden; 
-                GifOfDuckEatTrash.Visibility = Visibility.Hidden;
-                timerForGifPetting.Start();
-            }
-        }
-
-
-        private void TimerOfPetting_Tick(object sender, EventArgs e)
-        {
-            timerForGifPetting.Stop();
-            GifOfDuckStandart.Visibility = Visibility.Visible;
-            GifOfDuckPat.Visibility = Visibility.Hidden;
-            GifOfDuckEat1.Visibility = Visibility.Hidden;
-            GifOfDuckEat2.Visibility = Visibility.Hidden;
-            GifOfDuckEat3.Visibility = Visibility.Hidden;
-            GifOfDuckEatTrash.Visibility = Visibility.Hidden;
-            isPetting =false;
-        }
-
-        private void TimerEatGif_Tick(object sender, EventArgs e)
-        {
-            timerForGifPetting.Stop();
-            GifOfDuckPat.Visibility = Visibility.Hidden;
-            GifOfDuckStandart.Visibility = Visibility.Visible;
-            GifOfDuckEat1.Visibility = Visibility.Hidden;
-            GifOfDuckEat2.Visibility = Visibility.Hidden;
-            GifOfDuckEat3.Visibility = Visibility.Hidden;
-            GifOfDuckEatTrash.Visibility = Visibility.Hidden;
-        }
-
-        private void Timer_Tick(object sender, EventArgs e)
-        {
-            if (hiddenMenu)
-            {
-                sideMenu.Visibility = Visibility.Visible;
-                sideMenu.Width += MenuWidth/5;
-                if (sideMenu.Width >= MenuWidth)
-                {
-                    timer.Stop();
-                    hiddenMenu = false;
-                }
-            }
-            else
-            {    
-                sideMenu.Width -= MenuWidth/5;       
-                if (sideMenu.Width <= 0)
-                {
-                    timer.Stop();
-                    hiddenMenu = true;
-                    sideMenu.Visibility = Visibility.Hidden;
-                }
-            }
-        }
-        private bool checkPause = false;
-        private void Pause(bool check)
-        {
-            if (check)
-            {
-                timerForTamagochi.Stop();
-                timerForTakeEat.Stop();
-                timerOfLife.Stop();
-            }
-        }
-
-        private void UnPause()
-        {
-            timerForTamagochi.Start();
-            timerForTakeEat.Start();
-            timerOfLife.Start();
-        }
         private void Developers_Tick(object sender, EventArgs e)
         {
             if (DelevopersGamehidden)
@@ -527,220 +742,7 @@ namespace Tamagochi_WPF
                 }
             }
         }
-
-        private void Restart_Game(object sender, RoutedEventArgs e)
-        {
-            // loadGame.Visibility = Visibility.Visible;
-            timerEnd.Start();
-                       Label_AgeText.Content = "Age: " + Convert.ToString(timeOflife) + " years";
-            Label_Name.Content = "Name: " + tamagochi.Name;
-            ProgressBarOfHeal.Value = tamagochi.Heal;
-            ProgressBarOfHappy.Value = tamagochi.Happines;
-            ProgressBarOfHungry.Value = tamagochi.Saturation;
-            ProgressBarOfPoison.Value = tamagochi.Poisoning;
-            Label_healIndex.Content = tamagochi.Heal;
-            Label_HappinessIndex.Content = tamagochi.Happines;
-            Label_HugerIndex.Content = tamagochi.Saturation;
-            Label_PoisoningIndex.Content = tamagochi.Poisoning;
-        }
-        private void Button_Menu(object sender, RoutedEventArgs e)
-        {
-            timer.Start();
-        }
-        private void Developers_Btn(object sender, RoutedEventArgs e)
-        {
-            timerDevelopers.Start();
-        }
-        private void instruction_Btn(object sender, RoutedEventArgs e)
-        {
-            timerInstruction.Start();
-        }
-        private void Top_Btn(object sender, RoutedEventArgs e)
-        {
-            timerTop.Start();
-        }
-
-        private void Start_Game(object sender, RoutedEventArgs e)
-        {
-            if (NameOfDuck.Text.Length >= 3 && NameOfDuck.Text.Length <= 20)
-            {
-                inventoryController.Clear();
-                timerstart.Start();
-                Take_Eat();
-                tamagochi.Happines = 100;
-                tamagochi.Heal = 100;
-                tamagochi.Name = "";
-                tamagochi.Poisoning = 0;
-                tamagochi.Saturation = 100;
-                timeOflife = 0;
-                Label_AgeText.Content = "Age: " + Convert.ToString(timeOflife) + " years";
-                tamagochi.Name = NameOfDuck.Text;
-                Label_Name.Content = "Name: " + tamagochi.Name;
-                ProgressBarOfHeal.Value = tamagochi.Heal;         
-                ProgressBarOfHappy.Value = tamagochi.Happines;
-                ProgressBarOfHungry.Value = tamagochi.Saturation;
-                ProgressBarOfPoison.Value = tamagochi.Poisoning;
-                Label_healIndex.Content = tamagochi.Heal;
-                Label_HappinessIndex.Content = tamagochi.Happines;
-                Label_HugerIndex.Content = tamagochi.Saturation;
-                Label_PoisoningIndex.Content = tamagochi.Poisoning;
-            }
-        }
-        //передача початкових параметрів в інтерфейс
-        private void leftDown(object sender, MouseButtonEventArgs e)
-        {
-            Application.Current.Shutdown();
-        }
-        //вихід з проги 
-        private void MenuPanel_MouseDown(object sender, MouseButtonEventArgs e)
-        {
-            if (e.LeftButton == MouseButtonState.Pressed)
-            {
-                DragMove();
-            }
-        }
-
-        private void Timer_Take_Eat(object sender, EventArgs e)
-        {
-            int index = randomIndex.Next(0,29);
-            eat_List.Items.Add(food[index].Name);
-            inventoryController.Add(food[index]);
-        }
-        private void Take_Eat()
-        {
-            int index;
-            eat_List.Items.Add(food[3].Name);
-            inventoryController.Add(food[3]);
-            eat_List.Items.Add(food[4].Name);
-            inventoryController.Add(food[4]);
-            for (int i = 0; i < 5; i++)
-            {
-                index = randomIndex.Next(0, 29);
-                eat_List.Items.Add(food[index].Name);
-                inventoryController.Add(food[index]);
-            }
-        }
-        //видає їжу
-        private void GetFood(object sender, RoutedEventArgs e)
-        {
-            String str = foodText.Text.ToLower();
-            if (str == "")
-            {
-                labelErrorsWithList.Content = "Error";
-                return;
-            }
-            if (str[str.Length - 1] == '+')
-            {
-                labelErrorsWithList.Content = "Error";
-                return;
-            }
-            String[] masStr = str.Split('+');
-            if (masStr.Length >= 3)
-            {
-                labelErrorsWithList.Content = "Error";
-                return;
-            }
-            if (masStr.Length == 2)
-            {
-                for (int i = 0; i < masStr.Length; i++)
-                {
-                    if (masStr[i].Substring(0, 1) == " ")
-                    {
-                        masStr[i] = masStr[i].Remove(0, 1);
-                    }
-                    int ind = masStr[i].LastIndexOf(" ");
-                    if (ind == masStr[i].Length - 1)
-                    {
-                        masStr[i] = masStr[i].Remove(masStr[i].Length - 1, 1);
-                    }
-                }
-                if (!inventoryController.CheckItem(masStr[1]) || !inventoryController.CheckItem(masStr[0]))
-                {
-                    labelErrorsWithList.Content = "Error";
-                    return;
-                }
-                if (masStr[0] == masStr[1])
-                {
-                    labelErrorsWithList.Content = "Product are same";
-                    return;
-                }
-                string newFood = inventoryController.Craft(masStr[0], masStr[1]).Name;
-                eat_List.Items.Remove(masStr[0]);
-                eat_List.Items.Remove(masStr[1]);
-                eat_List.Items.Add(newFood);
-                IFood dish = null;
-                for (int i = 0; i < food.Count; i++)
-                {
-                    if (newFood == food[i].Name) { dish = food[i]; break; }
-                }
-                inventoryController.Add(dish);
-                foodText.Text = "";
-            } 
-            else if (masStr.Length == 1)
-            {
-                if (masStr[0].Substring(0, 1) == " ")
-                {
-                    masStr[0] = masStr[0].Remove(0, 1);
-                }
-                int ind = masStr[0].LastIndexOf(" ");
-                if (ind == masStr[0].Length - 1)
-                {
-                    masStr[0] = masStr[0].Remove(masStr[0].Length - 1, 1);
-                }
-                if (!inventoryController.CheckItem(masStr[0]))
-                {
-                    labelErrorsWithList.Content = "Error";
-                    return;
-                }
-                IFood dish = null;
-                int index = 30;
-                for (int i = 0; i < food.Count; i++)
-                {
-                    if (masStr[0] == food[i].Name) { dish = food[i]; index = i; break; } 
-                }
-                if (index >= 0 && index <=10)
-                {
-                    GifOfDuckPat.Visibility = Visibility.Hidden;
-                    GifOfDuckStandart.Visibility = Visibility.Hidden;
-                    GifOfDuckEat1.Visibility = Visibility.Visible;
-                    GifOfDuckEat2.Visibility = Visibility.Hidden;
-                    GifOfDuckEat3.Visibility = Visibility.Hidden;
-                    GifOfDuckEatTrash.Visibility = Visibility.Hidden;
-                    timerForEatGif.Start();
-                } else if (index >10 && index <= 20)
-                {
-                    GifOfDuckPat.Visibility = Visibility.Hidden;
-                    GifOfDuckStandart.Visibility = Visibility.Hidden;
-                    GifOfDuckEat1.Visibility = Visibility.Hidden;
-                    GifOfDuckEat2.Visibility = Visibility.Visible;
-                    GifOfDuckEat3.Visibility = Visibility.Hidden;
-                    GifOfDuckEatTrash.Visibility = Visibility.Hidden;
-                    timerForEatGif.Start();
-                } else if (index > 20 && index <= 28)
-                {
-                    GifOfDuckPat.Visibility = Visibility.Hidden;
-                    GifOfDuckStandart.Visibility = Visibility.Hidden;
-                    GifOfDuckEat1.Visibility = Visibility.Hidden;
-                    GifOfDuckEat2.Visibility = Visibility.Hidden;
-                    GifOfDuckEat3.Visibility = Visibility.Visible;
-                    GifOfDuckEatTrash.Visibility = Visibility.Hidden;
-                    timerForEatGif.Start();
-                } else 
-                {
-                    GifOfDuckPat.Visibility = Visibility.Hidden;
-                    GifOfDuckStandart.Visibility = Visibility.Hidden;
-                    GifOfDuckEat1.Visibility = Visibility.Hidden;
-                    GifOfDuckEat2.Visibility = Visibility.Hidden;
-                    GifOfDuckEat3.Visibility = Visibility.Hidden;
-                    GifOfDuckEatTrash.Visibility = Visibility.Visible;
-                    timerForEatGif.Start();
-                }
-                inventoryController.Remove(dish);
-                tamagochi.Eat(dish);
-                eat_List.Items.Remove(masStr[0]);
-                foodText.Text = "";
-            }
-        }
-        //їсть їжу
+        #endregion
+        //=END_TIMER=========================================================
     }
 }

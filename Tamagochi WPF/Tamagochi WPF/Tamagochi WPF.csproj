@@ -123,7 +123,9 @@
     </Page>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="MVVM\Model\ExceptionController.cs" />
+    <Compile Include="MVVM\Model\Controller\ExceptionController.cs" />
+    <Compile Include="MVVM\Model\Interface\IFood.cs" />
+    <Compile Include="MVVM\Model\Item.cs" />
     <Compile Include="MVVM\Model\Tamagochi.cs" />
     <Compile Include="MVVM\Model\TamagochiJson.cs" />
     <Compile Include="MVVM\Model\TamagochiXml.cs" />
@@ -153,7 +155,7 @@
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
     <Compile Include="MVVM\Model\Food.cs" />
-    <Compile Include="MVVM\Model\InventoryController.cs" />
+    <Compile Include="MVVM\Model\Controller\InventoryController.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
