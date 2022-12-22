@@ -199,7 +199,20 @@ namespace Tamagochi_WPF
             NameOfDuck.Text = tamagochi.Name;
             timeOflife = tamagochiXml.timeOflife;
             Label_AgeText.Content = "Age: " + Convert.ToString(tamagochiXml.timeOflife) + " years";
-            Start_Game(sender, e);
+            tamagochi.Name = NameOfDuck.Text;
+            Label_Name.Content = "Name: " + tamagochi.Name;
+            ProgressBarOfHeal.Value = tamagochi.Heal;
+            ProgressBarOfHappy.Value = tamagochi.Happines;
+            ProgressBarOfHungry.Value = tamagochi.Saturation;
+            ProgressBarOfPoison.Value = tamagochi.Poisoning;
+            Label_healIndex.Content = tamagochi.Heal;
+            Label_HappinessIndex.Content = tamagochi.Happines;
+            Label_HugerIndex.Content = tamagochi.Saturation;
+            Label_PoisoningIndex.Content = tamagochi.Poisoning;
+            inventoryController.Clear();
+            timerstart.Start();
+            Take_Eat();
+            //Start_Game(sender, e);
             //timerstart.Start();
         }
 
