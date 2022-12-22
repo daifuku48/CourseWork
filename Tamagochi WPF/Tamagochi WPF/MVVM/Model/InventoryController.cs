@@ -53,7 +53,7 @@ namespace Tamagochi_WPF
                 {
                     continue;
                 }
-                if (item.food.Recipe[0] == ingredient_right_ && item.food.Recipe[1] == ingredient_left_)
+                if ((item.food.Recipe[0] == ingredient_right_ && item.food.Recipe[1] == ingredient_left_) || (item.food.Recipe[1] == ingredient_right_ && item.food.Recipe[0] == ingredient_left_))
                 {
                     foreach (string item_name in item.food.Recipe)
                     {

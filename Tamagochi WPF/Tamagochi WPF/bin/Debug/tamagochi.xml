@@ -1,8 +1,9 @@
 <?xml version="1.0"?>
 <TamagochiXml xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-  <Happines>100</Happines>
-  <Poisoning>0</Poisoning>
-  <Saturation>100</Saturation>
-  <Heal>100</Heal>
-  <timeOflife>0</timeOflife>
+  <Name>214234124</Name>
+  <Happines>61</Happines>
+  <Poisoning>42</Poisoning>
+  <Saturation>80</Saturation>
+  <Heal>75</Heal>
+  <timeOflife>2</timeOflife>
 </TamagochiXml>
