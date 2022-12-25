@@ -177,7 +177,7 @@ namespace Tamagochi_WPF
             timerForEatGif.Tick += TimerEatGif_Tick;
 
             randomIndex = new Random();
-            for (int i = 0; i < 12; i++)
+            for (int i = 0; i < 5; i++)
             {
                 int index = randomIndex.Next(0, 29);
                 tamagochi.Inventory.Add(food[index]);
