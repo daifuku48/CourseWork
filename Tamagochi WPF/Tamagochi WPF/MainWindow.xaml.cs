@@ -177,20 +177,6 @@ namespace Tamagochi_WPF
             timerForEatGif.Tick += TimerEatGif_Tick;
 
             randomIndex = new Random();
-            for (int i = 0; i < 5; i++)
-            {
-                int index = randomIndex.Next(0, 29);
-                tamagochi.Inventory.Add(food[index]);
-
-                eat_List.Items.Clear();
-                foreach (Item item in tamagochi.Inventory._items)
-                {
-                    if (item.amount > 0)
-                    {
-                        eat_List.Items.Add(item.food.Name);
-                    }
-                }
-            }
         }
 
         private int CompareTamagochJson(TamagochiJson t1, TamagochiJson t2)
@@ -430,7 +416,7 @@ namespace Tamagochi_WPF
                 labelErrorsWithList.Content = "Error";
                 return;
             }
-
+            int ind = 0;
             IFood food_ = new Trash();
             for (int index = 0;
                 index < food.Count;
@@ -439,6 +425,7 @@ namespace Tamagochi_WPF
                 if (food_name == food[index].Name) 
                 {
                     food_ = food[index];
+                    ind = index;
                     break;
                 }
             }
@@ -447,31 +434,60 @@ namespace Tamagochi_WPF
             tamagochi.Eat(food_);
 
             // animation
-            int chose_animation = randomIndex.Next(0, 3);
-            GifOfDuckPat.Visibility = Visibility.Hidden;
-            GifOfDuckStandart.Visibility = Visibility.Hidden;
-            switch (chose_animation)
+            if (ind >= 0 && ind < 10)
             {
-                case 0:
-                    GifOfDuckEat1.Visibility = Visibility.Visible;
+                GifOfDuckEat1.Visibility = Visibility.Visible;
 
-                    GifOfDuckEat2.Visibility = Visibility.Hidden;
-                    GifOfDuckEat3.Visibility = Visibility.Hidden;
-                    break;
-                case 1:
-                    GifOfDuckEat2.Visibility = Visibility.Visible;
+                GifOfDuckEat2.Visibility = Visibility.Hidden;
+                GifOfDuckEat3.Visibility = Visibility.Hidden;
+                GifOfDuckEatTrash.Visibility = Visibility.Hidden;
+            } else if (ind >= 10 && ind < 20)
+            {
+                GifOfDuckEat2.Visibility = Visibility.Visible;
 
-                    GifOfDuckEat1.Visibility = Visibility.Hidden;
-                    GifOfDuckEat3.Visibility = Visibility.Hidden;
-                    break;
-                case 2:
-                    GifOfDuckEat3.Visibility = Visibility.Visible;
+                GifOfDuckEat1.Visibility = Visibility.Hidden;
+                GifOfDuckEat3.Visibility = Visibility.Hidden;
+                GifOfDuckEatTrash.Visibility = Visibility.Hidden;
+            } else if (ind >= 20 && ind < 28)
+            {
+                GifOfDuckEat3.Visibility = Visibility.Visible;
 
-                    GifOfDuckEat1.Visibility = Visibility.Hidden;
-                    GifOfDuckEat2.Visibility = Visibility.Hidden;
-                    break;
+                GifOfDuckEat1.Visibility = Visibility.Hidden;
+                GifOfDuckEat2.Visibility = Visibility.Hidden;
+                GifOfDuckEatTrash.Visibility = Visibility.Hidden;
+            } else
+            {
+                GifOfDuckEat3.Visibility = Visibility.Hidden;
+
+                GifOfDuckEat1.Visibility = Visibility.Hidden;
+                GifOfDuckEat2.Visibility = Visibility.Hidden;
+                GifOfDuckEatTrash.Visibility = Visibility.Visible;
             }
-            GifOfDuckEatTrash.Visibility = Visibility.Hidden;
+            //int chose_animation = randomIndex.Next(0, 3);
+            //GifOfDuckPat.Visibility = Visibility.Hidden;
+            //GifOfDuckStandart.Visibility = Visibility.Hidden;
+            //switch (chose_animation)
+            //{
+            //    case 0:
+            //        GifOfDuckEat1.Visibility = Visibility.Visible;
+
+            //        GifOfDuckEat2.Visibility = Visibility.Hidden;
+            //        GifOfDuckEat3.Visibility = Visibility.Hidden;
+            //        break;
+            //    case 1:
+            //        GifOfDuckEat2.Visibility = Visibility.Visible;
+
+            //        GifOfDuckEat1.Visibility = Visibility.Hidden;
+            //        GifOfDuckEat3.Visibility = Visibility.Hidden;
+            //        break;
+            //    case 2:
+            //        GifOfDuckEat3.Visibility = Visibility.Visible;
+
+            //        GifOfDuckEat1.Visibility = Visibility.Hidden;
+            //        GifOfDuckEat2.Visibility = Visibility.Hidden;
+            //        break;
+            //}
+            //GifOfDuckEatTrash.Visibility = Visibility.Hidden;
             timerForEatGif.Start();
         }
 
@@ -584,9 +600,27 @@ namespace Tamagochi_WPF
                     timerStart.Stop();
                     StartGamehidden = true;
                     StartGamePanel.Visibility = Visibility.Hidden;
+                    timeOflife = 0;
+                    Label_AgeText.Content = "Age: " + Convert.ToString(timeOflife) + " years";
+                    tamagochi.StateCreate();
                     timerForTamagochi.Start();
                     timerOfLife.Start();
                     timerForTakeEat.Start();
+                    tamagochi.Inventory.Clear();
+                    for (int i = 0; i < 5; i++)
+                    {
+                        int index = randomIndex.Next(0, 29);
+                        tamagochi.Inventory.Add(food[index]);
+
+                        eat_List.Items.Clear();
+                        foreach (Item item in tamagochi.Inventory._items)
+                        {
+                            if (item.amount > 0)
+                            {
+                                eat_List.Items.Add(item.food.Name);
+                            }
+                        }
+                    }
                 }
             }
         }

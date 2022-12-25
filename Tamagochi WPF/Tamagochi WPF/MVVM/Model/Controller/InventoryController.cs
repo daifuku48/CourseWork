@@ -175,6 +175,11 @@ namespace Tamagochi_WPF
                 if (item.food.Name == name_ && item.amount > 0) return true;
             return false;
         }
+        
+        public void Clear()
+        {
+            _items.Clear();
+        }
         #endregion
         //=END_FUNCTIONS=====================================================
     }
