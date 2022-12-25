@@ -177,6 +177,20 @@ namespace Tamagochi_WPF
             timerForEatGif.Tick += TimerEatGif_Tick;
 
             randomIndex = new Random();
+            for (int i = 0; i < 12; i++)
+            {
+                int index = randomIndex.Next(0, 29);
+                tamagochi.Inventory.Add(food[index]);
+
+                eat_List.Items.Clear();
+                foreach (Item item in tamagochi.Inventory._items)
+                {
+                    if (item.amount > 0)
+                    {
+                        eat_List.Items.Add(item.food.Name);
+                    }
+                }
+            }
         }
 
         private int CompareTamagochJson(TamagochiJson t1, TamagochiJson t2)
@@ -304,6 +318,8 @@ namespace Tamagochi_WPF
                 timerStart.Start();
                 tamagochi.Name = NameOfDuck.Text;
                 Label_Name.Content = "Name: " + tamagochi.Name;
+                timeOflife = 0;
+                Label_AgeText.Content = "Age: " + Convert.ToString(timeOflife) + " years";
                 ProgressBarOfHeal.Value = tamagochi.Heal;
                 ProgressBarOfHappy.Value = tamagochi.Happines;
                 ProgressBarOfHungry.Value = tamagochi.Saturation;
